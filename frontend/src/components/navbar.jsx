@@ -12,38 +12,42 @@ const navbar = () => {
     </div>
   </div>
 
-  {/* 2. Navigation Links (Center Aligned) */}
+  {/* 2. Navigation Links center align*/}
   <div className="flex-1 flex justify-center items-center gap-6">
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600">Home</a>
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600">Product</a>
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600">Categories</a>
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600">About</a>
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600">Contact</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">Home</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">Product</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">Categories</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">About</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">Contact</a>
   </div>
 
-  {/* 3. Search Box & Action Buttons (Right Aligned) */}
+  {/* 3. Search Box & Action Buttons */} 
   <div className="flex-1 flex justify-end items-center gap-4">
     
     {/* Search box */}
     <div className="flex items-center border border-zinc-700 rounded overflow-hidden focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500 transition-all">
       <input 
+      type="text"
         placeholder="Search for product..." 
         className="text-zinc-700 text-sm font-normal font-['Inter'] py-1.5 px-3 focus:outline-none w-40 lg:w-48"
       />
-      <div className="border-l border-zinc-700 flex items-center justify-center px-2 py-1 bg-white cursor-pointer">
+      <div className="rounded-md border-l-2 border-zinc-700 flex items-center justify-center px-2 py-1 bg-white cursor-pointer">
         <Search color="#2068F4" size={18} />
       </div>
     </div>
 
     {/* Auth Buttons & Cart */}
     <div className="flex items-center gap-3">
-      <button className="px-4 py-1.5 text-blue-600 text-sm font-semibold font-['Inter'] border-2 border-blue-600 rounded-md hover:bg-blue-50">
+      {/* login burron */}
+      <button className="px-4 py-1.5 text-blue-600 text-sm font-semibold font-['Inter'] border-2 border-blue-600 rounded-md hover:bg-blue-50 hove:cursor-pointer">
         Login
       </button>
-      <button className="px-4 py-1.5 text-white bg-blue-600 text-sm font-semibold font-['Inter'] border-2 border-blue-600 rounded-md hover:bg-blue-700">
+      {/* signup button */}
+      <button className="px-4 py-1.5 text-white bg-blue-600 text-sm font-semibold font-['Inter'] border-2 border-blue-600 rounded-md hover:bg-blue-700 hove:cursor-pointer">
         Signup
       </button>
-      <button className="shadow-md p-1.5 rounded-md hover:bg-gray-50 flex items-center justify-center">
+      {/* cart button */}
+      <button className="shadow-md p-1.5 rounded-md cursor-pointer transition-transform duration-200 ease-out hover:scale-95 transform-gpu will-change-transform flex items-center justify-center hove:cursor-pointer">
         <ShoppingCart color="#494949" size={20} />
       </button>
     </div>
