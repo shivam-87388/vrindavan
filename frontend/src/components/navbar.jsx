@@ -39,15 +39,15 @@ const navbar = () => {
     {/* Auth Buttons & Cart */}
     <div className="flex items-center gap-3">
       {/* login burron */}
-      <button className="px-4 py-1.5 text-blue-600 text-sm font-semibold font-['Inter'] border-2 border-blue-600 rounded-md hover:bg-blue-50 hove:cursor-pointer">
+      <button className="px-4 py-1.5 text-blue-600 text-sm font-semibold font-['Inter'] border-2 border-blue-600 rounded-md hover:bg-blue-50 hover:cursor-pointer">
         Login
       </button>
       {/* signup button */}
-      <button className="px-4 py-1.5 text-white bg-blue-600 text-sm font-semibold font-['Inter'] border-2 border-blue-600 rounded-md hover:bg-blue-700 hove:cursor-pointer">
+      <button className="px-4 py-1.5 text-white bg-blue-600 text-sm font-semibold font-['Inter'] border-2 border-blue-600 rounded-md hover:bg-blue-700 hover:cursor-pointer">
         Signup
       </button>
       {/* cart button */}
-      <button className="shadow-md p-1.5 rounded-md cursor-pointer transition-transform duration-200 ease-out hover:scale-95 transform-gpu will-change-transform flex items-center justify-center hove:cursor-pointer">
+      <button className="shadow-md p-1.5 rounded-md cursor-pointer transition-transform duration-200 ease-out hover:scale-95 transform-gpu will-change-transform flex items-center justify-center hover:cursor-pointer">
         <ShoppingCart color="#494949" size={20} />
       </button>
     </div>
