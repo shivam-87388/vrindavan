@@ -14,11 +14,11 @@ const navbar = () => {
 
   {/* 2. Navigation Links center align*/}
   <div className="flex-1 flex justify-center items-center gap-6">
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">Home</a>
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">Product</a>
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">Categories</a>
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">About</a>
-    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer">Contact</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer hover:underline">Home</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer hover:underline">Product</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer hover:underline">Categories</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer hover:underline">About</a>
+    <a href="#" className="text-slate-500 text-sm font-medium font-['Inter'] hover:text-blue-600 hover:cursor-pointer hover:underline">Contact</a>
   </div>
 
   {/* 3. Search Box & Action Buttons */} 
