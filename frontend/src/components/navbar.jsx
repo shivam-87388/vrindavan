@@ -1,5 +1,6 @@
 import React from 'react'
-import { Search, UserRound,ShoppingCart } from 'lucide-react';
+import { IconShoppingCart, IconSearch } from '@tabler/icons-react';
+
 
 const navbar = () => {
   return (
@@ -32,7 +33,8 @@ const navbar = () => {
         className="text-zinc-700 text-sm font-normal font-['Inter'] py-1.5 px-3 focus:outline-none w-40 lg:w-48"
       />
       <div className="rounded-md border-l-2 border-zinc-700 flex items-center justify-center px-2 py-1 bg-white cursor-pointer">
-        <Search color="#2068F4" size={18} />
+       
+         <IconSearch color="#2068F4" size={18}/>
       </div>
     </div>
 
@@ -48,7 +50,7 @@ const navbar = () => {
       </button>
       {/* cart button */}
       <button className="shadow-md p-1.5 rounded-md cursor-pointer transition-transform duration-200 ease-out hover:scale-95 transform-gpu will-change-transform flex items-center justify-center hover:cursor-pointer">
-        <ShoppingCart color="#494949" size={20} />
+        <IconShoppingCart color="#494949" size={20} />
       </button>
     </div>
 
