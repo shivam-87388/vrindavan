@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconArrowNarrowRight, IconShieldBolt } from '@tabler/icons-react';
+import { IconArrowNarrowRight, IconShieldBolt, IconCheckFilled } from '@tabler/icons-react';
 
 const homepage = () => {
   return (
@@ -64,15 +64,11 @@ const homepage = () => {
            </div>
 
           </div>
-         
-       
-         
         </div>
-         
-
-    
       </div>
       {/* card section end */}
+
+      {/* product catageory section start */}
       <div className="w-full flex items-start justify-center">
         <div className="w-280 flex flex-col">
           <div className="flex justify-center items-center gap-3.5 p-2">
@@ -81,15 +77,15 @@ const homepage = () => {
             <div className="text-black text-3xl font-bold font-['Poppins']">Product Categories</div>
             </div>
           {/* view all button */}
-          <div className="flex-1 flex flex-row gap-0.5 justify-end">
-          <div className="text-blue-600 text-sm font-medium font-['Inter']">view all</div>
-          <IconArrowNarrowRight color='#296FF5' stroke={1.5}/>  
+          <div className="flex-1 flex flex-row gap-0.5 justify-end hover:cursor-pointer ">
+          <button className="text-blue-600 text-[16px] font-medium font-['Inter'] hover:cursor-pointer">view all</button>
+          <IconArrowNarrowRight color='#296FF5' stroke={2} className="hover:cursor-pointer"/>  
           </div>
           </div>
           {/* product heading & view all button end */}
-          <div className="flex-row flex  items-center justify-between flex-wrap pb-4">
+          <div className="flex-row flex  items-center gap-x-8 gap-y-4 flex-wrap pb-4">
             {/* 1 construction card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center p-2.5 bg-white rounded-md">
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center p-2.5 bg-white rounded-md hover:cursor-pointer">
             <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
             <div className="flex flex-col items-center justify-start">
               <h1 className= "text-black text-xl font-semibold font-['Poppins'] leading-5.5">Construction Material</h1>
@@ -101,13 +97,12 @@ const homepage = () => {
             </div>
 
           </div>
-          {/* end construction card */}
            
-          {/* 2 furtuner card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md">
+          {/* 2 card */}
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
             <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
             <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Furniture Material</h1>
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Wood & Plywood</h1>
               <div className="flex items-center justify-start gap-0.5 w-full">
                 <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
                 <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
@@ -115,13 +110,12 @@ const homepage = () => {
             </div>
 
           </div>
-          {/* end furtuner card */}
 
           {/* 3 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md">
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
             <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
             <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Furniture Material</h1>
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Ceiling Fans & Exhaust</h1>
               <div className="flex items-center justify-start gap-0.5 w-full">
                 <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
                 <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
@@ -130,10 +124,10 @@ const homepage = () => {
 
           </div>
           {/* 4 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md">
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
             <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
             <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Furniture Material</h1>
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Sanitaryware & Bathing Fitting</h1>
               <div className="flex items-center justify-start gap-0.5 w-full">
                 <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
                 <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
@@ -142,10 +136,10 @@ const homepage = () => {
 
           </div>
           {/* 5 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md">
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
             <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
             <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Furniture Material</h1>
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5 min-h-11">Tile & Flooring</h1>
               <div className="flex items-center justify-start gap-0.5 w-full">
                 <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
                 <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
@@ -154,10 +148,10 @@ const homepage = () => {
 
           </div>
           {/* 6 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md">
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
             <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
             <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Furniture Material</h1>
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Paint & Finishing</h1>
               <div className="flex items-center justify-start gap-0.5 w-full">
                 <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
                 <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
@@ -165,16 +159,122 @@ const homepage = () => {
             </div>
 
           </div>
+          {/* 7 card */}
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
+            <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
+            <div className="w-full flex flex-col items-center justify-start ">
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Kitchen Sink & faucet</h1>
+              <div className="flex items-center justify-start gap-0.5 w-full">
+                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
+                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
+              </div>
+            </div>
 
           </div>
-          
-          
+          {/* 8 card */}
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
+            <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
+            <div className="w-full flex flex-col items-center justify-start ">
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5 min-h-11">Wires & MCB</h1>
+              <div className="flex items-center justify-start gap-0.5 w-full">
+                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
+                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
+              </div>
+            </div>
+          </div>
+          {/* 9 card */}
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
+            <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
+            <div className="w-full flex flex-col items-center justify-start ">
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Home Appliances</h1>
+              <div className="flex items-center justify-start gap-0.5 w-full">
+                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
+                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
+              </div>
+            </div>
+          </div>
+          {/* 10 card */}
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
+            <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
+            <div className="w-full flex flex-col items-center justify-start ">
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Switches & Shocket </h1>
+              <div className="flex items-center justify-start gap-0.5 w-full">
+                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
+                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
+              </div>
+            </div>
+          </div>
+          {/* 11 card */}
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
+            <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
+            <div className="w-full flex flex-col items-center justify-start ">
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">CCTV & Surveillance</h1>
+              <div className="flex items-center justify-start gap-0.5 w-full">
+                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
+                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
+              </div>
+            </div>
+
+          </div>
+          {/* 12 card */}
+          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
+            <img src="./construction material.png" alt="construction product img" className="w-36 h-40"></img>
+            <div className="w-full flex flex-col items-center justify-start ">
+              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5 min-h-11">Lightning</h1>
+              <div className="flex items-center justify-start gap-0.5 w-full">
+                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
+                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
+              </div>
+            </div>
+
+          </div>
+         
+
+          </div>
+          {/* need help & Why Choose Vrindavan Home ? section */}
+          <div className="flex felx-row gap-4 pb-6">
+           {/* need help section start */}
+          <div className="flex items-center bg-[url('/needhelp.png')] bg-cover bg-center w-179.75 h-50 rounded-md p-6">
+          <div className="w-72 flex flex-col items-center justify-start">
+          <div className="w-full text-black text-2xl font-semibold font-['Poppins']">Need Bulk Order?</div>
+          <p className="w-full text-black text-sm font-normal font-['Inter']">Get special pricing for large quantity order.</p>
+          {/* button request for quote */}
+          <div className="flex items-center justify-start w-full mt-2">
+          <button className="text-nowrap flex items-center justify-center bg-blue-600 text-white text-[16px] font-semibold font-['Inter'] px-3.5 py-2.5 rounded-md hover:cursor-pointer">Request a Quote</button>
+          </div>
+          </div>
+          </div>
+          {/* Why Choose Vrindavan Home ? section */}
+          <div className="flex flex-col items-start justify-start gap-1">
+            <h2 className="text-black text-2xl font-semibold font-['Poppins']">Why Choose Vrindavan Home ? </h2>
+            <ul className="w-full space-y-0.5"> 
+              {/* Best Quality Material */}
+              <li className="flex gap-0.5 items-center">
+              <IconCheckFilled color='#FE930E' stroke={2} size={25}/>
+              <h4 className="text-black text-[16px] font-medium font-['Inter']">Best Quality Material</h4>
+              </li>
+              {/* Competitive Prices */}
+              <li className="flex gap-0.5 items-center">
+              <IconCheckFilled color='#20A249' stroke={2} size={25}/>
+              <h4 className="text-black text-[16px] font-medium font-['Inter']">Competitive Prices</h4>
+              </li>
+              {/* On-Time Delivery */}
+              <li className="flex gap-0.5 items-center">
+              <IconCheckFilled color='#20A249' stroke={2} size={25}/>
+              <h4 className="text-black text-[16px] font-medium font-['Inter']">On-Time Delivery</h4>
+              </li>
+              {/* Dedicated Support */}
+              <li className="flex gap-0.5 items-center">
+              <IconCheckFilled color='#20A249' stroke={2} size={25}/>
+              <h4 className="text-black text-[16px] font-medium font-['Inter']">Dedicated Support</h4>
+              </li>
+            </ul>
+          </div>
+          </div>
         </div>
       </div>
       {/* card section end */}
-      <div className="flex felx-row gap-2">
-        <div className=""></div>
-      </div>
+      
       
       
     </div>
