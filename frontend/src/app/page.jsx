@@ -76,12 +76,18 @@ const homepage = () => {
       <div className="w-full flex items-start justify-center">
         
         <div className="w-280 flex flex-col">
-          <div className="flex justify-center items-center">
-          <div className="flex-1 flex justify-start">ram</div>
-          <div className="flex-1 flex justify-end">ram</div>
-            
+          <div className="flex justify-center items-center gap-3.5">
+            {/* product heading & view all button start */}
+          <div className="flex-1 items-center justify-start">
+            <div className="text-black text-3xl font-bold font-['Poppins']">Popular Categories</div>
+            </div>
+          {/* view all button */}
+          <div className="flex-1 flex flex-row gap-0.5 justify-end">
+          <div className="text-blue-600 text-sm font-medium font-['Inter']">view all</div>
+          <IconArrowNarrowRight color='#296FF5' stroke={1.5}/>  
           </div>
-          
+          </div>
+          {/* product heading & view all button end */}
           
           
         </div>
