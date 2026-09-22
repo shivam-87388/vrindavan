@@ -278,7 +278,7 @@ const homepage = () => {
                   <IconCheckFilled color='#FE930E' stroke={2} size={25}/>
                   <h4 className="text-black text-[18px] font-semibold font-['Inter']">Easy & Fast Delivery</h4>
                 </div>
-                <p className="w-full text-black text-[16px] font-medium font-['Inter']">Get your materials delivered when you need them.</p>
+                <p className="w-full text-black text-[16px] font-medium font-['Inter']">Get special pricing on construction & home improvement materials.</p>
              </div>
              
             </div>
