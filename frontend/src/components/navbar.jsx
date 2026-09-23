@@ -1,10 +1,11 @@
+'use client'
 import React from 'react'
 import { IconShoppingCart, IconSearch } from '@tabler/icons-react';
 
 
 const navbar = () => {
   return (
-   <navbar className="flex flex-row items-center w-full px-6 py-4">
+   <div className="flex flex-row items-center w-full px-6 py-4">
   
   {/* 1. Logo Section (Left Aligned) */}
   <div className="flex-1 flex justify-start items-center">
@@ -56,7 +57,7 @@ const navbar = () => {
 
   </div>
 
-</navbar>
+</div>
   )
 }
 
