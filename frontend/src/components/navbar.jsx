@@ -4,7 +4,7 @@ import { IconShoppingCart, IconSearch } from '@tabler/icons-react';
 
 const navbar = () => {
   return (
-   <div className="flex flex-row items-center w-full px-6 py-4">
+   <navbar className="flex flex-row items-center w-full px-6 py-4">
   
   {/* 1. Logo Section (Left Aligned) */}
   <div className="flex-1 flex justify-start items-center">
@@ -56,7 +56,7 @@ const navbar = () => {
 
   </div>
 
-</div>
+</navbar>
   )
 }
 

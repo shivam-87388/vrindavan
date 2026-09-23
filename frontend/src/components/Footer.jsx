@@ -3,7 +3,7 @@ import { IconBrandFacebook, IconBrandWhatsapp, IconBrandInstagram, IconBrandLink
 
 const Footer = () => {
   return (
-    <div className="flex flex-col pt-8 pb-4 px-8 bg-slate-800 gap-2">
+    <footer className="flex flex-col pt-8 pb-4 px-8 bg-slate-800 gap-2">
       <div className="flex  items-start lg:flex-nowrap flex-wrap gap-y-8">
         {/* column-1 */}
         <div className="w-1/2 lg:flex-1 flex-col item-start lg:justify-start justify-around">
@@ -64,7 +64,7 @@ const Footer = () => {
 
         </div>
 
-    </div>
+    </footer>
   )
 }
 

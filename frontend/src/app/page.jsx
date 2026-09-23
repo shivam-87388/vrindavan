@@ -5,21 +5,21 @@ const homepage = () => {
   return (
     <div className="min-h-screen">
       {/* hero section */}
-      <div className="bg-[url('/hero-section.png')] bg-cover bg-center min-h-137.5 w-full flex  pl-40 pt-26">
+      <div className="bg-[url('/hero-section.png')] bg-cover bg-center min-h-137.5 w-full flex  pl-40 pt-22">
       <div className="flex flex-col items-start justify-start gap-2.5 w-140">
-        <h2 className="w-full text-start text-orange-500 text-sm font-semibold font-['Inter']">EVERYTHING FOR YOUR HOME</h2>
-        <h1 className="text-start text-black text-5xl font-bold font-['Poppins']">Build, Renovate & Furnish Your Home Better.</h1>
-        <p className="text-start leading-6 text-black text-lg font-normal font-['Inter']">From construction material and plywood to tiles, sanitaryware, electricals appliances, lighting and more - find everything you need for home in one place.</p>
+        <h3 className="w-full text-start text-orange-500 text-lg font-semibold font-['Poppins']">EVERYTHING FOR YOUR HOME</h3>
+        <h1 className="text-start text-black text-[32px] font-bold font-['Poppins']">Build, Renovate & Furnish Your Home Better.</h1>
+        <p className="text-start leading-6 text-black text-base font-normal font-['Inter']">From construction material and plywood to tiles, sanitaryware, electricals appliances, lighting and more - find everything you need for home in one place.</p>
         {/* button section */}
         <div className=" flex flex-row gap-4">
           {/* shop now button */}
-          <div className="flex item-center justify-center bg-orange-600 w-32 py-2.5 rounded-md hover:cursor-pointer">
-          <button className="text-white text-[16px] font-semibold font-['Inter'] hover:cursor-pointer">Shop Now</button>
+          <div className="flex item-center justify-center bg-orange-600 w-w-42 px-2 py-2.5 rounded-md hover:cursor-pointer">
+          <button className="text-white text-base font-semibold font-['Inter'] hover:cursor-pointer">Shop Now</button>
           <IconArrowNarrowRight color='#ffffff'/>
           </div>
           {/* explore product button*/}
-          <div className="flex item-center justify-center bg-blue-50 w-32 py-2.5 rounded-md border-blue-500 border-2 hover:cursor-pointer">
-            <button className="text-blue-500 text-[16px] font-semibold font-['Inter'] hover:cursor-pointer">Explore Product</button>
+          <div className="flex item-center justify-center bg-blue-50 w-42 px-2 py-2.5 rounded-md border-blue-500 border-2 hover:cursor-pointer">
+            <button className="text-blue-500 text-base font-semibold font-['Inter'] hover:cursor-pointer">Explore Product</button>
           </div>
 
         </div>
