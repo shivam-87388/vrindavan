@@ -48,7 +48,7 @@ const page = () => {
           <hr className="w-full border-t-2 mt-5 mb-2 border-gray-200"></hr>
           <div className="flex items-center justify-start gap-1">
             <IconLock stroke={2} color="#ED6200"/>
-            <p className="text-black text-base font-normal font-['Inter']">only authorized  personnel can access this panel</p>
+            <p className="text-black text-base font-normal font-['Inter']">only authorized person can access this panel</p>
           </div>
          </div>
       </form>
