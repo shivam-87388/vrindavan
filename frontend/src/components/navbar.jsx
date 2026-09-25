@@ -6,11 +6,11 @@ import { IconShoppingCart, IconSearch } from '@tabler/icons-react';
 const navbar = () => {
   return (
     
-  <header className="flex flex-row pt-7 pb-4 items-center justify-between px-40">
+  <header className="flex flex-row pt-7 pb-4 items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 ">
     <div className="flex-1 flex items-center justify-start">
       <h3 className="text-black text-lg font-semibold font-['Poppins']">Vrindavan Home</h3>
     </div>
-    <nav className="flex-1 flex justify-center gap-4 px-2.5">
+    <nav className="flex-1 flex justify-center gap-4 px-2.5  md:flex">
       <a href='#' className="text-slate-500 text-sm font-bold font-['Inter'] hover:cursor-pointer hover:text-blue-600">Home</a>
       <a href='#' className="text-slate-500 text-sm font-bold font-['Inter'] hover:cursor-pointer hover:text-blue-600">Product</a>
       <a href='#' className="text-slate-500 text-sm font-bold font-['Inter'] hover:cursor-pointer hover:text-blue-600">Categories</a>
