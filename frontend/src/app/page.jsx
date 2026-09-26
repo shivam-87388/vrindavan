@@ -9,7 +9,7 @@ const homepage = () => {
       <div className="bg-[url('/hero-section.png')] bg-cover bg-center w-full ">
       <div className="flex flex-col items-start justify-start  pl-40  pr-210 py-12">
       <p className="text-orange-600 text-lg font-semibold font-['Poppins']">EVERYTHING FOR YOUR HOME</p>
-      <h1 className="text-black text-3xl font-bold font-['Poppins'] mt-1">Build, Renovate & Furnish Your Home Better.</h1>
+      <h1 className="text-start text-black text-3xl font-bold font-['Poppins'] mt-1">Build, Renovate & Furnish Your Home Better.</h1>
       <p className="text-black text-base font-normal font-['Inter'] mt-3">From construction material and plywood to tiles, sanitaryware, electricals appliances, lighting and more - find everything you need for home in one place.</p>
       <div className="w-full flex flex-row items-center justify-start gap-2.5 mt-2.5">
        
