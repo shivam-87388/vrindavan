@@ -100,7 +100,7 @@ const homepage = () => {
      
       {/* cards section */}
 
-      <div className="w-full flex flex-row lg:gap-4 gap-2 items-start justify-start flex-wrap">
+      <div className="w-full flex flex-row gap-4 items-start justify-start flex-wrap">
         {/* card-1 */}
         <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
