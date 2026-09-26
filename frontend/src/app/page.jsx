@@ -88,7 +88,7 @@ const homepage = () => {
     
 
 {/* product section */}
-    <section className="flex flex-col items-center px-6 lg:px-40 gap-4 py-4">
+    <section className="flex flex-col items-center px-4 lg:px-40 gap-4 py-4">
       {/* product+viewall button */}
       <div className="w-full flex items-center justify-between border-b-2 border-zinc-200 pb-1">
       <h2 className="text-black text-base font-semibold font-['Poppins']">Product Cart</h2>
