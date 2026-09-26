@@ -148,10 +148,9 @@ const navbar = () => {
         <div className="flex justify-start">
        <h3 className="text-black text-lg font-semibold font-['Poppins']">Vrindavan Home</h3>
         </div>
-        
+
           <div className="flex flex-row gap-1.5 items-center justify-center px-2.5 py-1.5 ">
             <form onSubmit={(e) => e.preventDefault()} className="w-full flex items-center justify-center rounded-sm border border-[#494949] px-1 h-6">
-               
               <input  type="search" placeholder="Search..." aria-label="Search products" className="w-full bg-transparent px-1 text-xs font-normal font-['Inter'] text-zinc-700  outline-none placeholder:text-zinc-400 "></input>
              <button type="submit" aria-label="Search products" className="flex items-center border-l border-[#494949] pl-1">
               <IconSearch size={16} color="#2068F4" className="h-[18px] w-[18px]"/>
