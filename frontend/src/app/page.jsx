@@ -1,296 +1,299 @@
 import React from 'react'
-import { IconArrowNarrowRight, IconShieldBolt, IconCheckFilled } from '@tabler/icons-react';
+import { IconShieldCheckered,IconTruckDelivery,IconHours24,IconArrowNarrowRight} from '@tabler/icons-react';
 
 const homepage = () => {
   return (
-    <div className="min-h-screen">
-      {/* hero section */}
-      <div className="bg-[url('/hero-section.png')] bg-cover bg-center min-h-137.5 w-full flex  pl-40 pt-22">
-      <div className="flex flex-col items-start justify-start gap-2.5 w-140">
-        <h3 className="w-full text-start text-orange-500 text-lg font-semibold font-['Poppins']">EVERYTHING FOR YOUR HOME</h3>
-        <h1 className="text-start text-black text-[32px] font-bold font-['Poppins']">Build, Renovate & Furnish Your Home Better.</h1>
-        <p className="text-start leading-6 text-black text-base font-normal font-['Inter']">From construction material and plywood to tiles, sanitaryware, electricals appliances, lighting and more - find everything you need for home in one place.</p>
-        {/* button section */}
-        <div className=" flex flex-row gap-4">
-          {/* shop now button */}
-          <div className="flex item-center justify-center bg-orange-600 w-w-42 px-2 py-2.5 rounded-md hover:cursor-pointer">
-          <button className="text-white text-base font-semibold font-['Inter'] hover:cursor-pointer">Shop Now</button>
-          <IconArrowNarrowRight color='#ffffff'/>
-          </div>
-          {/* explore product button*/}
-          <div className="flex item-center justify-center bg-blue-50 w-42 px-2 py-2.5 rounded-md border-blue-500 border-2 hover:cursor-pointer">
-            <button className="text-blue-500 text-base font-semibold font-['Inter'] hover:cursor-pointer">Explore Product</button>
-          </div>
+   <div className="min-h-screen">
+    {/* desktop hero section */}
+    <header className='hidden lg:flex w-full'>
+      <div className="bg-[url('/hero-section.png')] bg-cover bg-center w-full ">
+      <div className="flex flex-col items-start justify-start  pl-40  pr-210 py-12">
+      <p className="text-orange-600 text-lg font-semibold font-['Poppins']">EVERYTHING FOR YOUR HOME</p>
+      <h1 className="text-black text-3xl font-bold font-['Poppins'] mt-1">Build, Renovate & Furnish Your Home Better.</h1>
+      <p className="text-black text-base font-normal font-['Inter'] mt-3">From construction material and plywood to tiles, sanitaryware, electricals appliances, lighting and more - find everything you need for home in one place.</p>
+      <div className="w-full flex flex-row items-center justify-start gap-2.5 mt-2.5">
+       
+       {/* shop now button*/}
+       <a href='#'className="w-42 flex item-center justify-center  bg-orange-600 rounded-md py-2.5">
+        <span className="text-neutral-50 text-base font-semibold font-['Inter']">Shop Now</span>
+        <IconArrowNarrowRight color='#FFFAFA' stroke={2}/>
+        </a>
+        {/* explore product button */}
+        <a href=''className="w-42 flex items-center justify-center text-blue-400 text-base font-semibold font-['Inter'] rounded-md py-2.5 text-center bg-[#EFF7FE]  ring-[#4085F5] inset-ring-2">Explore Product</a>  
+      </div>
 
+      </div>
+      </div>
+
+    </header>
+
+{/* mobile herosection */}
+    <header className="lg:hidden flex flex-col items-center justify-center px-4 w-full">
+      <div className="w-full flex flex-col py-2.5 px-1.5 rounded-md border-2 border-zinc-100 gap-2.5">
+        <img src="/hero-section.png" className="h-72 w-full object-cover rounded-md"></img>
+    <div className="flex flex-col items-center justify-start rounded-md bg-zinc-100 py-2.5 px-2.5">
+      <p className="w-full text-orange-600 text-sm font-semibold font-['Poppins']">EVERYTHING FOR YOUR HOME</p>
+      <h1 className="text-black text-2xl font-bold font-['Poppins'] mt-1.5">Build, Renovate & Furnish Your Home Better.</h1>
+      <p className="text-black text-base font-normal font-['Inter'] mt-0.5">From construction material and plywood to tiles, sanitaryware, electricals appliances, lighting and more - find everything you need for home in one place.</p>
+
+
+    </div>
+      </div>
+    
+    </header>
+
+    <section className="hidden md:flex flex-row justify-around gap-4 items-center bg-[#E8F1FF] py-3.5 flex-wrap">
+      {/* label-1 */}
+      <div className="flex w-52 flex-row items-center justify-start rounded-md gap-2.5 px-2.5 py-1.5 bg-white">
+        <div>
+          <IconShieldCheckered color="#0252F6" stroke={2} />
         </div>
-
-      </div>
-      </div>
-      {/* end hero section */}
-        {/* card section start */}
-      <div className="flex items-center justify-center mt-4 mb-2 w-full border-b-2 border-b-zinc-200 pb-1.5">
-       {/* card row section */}
-        <div className="flex flex-row justify-around items-center px-2 py-4.5 w-280 bg-indigo-50 rounded-md">
-          {/* trusted quality card section */}
-          <div className="flex flex-row item justify-start w-72 shadow-md gap-2 px-3.5 py-4 rounded-md border-2 border-gray-50">
-           <div className="flex items-center justify-center p-2 bg-white rounded-md">
-           <IconShieldBolt color='#0252F6' stroke={2.5} />
-           </div>
-           <div className="flex flex-col items-center justify-start">
-            <h2 className="text-black text-[16px] font-semibold font-['Inter']">Trusted Quality</h2>
-            <p className="text-center text-black text-[14px] font-normal font-['Inter']">100% Genuine</p>
-           </div>
-
-          </div>
-          {/* fast delivery card */}
-          <div className="flex flex-row item justify-start w-72 shadow-md gap-2 px-3.5 py-4 rounded-md border-2 border-gray-50">
-           <div className="flex items-center justify-center p-2 bg-white rounded-md">
-           <IconShieldBolt color='#0252F6' stroke={2.5} />
-           </div>
-           <div className="flex flex-col items-center justify-start">
-            <h2 className="text-black text-[16px] font-semibold font-['Inter']">Fast Delivery</h2>
-            <p className="text-center text-black text-[14px] font-normal font-['Inter']">In ucknow</p>
-           </div>
-
-          </div>
-          {/* support card */}
-          <div className="flex flex-row item justify-start w-72 shadow-md gap-2 px-3.5 py-4 rounded-md border-2 border-gray-50">
-           <div className="flex items-center justify-center p-2 bg-white rounded-md">
-           <IconShieldBolt color='#0252F6' stroke={2.5} />
-           </div>
-           <div className="flex flex-col items-center justify-start">
-            <h2 className="text-black text-[16px] font-semibold font-['Inter']">24/7 Support</h2>
-            <p className="text-center text-black text-[14px] font-normal font-['Inter']">we're here to help</p>
-           </div>
-
-          </div>
+        <div className="flex flex-col gap-0.5">
+          <h3 className="text-black text-sm font-semibold font-['Poppins']">Trusted Quality</h3>
+          <p className="text-black text-base font-normal font-['Inter']">100% Genuine</p>
         </div>
       </div>
-      {/* card section end */}
+      {/* label-2 */}
+      <div className=" flex w-52 flex-row items-center justify-start rounded-md gap-2.5 px-2.5 py-1.5 bg-white">
+        <div>
+          <IconTruckDelivery color="#0252F6" stroke={2}/>
+        </div>
+        <div className="flex flex-col gap-0.5">
+          <h3 className="text-black text-sm font-semibold font-['Poppins']">Fast Delivery</h3>
+          <p className="text-black text-base font-normal font-['Inter']">Across India</p>
+        </div>
+      </div>
+      {/* label-3 */}
+      <div className="flex w-52 flex-row items-center justify-start rounded-md gap-2.5 px-2.5 py-1.5 bg-white">
+        <div>
+          <IconHours24 color="#0252F6" stroke={2}/>
+        </div>
+        <div className="flex flex-col gap-0.5">
+          <h3 className="text-black text-sm font-semibold font-['Poppins']">24/7 Support</h3>
+          <p className="text-black text-base font-normal font-['Inter']">We're here to help</p>
+        </div>
+      </div>
+      {/* label-4 */}
+      <div className="flex w-52 flex-row items-center justify-start rounded-md gap-2.5 px-2.5 py-1.5 bg-white">
+        <div>
+          <IconShieldCheckered color="#0252F6" stroke={2}/>
+        </div>
+        <div className="flex flex-col gap-0.5">
+          <h3 className="text-black text-sm font-semibold font-['Poppins']">Trusted Quality</h3>
+          <p className="text-black text-base font-normal font-['Inter']">100% Genuine</p>
+        </div>
+      </div>
+    </section>
+     <hr className='hidden lg:block my-2 border-t-2 border-zinc-200 mx-24'></hr>
+    
 
-      {/* product catageory section start */}
-      <div className="w-full flex items-start justify-center">
-        <div className="w-280 flex flex-col">
-          <div className="flex justify-center items-center gap-3.5 p-2">
-            {/* product heading & view all button start */}
-          <div className="flex-1 items-center justify-start">
-            <div className="text-black text-3xl font-bold font-['Poppins']">Product Categories</div>
-            </div>
-          {/* view all button */}
-          <div className="flex-1 flex flex-row gap-0.5 justify-end hover:cursor-pointer ">
-          <button className="text-blue-600 text-[16px] font-medium font-['Inter'] hover:cursor-pointer">view all</button>
-          <IconArrowNarrowRight color='#296FF5' stroke={2} className="hover:cursor-pointer"/>  
-          </div>
-          </div>
-          {/* product heading & view all button end */}
-          <div className="flex-row flex  items-center gap-x-8 gap-y-4 flex-wrap pb-4">
-            {/* 1 construction card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center p-2.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/construction material.png" alt="construction product img" className="w-36 h-40 rounded-sm"></img>
-            <div className="flex flex-col items-center justify-start">
-              <h1 className= "text-black text-xl font-semibold font-['Poppins'] leading-5.5">Construction Material</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
+{/* product section */}
+    <section className="flex flex-col items-center px-6 lg:px-40 gap-4 py-4">
+      {/* product+viewall button */}
+      <div className="w-full flex items-center justify-between border-b-2 border-zinc-200 pb-1">
+      <h2 className="text-black text-base font-semibold font-['Poppins']">Product Cart</h2>
+      <a href='#' className="flex flex-row gap-1.5 items-center justify-center">
+      <span className="text-blue-600 text-sm font-medium font-['Inter']">view all</span>
+      <IconArrowNarrowRight color='#296FF5'/>
+      </a>
+      </div>
+     
+      {/* cards section */}
 
-              </div>
-            </div>
-
+      <div className="w-full flex flex-row gap-4 items-start justify-start flex-wrap">
+        {/* card-1 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/construction material.png" alt='construction-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
-           
-          {/* 2 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/wood.png" alt="furniture img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Wood & Plywood</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
-
+          
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Construction Material</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
           </div>
 
-          {/* 3 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/fan&exasust.png" alt="fan&exasust img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Ceiling Fans & Exhaust</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
+        </a>
+        {/* card-2 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/wood.png" alt='wood-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
+          </div>
+
+
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Wood & Plywood</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
+
+        </a>
+        {/* card-3 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/fan&exasust.png" alt='fan-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
+          </div>
+
+
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Ceiling Fans & Exhaust</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
+
+        </a>
+        {/* card-4 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/justify-between.png" alt="Bathing product image" className="max-h-full max-w-full object-contain rounded-sm"></img>
+          </div>
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Sanitaryware & Bathing Fitting</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
+
+        </a>
+        {/* card-5 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/tile.png" alt="tile-image"className="max-h-full max-w-full object-contain rounded-sm"></img>
+          </div>
+
+
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Tile & Flooring</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
+
+        </a>
+        {/* card-6 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/paint.png" alt='paint-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
+          </div>
+
+
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Paint & Finishing</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
+
+        </a>
+        {/* card-7 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/kitchen.png" alt="kitchen-product-image" className="max-h-full max-w-full object-contain rounded-sm"></img>
+          </div>
+
+
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Kitchen Sink & Faucet</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
+
+        </a>
+        {/* card-8 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/wire&mcb.png" alt="wire&mcb-product-image" className="max-h-full max-w-full object-contain rounded-sm"></img>
+          </div>
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Wire & MCB</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
+
+        </a>
+        {/* card-9 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/homeappliences.png" alt='home-appliences-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
+
 
           </div>
-          {/* 4 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/sanitaryware.png" alt="sanitaryware img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Sanitaryware & Bathing Fitting</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Home Appliances</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
 
+        </a>
+        {/* card-10 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/switch&shocket.png" alt='switch-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
-          {/* 5 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/tile.png" alt="tile img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5 min-h-11">Tile & Flooring</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
 
-          </div>
-          {/* 6 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/paint.png" alt="paint img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Paint & Finishing</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
 
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Switchs & Shocket</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
           </div>
-          {/* 7 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/kitchen.png" alt="kitchen product img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Kitchen Sink & faucet</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
+          </div>
 
+        </a>
+        {/* card-11 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+          <img src="/product-catagory-image/cctv.png" alt='cctv-camera-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
-          {/* 8 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/wire&mcb.png" alt="wire&mcb product img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5 min-h-11">Wires & MCB</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
-          </div>
-          {/* 9 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/homeappliences.png" alt="home appliences product img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Home Appliances</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
-          </div>
-          {/* 10 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/switch&shocket.png" alt="switch shocket product img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">Switches & Shocket </h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
-          </div>
-          {/* 11 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/cctv.png" alt="camera product img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5">CCTV & Surveillance</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
 
-          </div>
-          {/* 12 card */}
-          <div className="flex flex-col gap-1.5 w-40 border border-zinc-100 shadow-md items-center justify-center px-1.5 py-1.5 bg-white rounded-md hover:cursor-pointer">
-            <img src="../product-catagory-image/lightning.png" alt="lightning product img" className="w-36 h-40 rounded-sm"></img>
-            <div className="w-full flex flex-col items-center justify-start ">
-              <h1 className="text-black text-xl font-semibold font-['Poppins'] leading-5.5 min-h-11">Lightning</h1>
-              <div className="flex items-center justify-start gap-0.5 w-full">
-                <p className="text-orange-400 text-sm font-normal font-['Inter']">Shop Now</p>
-                <IconArrowNarrowRight color='#FD8C4D' stroke={1.5}/>
-              </div>
-            </div>
 
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">CCTV & Surveillance</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
+
+        </a>
+        {/* card-12 */}
+        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+          <div className="w-full h-32 flex items-center justify-center">
+           <img src="/product-catagory-image/lightning.png" alt='light-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
          
+          <div className="w-full flex flex-col items-center justify-start gap-1">
+          <h3 className="h-full w-full flex items-center justify-center leading-tight px-1 text-center text-black text-lg font-semibold font-['Poppins']">Lightning</h3>
+          <div className="w-full flex items-center justify-center gap-1">
+            <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
+            <IconArrowNarrowRight  color='#EB6001'/>
+          </div>
+          </div>
 
-          </div>
-          {/* need help & Why Choose Vrindavan Home ? section */}
-          <div className="flex felx-row gap-4 pb-6">
-           {/* need help section start */}
-          <div className="flex items-center bg-[url('/needhelp.png')] bg-cover bg-center w-179.75 rounded-md p-6">
-          <div className="w-72 flex flex-col items-center justify-start">
-          <div className="w-full text-black text-2xl font-semibold font-['Poppins']">Need Bulk Order?</div>
-          <p className="w-full text-black text-sm font-normal font-['Inter']">Get special pricing for large quantity order.</p>
-          {/* button request for quote */}
-          <div className="flex items-center justify-start w-full mt-2">
-          <button className="text-nowrap flex items-center justify-center bg-blue-600 text-white text-[16px] font-semibold font-['Inter'] px-3.5 py-2.5 rounded-md hover:cursor-pointer">Request a Quote</button>
-          </div>
-          </div>
-          </div>
-          {/* Why Choose Vrindavan Home ? section */}
-          <div className="flex flex-col items-start justify-start gap-0.5">
-            <h2 className="text-black text-2xl font-semibold font-['Poppins']">Everything You Need. One Place.</h2>
-            <div className="flex flex-col items-center justify-start ">
-              {/* Wide Product Range. */}
-              <div className="w-full flex- flex-col items-center gap-0.5">
-                <div className="w-full flex items-center">
-                  <IconCheckFilled color='#FE930E' stroke={2} size={25}/>
-                  <h4 className="text-black text-[18px] font-semibold font-['Inter']">Wide Product Range.</h4>
-                </div>
-                <p className="w-full text-black text-[16px] font-medium font-['Inter']">Construction to finishing - everything for your home.</p>
-              </div>
-              {/* trusted quality */}
-             <div className="w-full flex flex-col  items-center gap-0.5">
-                <div className="w-full flex items-center">
-                  <IconCheckFilled color='#FE930E' stroke={2} size={25}/>
-                  <h4 className="text-black text-[18px] font-semibold font-['Inter']">Trusted Quality</h4>
-                </div>
-                <p className="w-full text-black text-[16px] font-medium font-['Inter']">Reliable products from trusted brands.</p>
-             </div>
-              {/* best value */}
-             <div className="w-full flex- flex-col  items-center gap-0.5">
-                <div className="w-full flex items-center">
-                  <IconCheckFilled color='#FE930E' stroke={2} size={25}/>
-                  <h4 className="text-black text-[18px] font-semibold font-['Inter']">Best Value</h4>
-                </div>
-                <p className="w-full text-black text-[16px] font-medium font-['Inter']">Competitive price for retails & bulk orders.</p>
-             </div>
-             {/* easy & fast delivery */}
-             <div className="w-full flex- flex-col  items-center gap-0.5">
-                <div className="w-full flex items-center">
-                  <IconCheckFilled color='#FE930E' stroke={2} size={25}/>
-                  <h4 className="text-black text-[18px] font-semibold font-['Inter']">Easy & Fast Delivery</h4>
-                </div>
-                <p className="w-full text-black text-[16px] font-medium font-['Inter']">Get special pricing on construction & home improvement materials.</p>
-             </div>
-             
-            </div>
-            
-          </div>
-          </div>
-        </div>
+        </a>
+
+      
+
       </div>
-      {/* card section end */}
-      
-      
-      
+
+    </section>
+
     </div>
   )
 }
