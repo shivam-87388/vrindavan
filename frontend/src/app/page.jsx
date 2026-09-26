@@ -88,7 +88,7 @@ const homepage = () => {
     
 
 {/* product section */}
-    <section className="flex flex-col items-center px-4 lg:px-40 gap-4 py-4">
+    <section className="flex flex-col items-center px-6 lg:px-40 gap-4 py-4">
       {/* product+viewall button */}
       <div className="w-full flex items-center justify-between border-b-2 border-zinc-200 pb-1">
       <h2 className="text-black text-base font-semibold font-['Poppins']">Product Cart</h2>
@@ -100,9 +100,9 @@ const homepage = () => {
      
       {/* cards section */}
 
-      <div className="w-full flex flex-row lg:gap-4 gap-2 items-start justify-start flex-wrap">
+      <div className="w-full flex flex-row gap-4 items-start lg:justify-start justify-center flex-wrap">
         {/* card-1 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/construction material.png" alt='construction-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -117,7 +117,7 @@ const homepage = () => {
 
         </a>
         {/* card-2 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/wood.png" alt='wood-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -133,7 +133,7 @@ const homepage = () => {
 
         </a>
         {/* card-3 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/fan&exasust.png" alt='fan-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -149,7 +149,7 @@ const homepage = () => {
 
         </a>
         {/* card-4 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/justify-between.png" alt="Bathing product image" className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -163,7 +163,7 @@ const homepage = () => {
 
         </a>
         {/* card-5 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/tile.png" alt="tile-image"className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -179,7 +179,7 @@ const homepage = () => {
 
         </a>
         {/* card-6 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/paint.png" alt='paint-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -195,7 +195,7 @@ const homepage = () => {
 
         </a>
         {/* card-7 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/kitchen.png" alt="kitchen-product-image" className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -211,7 +211,7 @@ const homepage = () => {
 
         </a>
         {/* card-8 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/wire&mcb.png" alt="wire&mcb-product-image" className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -225,7 +225,7 @@ const homepage = () => {
 
         </a>
         {/* card-9 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/homeappliences.png" alt='home-appliences-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
 
@@ -241,7 +241,7 @@ const homepage = () => {
 
         </a>
         {/* card-10 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/switch&shocket.png" alt='switch-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -257,7 +257,7 @@ const homepage = () => {
 
         </a>
         {/* card-11 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/cctv.png" alt='cctv-camera-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
@@ -273,7 +273,7 @@ const homepage = () => {
 
         </a>
         {/* card-12 */}
-        <a href='#' className="w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
+        <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
            <img src="/product-catagory-image/lightning.png" alt='light-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
