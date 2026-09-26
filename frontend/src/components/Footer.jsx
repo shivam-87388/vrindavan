@@ -58,7 +58,7 @@ const Footer = () => {
       <hr className="border-slate-700 border-t-2"></hr>
       {/* copy right section */}
         <div className="flex items-center justify-between gap-y-1 flex-wrap">
-          <p className="text-white text-xs font-normal font-['Inter'] lg:w-fit w-full lg:text-start text-center">© 2026 Vrindavan Home. All rights reserved</p>
+          <p className="text-white text-xs font-normal font-['Inter'] lg:w-fit w-full text-start lg:text-center">© 2026 Vrindavan Home. All rights reserved</p>
           <p className="text-white text-xs font-normal font-['Inter'] hover:cursor-pointer">Developed by Shivam.dev</p>
           <p className="text-white text-xs font-normal font-['Inter']">Privacy Policy | Terms Conditions</p>
 
