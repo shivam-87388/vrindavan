@@ -24,32 +24,124 @@ const navbar = () => {
   return (
     <div>
       {/* desktop navbar */}
-      <header className="hidden md:flex flex-row pt-7 pb-4 items-center justify-between px-4 ">
-    <div className="flex-1 flex items-center justify-start">
-      <h3 className="text-black text-lg font-semibold font-['Poppins']">Vrindavan Home</h3>
-    </div>
-    <nav className="flex-1 flex justify-center gap-4 px-2.5">
-      <a href='#' className="text-[#566886] text-sm font-bold font-['Inter'] hover:cursor-pointer hover:text-blue-600">Home</a>
-      <a href='#' className="text-[#566886] text-sm font-bold font-['Inter'] hover:cursor-pointer hover:text-blue-600">Product</a>
-      <a href='#' className="text-[#566886] text-sm font-bold font-['Inter'] hover:cursor-pointer hover:text-blue-600">Categories</a>
-      <a href='#' className="text-[#566886] text-sm font-bold font-['Inter'] hover:cursor-pointer hover:text-blue-600">About</a>
-      <a href='#' className="text-[#566886] text-sm font-bold font-['Inter'] hover:cursor-pointer hover:text-blue-600">Contact</a>
-    </nav>
-    <div className="flex-1 flex justify-end gap-2">
-      <div className="flex items-center gap-2">
-      <div className="flex items-center rounded-md px-1.5 py-0.75 border-2 border-[#494949]">
-        <input type="text" placeholder="search product..." className="text-zinc-700 text-base font-normal font-['Inter'] outline-none border-none"></input>
-        <IconSearch color="#2068F4" className="px-0.5 border-l-2 border-[#494949] rounded-md"/>
-      </div>
-      <a href='#' className="flex items-center justify-center shadow-sm  px-1.5 py-1.5 rounded-md transition-transform duration-150 hover:scale-90">
-       <IconShoppingCart/>
-      </a>
-        <a href='#' className="flex justify-center items-center w-24 px-4 py-1.25 rounded-md border-2 border-blue-600  text-blue-600 text-base font-semibold font-['Inter']">login</a>
-        <a href='#' className="flex justify-center items-center w-24 px-4 py-1.25 rounded-md border-2 border-blue-600   bg-blue-600 text-white text-base font-semibold font-['Inter']">Signup</a>
-      </div>
-      
-    </div>
-  </header>
+      {/* Desktop + Tablet Navbar */}
+<header className="hidden md:flex w-full items-center gap-2 px-2 py-4 lg:gap-5 lg:px-6">
+
+  {/* Logo */}
+  <div className="shrink-0">
+    <a
+      href="#"
+      className="text-base lg:text-lg font-semibold font-['Poppins'] text-black whitespace-nowrap"
+    >
+      Vrindavan Home
+    </a>
+  </div>
+
+
+  {/* Navigation */}
+  <nav
+    aria-label="Main navigation"
+    className="flex min-w-0 flex-1 items-center justify-center gap-2 lg:gap-5"
+  >
+    <a
+      href="#"
+      className="whitespace-nowrap text-xs lg:text-sm font-medium font-['Inter'] text-[#566886] hover:text-blue-600"
+    >
+      Home
+    </a>
+
+    <a
+      href="#"
+      className="whitespace-nowrap text-xs lg:text-sm font-medium font-['Inter'] text-[#566886] hover:text-blue-600"
+    >
+      Product
+    </a>
+
+    <a
+      href="#"
+      className="whitespace-nowrap text-xs lg:text-sm font-medium font-['Inter'] text-[#566886] hover:text-blue-600"
+    >
+      Categories
+    </a>
+
+    <a
+      href="#"
+      className="whitespace-nowrap text-xs lg:text-sm font-medium font-['Inter'] text-[#566886] hover:text-blue-600"
+    >
+      About
+    </a>
+
+    <a
+      href="#"
+      className="whitespace-nowrap text-xs lg:text-sm font-medium font-['Inter'] text-[#566886] hover:text-blue-600"
+    >
+      Contact
+    </a>
+  </nav>
+
+
+  {/* Right Side Actions */}
+  <div className="flex shrink-0 items-center gap-1.5 lg:gap-2">
+
+    {/* Search */}
+    <form
+      className="flex h-8 items-center rounded-md border border-[#494949] px-1 lg:h-9"
+      onSubmit={(e) => e.preventDefault()}
+    >
+      <input
+        type="search"
+        placeholder="Search..."
+        aria-label="Search products"
+        className="w-16 bg-transparent px-1 text-xs font-normal font-['Inter'] text-zinc-700 outline-none placeholder:text-zinc-400 lg:w-28 lg:text-sm"
+      />
+
+      <button
+        type="submit"
+        aria-label="Search products"
+        className="flex items-center border-l border-[#494949] pl-1"
+      >
+        <IconSearch
+          size={16}
+          color="#2068F4"
+          className="lg:h-[18px] lg:w-[18px]"
+        />
+      </button>
+    </form>
+
+
+    {/* Cart */}
+    <button
+      type="button"
+      aria-label="Shopping cart"
+      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md transition-transform duration-150 hover:scale-95 lg:h-9 lg:w-9"
+    >
+      <IconShoppingCart
+        size={18}
+        className="lg:h-5 lg:w-5"
+      />
+    </button>
+
+
+    {/* Login */}
+    <a
+      href="#"
+      className="flex h-8 w-14 items-center justify-center rounded-md border border-blue-600 px-1 text-xs font-semibold font-['Inter'] text-blue-600 hover:bg-blue-50 lg:h-9 lg:w-20 lg:text-sm"
+    >
+      Login
+    </a>
+
+
+    {/* Signup */}
+    <a
+      href="#"
+      className="flex h-8 w-14 items-center justify-center rounded-md border border-blue-600 bg-blue-600 px-1 text-xs font-semibold font-['Inter'] text-white hover:bg-blue-700 lg:h-9 lg:w-20 lg:text-sm"
+    >
+      Signup
+    </a>
+
+  </div>
+
+</header>
 
 {/* mobile navbar */}
   <header className="relative flex md:hidden items-center justify-between p-4">
