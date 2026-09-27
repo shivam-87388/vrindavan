@@ -109,7 +109,7 @@ const homepage = () => {
           
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Construction Material</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -125,7 +125,7 @@ const homepage = () => {
 
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Wood & Plywood</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -141,7 +141,7 @@ const homepage = () => {
 
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Ceiling Fans & Exhaust</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -155,7 +155,7 @@ const homepage = () => {
           </div>
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Sanitaryware & Bathing Fitting</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -171,7 +171,7 @@ const homepage = () => {
 
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Tile & Flooring</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -187,7 +187,7 @@ const homepage = () => {
 
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Paint & Finishing</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -203,7 +203,7 @@ const homepage = () => {
 
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Kitchen Sink & Faucet</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -217,7 +217,7 @@ const homepage = () => {
           </div>
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Wire & MCB</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -233,7 +233,7 @@ const homepage = () => {
           </div>
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Home Appliances</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -249,7 +249,7 @@ const homepage = () => {
 
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Switchs & Shocket</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -265,7 +265,7 @@ const homepage = () => {
 
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">CCTV & Surveillance</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
@@ -280,7 +280,7 @@ const homepage = () => {
          
           <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="h-full w-full flex items-center justify-center leading-tight px-1 text-center text-black text-lg font-semibold font-['Poppins']">Lightning</h3>
-          <div className="w-full flex items-center justify-center gap-1">
+          <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
             <IconArrowNarrowRight  color='#EB6001'/>
           </div>
