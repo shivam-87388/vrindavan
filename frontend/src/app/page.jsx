@@ -6,7 +6,7 @@ const homepage = () => {
    <div className="min-h-screen">
     {/* desktop hero section */}
     <header className='hidden md:flex w-full'>
-      <div className="bg-[url('/hero-section.png')] bg-cover bg-center w-full ">
+      <div className="bg-[url('/hero-section.png')] bg-cover bg-center bg-no-repeat">
       <div className="flex flex-col items-start justify-start lg:pl-40 lg:pr-210 lg:py-12 pl-8 pr-110 py-2.5">
       <p className="text-orange-600 text-lg font-semibold font-['Poppins']">EVERYTHING FOR YOUR HOME</p>
       <h1 className="w-full text-start text-black text-3xl font-bold font-['Poppins'] mt-1">Build, Renovate & Furnish Your Home Better.</h1>
