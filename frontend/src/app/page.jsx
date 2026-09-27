@@ -5,12 +5,12 @@ const homepage = () => {
   return (
    <div className="min-h-screen">
     {/* desktop hero section */}
-    <header className='hidden lg:flex w-full'>
+    <header className='hidden md:flex w-full'>
       <div className="bg-[url('/hero-section.png')] bg-cover bg-center w-full ">
-      <div className="flex flex-col items-start justify-start  pl-40  pr-210 py-12">
+      <div className="flex flex-col items-start justify-start lg:pl-40 lg:pr-210 lg:py-12 pl-8 pr-110 py-2.5">
       <p className="text-orange-600 text-lg font-semibold font-['Poppins']">EVERYTHING FOR YOUR HOME</p>
       <h1 className="w-full text-start text-black text-3xl font-bold font-['Poppins'] mt-1">Build, Renovate & Furnish Your Home Better.</h1>
-      <p className="text-black text-base font-normal font-['Inter'] mt-3">From construction material and plywood to tiles, sanitaryware, electricals appliances, lighting and more - find everything you need for home in one place.</p>
+      <p className="text-black text-base font-normal font-['Inter'] lg:mt-3 mt-0">From construction material and plywood to tiles, sanitaryware, electricals appliances, lighting and more - find everything you need for home in one place.</p>
       <div className="w-full flex flex-row items-center justify-start gap-2.5 mt-2.5">
        
        {/* shop now button*/}
@@ -28,7 +28,7 @@ const homepage = () => {
     </header>
 
 {/* mobile herosection */}
-    <header className="lg:hidden flex flex-col items-center justify-center px-4 w-full">
+    <header className="md:hidden flex flex-col items-center justify-center px-4 w-full">
       <div className="w-full flex flex-col py-2.5 px-1.5 rounded-md border-2 border-zinc-100 gap-2.5">
         <img src="/hero-section.png" className="h-72 w-full object-cover rounded-md"></img>
     <div className="flex flex-col items-center justify-start rounded-md bg-zinc-100 py-2.5 px-2.5">
