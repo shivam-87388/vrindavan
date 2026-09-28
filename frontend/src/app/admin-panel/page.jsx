@@ -1,6 +1,6 @@
 'use-client'
 import React from 'react'
-import { IconHomeFilled,IconBox,IconUsers,IconShoppingCart,IconSettings,IconMessage2 } from '@tabler/icons-react';
+import { IconHomeFilled,IconBox,IconUsers,IconShoppingCart,IconSettings,IconMessage2,IconArrowNarrowRight  } from '@tabler/icons-react';
 
 const page = () => {
   return (
@@ -40,7 +40,64 @@ const page = () => {
 
          
        
-        <div className="h-full flex w-full ml-2 items-start justify-center bg-white rounded-md">nfdsknsk</div>
+        <div className="h-full flex flex-col w-full ml-3.5 items-center justify-start bg-white rounded-md px-2.5 py-2.5 gap-y-2.5">
+          <div className="w-full flex item-center justify-start flex-col">
+         <h1 className="w-full text-start text-black text-3xl font-bold font-['Poppins']">Welcome, Admin</h1>
+        <p className=" text-black text-base font-normal font-['Inter']">Here’s what’s happening with your store today.</p>
+          </div>
+          <div className=" w-full flex flex-row items-start justify-between">
+            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-8 py-2.5">
+            <IconBox color='#FFFFFF' className="bg-blue-600 rounded-full px-1.5 py-2" />
+            <div className="w-full flex flex-col items-center  justify-center">
+              <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
+              <h4 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">24</h4>
+              
+              <div className="w-full flex flex-row items-center justify-center ">
+            <a href='' className="text-blue-500 text-sm font-normal font-['Inter']">View all</a>
+            <IconArrowNarrowRight/>
+              </div>
+            </div>
+            </div>
+            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-8 py-2.5">
+            <IconBox color='#FFFFFF' className="bg-blue-600 rounded-full px-1.5 py-2" />
+            <div className="w-full flex flex-col items-center  justify-center">
+              <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
+              <h4 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">24</h4>
+              
+              <div className="w-full flex flex-row items-center justify-center ">
+            <a href='' className="text-blue-500 text-sm font-normal font-['Inter']">View all</a>
+            <IconArrowNarrowRight/>
+              </div>
+            </div>
+            </div>
+            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-8 py-2.5">
+            <IconBox color='#FFFFFF' className="bg-blue-600 rounded-full px-1.5 py-2" />
+            <div className="w-full flex flex-col items-center  justify-center">
+              <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
+              <h4 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">24</h4>
+              
+              <div className="w-full flex flex-row items-center justify-center ">
+            <a href='' className="text-blue-500 text-sm font-normal font-['Inter']">View all</a>
+            <IconArrowNarrowRight/>
+              </div>
+            </div>
+            </div>
+            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-8 py-2.5">
+            <IconBox color='#FFFFFF' className="bg-blue-600 rounded-full px-1.5 py-2" />
+            <div className="w-full flex flex-col items-center  justify-center">
+              <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
+              <h4 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">24</h4>
+              
+              <div className="w-full flex flex-row items-center justify-center ">
+            <a href='' className="text-blue-500 text-sm font-normal font-['Inter']">View all</a>
+            <IconArrowNarrowRight/>
+              </div>
+            </div>
+            </div>
+            
+               </div>
+         
+        </div>
         
 
       
