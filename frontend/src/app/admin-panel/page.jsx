@@ -46,7 +46,7 @@ const page = () => {
         <p className=" text-black text-base font-normal font-['Inter']">Here’s what’s happening with your store today.</p>
           </div>
           <div className=" w-full flex flex-row items-start justify-between">
-            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-24 py-8.5">
+            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-16 py-4.5">
             <IconBox color='#FFFFFF' className="bg-blue-600 rounded-full px-1.5 py-2" />
             <div className="w-full flex flex-col items-center  justify-center">
               <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
@@ -58,7 +58,7 @@ const page = () => {
               </div>
             </div>
             </div>
-            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-24 py-8.5">
+            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-16 py-4.5">
             <IconBox color='#FFFFFF' className="bg-blue-600 rounded-full px-1.5 py-2" />
             <div className="w-full flex flex-col items-center  justify-center">
               <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
@@ -70,7 +70,7 @@ const page = () => {
               </div>
             </div>
             </div>
-            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-24 py-8.5">
+            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-16 py-4.5">
             <IconBox color='#FFFFFF' className="bg-blue-600 rounded-full px-1.5 py-2" />
             <div className="w-full flex flex-col items-center  justify-center">
               <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
@@ -82,7 +82,7 @@ const page = () => {
               </div>
             </div>
             </div>
-            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-24 py-8.5">
+            <div className="flex flex-row item-center border-2 border-slate-200 rounded-md px-16 py-4.5">
             <IconBox color='#FFFFFF' className="bg-blue-600 rounded-full px-1.5 py-2" />
             <div className="w-full flex flex-col items-center  justify-center">
               <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
