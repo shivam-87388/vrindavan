@@ -73,73 +73,87 @@ const page = () => {
               Here’s what’s happening with your store today.
             </p>
           </div>
-          <div className="w-full flex-row flex items-center justify-between gap-4 ">
-            {/* card-1 */}
-            <div className="flex-row flex w-1/2 items-center justify-center gap-1.5 rounded-md border-2 border-slate-200 px-2.5 py-2.5 flex-wrap">
-              <div className="flex items-center justify-center bg-blue-600 p-1.5 rounded-full">
-              <IconBox color='#FFFFFF' stroke={2} size={30}/>
-              </div>
-              <div className="flex-col flex items-center justify-center">
-                <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
-                <p>24</p>
-                <a href="#" className=" flex flex-row items-center justify-center gap">
-                  <span className="text-blue-500 text-sm font-normal font-['Inter']">view all</span>
-                  <IconArrowNarrowRight color="#418AF1"/>
-                </a>
+        
+          {/* Cards Container: 4 Cards ek row mein barabar aayenge */}
 
-              </div>
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-            </div>
-            {/* card-2 */}
-            <div className="flex-row flex w-1/2 items-center justify-center gap-1.5 rounded-md border-2 border-slate-200 px-2.5 py-2.5 flex-wrap">
-              <div className="flex items-center justify-center bg-blue-600 p-1.5 rounded-full">
-              <IconBox color='#FFFFFF' stroke={2} size={30}/>
-              </div>
-              <div className="flex-col flex items-center justify-center">
-                <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
-                <p>24</p>
-                <a href="#" className=" flex flex-row items-center justify-center gap">
-                  <span className="text-blue-500 text-sm font-normal font-['Inter']">view all</span>
-                  <IconArrowNarrowRight color="#418AF1"/>
-                </a>
+  {/* card-1 */}
+  <div className="flex items-center gap-3.5 rounded-xl border-2 border-slate-200 bg-white p-4 shadow-sm">
+    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-blue-600">
+      <IconBox color="#FFFFFF" stroke={2} size={22} />
+    </div>
+    <div className="flex flex-col items-start justify-center">
+      <h3 className="text-sm font-semibold text-slate-700 font-['Poppins']">Total Product</h3>
+      <p className="text-xl font-bold text-slate-900">24</p>
+      <a href="#" className="flex items-center gap-0.5 text-blue-500 hover:underline">
+        <span className="text-xs font-medium font-['Inter']">view all</span>
+        <IconArrowNarrowRight size={14} color="#418AF1" />
+      </a>
+    </div>
+  </div>
 
-              </div>
+  {/* card-2 */}
+  <div className="flex items-center gap-3.5 rounded-xl border-2 border-slate-200 bg-white p-4 shadow-sm">
+    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#55BA71]">
+      <IconMessage2 color="#FFFFFF" stroke={2} size={22} />
+    </div>
+    <div className="flex flex-col items-start justify-center">
+      <h3 className="text-sm font-semibold text-slate-700 font-['Poppins']">Total Queries</h3>
+      <p className="text-xl font-bold text-slate-900">24</p>
+      <a href="#" className="flex items-center gap-0.5 text-blue-500 hover:underline">
+        <span className="text-xs font-medium font-['Inter']">view all</span>
+        <IconArrowNarrowRight size={14} color="#418AF1" />
+      </a>
+    </div>
+  </div>
 
-            </div>
-            {/* card-3 */}
-            <div className="flex-row flex w-1/2 items-center justify-center gap-1.5 rounded-md border-2 border-slate-200 px-2.5 py-2.5 flex-wrap">
-              <div className="flex items-center justify-center bg-blue-600 p-1.5 rounded-full">
-              <IconBox color='#FFFFFF' stroke={2} size={30}/>
-              </div>
-              <div className="flex-col flex items-center justify-center">
-                <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
-                <p>24</p>
-                <a href="#" className=" flex flex-row items-center justify-center gap">
-                  <span className="text-blue-500 text-sm font-normal font-['Inter']">view all</span>
-                  <IconArrowNarrowRight color="#418AF1"/>
-                </a>
+  {/* card-3 */}
+  <div className="flex items-center gap-3.5 rounded-xl border-2 border-slate-200 bg-white p-4 shadow-sm">
+    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#F29006]">
+      <IconShoppingCart color="#FFFFFF" stroke={2} size={22} />
+    </div>
+    <div className="flex flex-col items-start justify-center">
+      <h3 className="text-sm font-semibold text-slate-700 font-['Poppins']">Total Order</h3>
+      <p className="text-xl font-bold text-slate-900">24</p>
+      <a href="#" className="flex items-center gap-0.5 text-blue-500 hover:underline">
+        <span className="text-xs font-medium font-['Inter']">view all</span>
+        <IconArrowNarrowRight size={14} color="#418AF1" />
+      </a>
+    </div>
+  </div>
 
-              </div>
+  {/* card-4 */}
+  <div className="flex items-center gap-3.5 rounded-xl border-2 border-slate-200 bg-white p-4 shadow-sm">
+    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-[#EC494A]">
+      <IconUsers color="#FFFFFF" stroke={2} size={22} />
+    </div>
+    <div className="flex flex-col items-start justify-center">
+      <h3 className="text-sm font-semibold text-slate-700 font-['Poppins']">Total User</h3>
+      <p className="text-xl font-bold text-slate-900">24</p>
+      <a href="#" className="flex items-center gap-0.5 text-blue-500 hover:underline">
+        <span className="text-xs font-medium font-['Inter']">view all</span>
+        <IconArrowNarrowRight size={14} color="#418AF1" />
+      </a>
+    </div>
+  </div>
 
-            </div>
-            {/* card-4 */}
-            <div className="flex-row flex w-1/2 items-center justify-center gap-1.5 rounded-md border-2 border-slate-200 px-2.5 py-2.5 flex-wrap">
-              <div className="flex items-center justify-center bg-blue-600 p-1.5 rounded-full">
-              <IconBox color='#FFFFFF' stroke={2} size={30}/>
-              </div>
-              <div className="flex-col flex items-center justify-center">
-                <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
-                <p>24</p>
-                <a href="#" className=" flex flex-row items-center justify-center gap">
-                  <span className="text-blue-500 text-sm font-normal font-['Inter']">view all</span>
-                  <IconArrowNarrowRight color="#418AF1"/>
-                </a>
-
-              </div>
-
-            </div>
-            
           </div>
+
+          <div className="w-full flex flex-col items-center justify-between px-1.5">
+            <div className="w-full flex flex-row justify-between items-center ">
+              <h3 className="flex justify-start text-black text-lg font-semibold font-['Poppins']">Recent Qureies</h3>
+              <div className="flex items-center justify-end">
+                <span className="text-[#418AF1] text-blue-500 text-sm font-normal font-['Inter']">view all</span>
+                <IconArrowNarrowRight color='#418AF1'/>
+              </div>
+            </div>
+           
+            
+
+          </div>
+            
+          
         </div>
       </div>
     </div>
