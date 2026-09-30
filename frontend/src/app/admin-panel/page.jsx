@@ -73,17 +73,72 @@ const page = () => {
               Here’s what’s happening with your store today.
             </p>
           </div>
-          <div className="w-full flex row items-center justify-center gap-4">
-            <div className="flex-row flex items-center justify-center gap-1.5 rounded-md border-2 border-slate-200">
+          <div className="w-full flex-row flex items-center justify-between gap-4 ">
+            {/* card-1 */}
+            <div className="flex-row flex w-1/2 items-center justify-center gap-1.5 rounded-md border-2 border-slate-200 px-2.5 py-2.5 flex-wrap">
               <div className="flex items-center justify-center bg-blue-600 p-1.5 rounded-full">
-              <IconBox color='#FFFFFF' stroke={2} size={35}/>
+              <IconBox color='#FFFFFF' stroke={2} size={30}/>
               </div>
               <div className="flex-col flex items-center justify-center">
                 <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
+                <p>24</p>
+                <a href="#" className=" flex flex-row items-center justify-center gap">
+                  <span className="text-blue-500 text-sm font-normal font-['Inter']">view all</span>
+                  <IconArrowNarrowRight color="#418AF1"/>
+                </a>
 
               </div>
 
             </div>
+            {/* card-2 */}
+            <div className="flex-row flex w-1/2 items-center justify-center gap-1.5 rounded-md border-2 border-slate-200 px-2.5 py-2.5 flex-wrap">
+              <div className="flex items-center justify-center bg-blue-600 p-1.5 rounded-full">
+              <IconBox color='#FFFFFF' stroke={2} size={30}/>
+              </div>
+              <div className="flex-col flex items-center justify-center">
+                <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
+                <p>24</p>
+                <a href="#" className=" flex flex-row items-center justify-center gap">
+                  <span className="text-blue-500 text-sm font-normal font-['Inter']">view all</span>
+                  <IconArrowNarrowRight color="#418AF1"/>
+                </a>
+
+              </div>
+
+            </div>
+            {/* card-3 */}
+            <div className="flex-row flex w-1/2 items-center justify-center gap-1.5 rounded-md border-2 border-slate-200 px-2.5 py-2.5 flex-wrap">
+              <div className="flex items-center justify-center bg-blue-600 p-1.5 rounded-full">
+              <IconBox color='#FFFFFF' stroke={2} size={30}/>
+              </div>
+              <div className="flex-col flex items-center justify-center">
+                <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
+                <p>24</p>
+                <a href="#" className=" flex flex-row items-center justify-center gap">
+                  <span className="text-blue-500 text-sm font-normal font-['Inter']">view all</span>
+                  <IconArrowNarrowRight color="#418AF1"/>
+                </a>
+
+              </div>
+
+            </div>
+            {/* card-4 */}
+            <div className="flex-row flex w-1/2 items-center justify-center gap-1.5 rounded-md border-2 border-slate-200 px-2.5 py-2.5 flex-wrap">
+              <div className="flex items-center justify-center bg-blue-600 p-1.5 rounded-full">
+              <IconBox color='#FFFFFF' stroke={2} size={30}/>
+              </div>
+              <div className="flex-col flex items-center justify-center">
+                <h3 className="text-center justify-start text-black text-lg font-semibold font-['Poppins']">Total Product</h3>
+                <p>24</p>
+                <a href="#" className=" flex flex-row items-center justify-center gap">
+                  <span className="text-blue-500 text-sm font-normal font-['Inter']">view all</span>
+                  <IconArrowNarrowRight color="#418AF1"/>
+                </a>
+
+              </div>
+
+            </div>
+            
           </div>
         </div>
       </div>
