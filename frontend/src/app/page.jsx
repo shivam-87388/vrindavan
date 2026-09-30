@@ -14,7 +14,7 @@ const homepage = () => {
       <div className="w-full flex flex-row items-center justify-start gap-2.5 mt-2.5">
        
        {/* shop now button*/}
-       <a href='#'className="w-42 flex item-center justify-center  bg-orange-600 rounded-md py-2.5">
+       <a href='#'className="w-42 flex items-center justify-center  bg-orange-600 rounded-md py-2.5">
         <span className="text-neutral-50 text-base font-semibold font-['Inter']">Shop Now</span>
         <IconArrowNarrowRight color='#FFFAFA' stroke={2}/>
         </a>
