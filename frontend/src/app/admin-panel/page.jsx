@@ -64,19 +64,19 @@ const page = () => {
           </nav>
         </div>
 
-        <div className="flex flex-col items-start justify-start w-full bg-white rounded-md pr-2 pl-2 h-full">
-          <div className="flex flex-col items-center justify-start pt-6">
-             <h1 className="w-full flex items-center justify-start  text-black text-3xl font-bold font-['Poppins']">
+        <div className="flex flex-col items-start justify-start w-full bg-white rounded-md pr-2 pl-2 h-full gap-y-2">
+          <div className="w-full flex flex-col items-start justify-center pt-6">
+             <h1 className="text-black text-3xl font-bold font-['Poppins'] flex-wrap">
               Welcome, Admin
             </h1>
-            <p className=" text-black text-base font-normal font-['Inter']">
+            <p className="text-start text-black text-base font-normal font-['Inter']">
               Here’s what’s happening with your store today.
             </p>
 
           </div>
 
-          <div className="w-full flex flex-row items-start justify-between gap-4">
-            <div className="flex flex-row items-center justify-center px-2.5 py-2.5 gap-1.5 border-2 border-slate-200 rounded-md">
+          <div className="w-full flex flex-row items-start justify-between gap-4 md-gap-2 flex-wrap">
+            <div className=" lg:w-full flex-1 flex flex-row items-center justify-center px-2.5 py-2.5 gap-1.5 border-2 border-slate-200 rounded-md">
               <div className="flex items-center justify-center rounded-full bg-blue-600 p-1">
                 <IconBox color="#FFFFFF" stroke={2} size={22} />
               </div>
@@ -91,7 +91,7 @@ const page = () => {
 
               </div>
             </div>
-             <div className="flex flex-row items-center justify-center px-2.5 py-2.5 gap-1.5 border-2 border-slate-200 rounded-md">
+             <div className="lg:w-full flex flex-1 flex-row items-center justify-center px-2.5 py-2.5 gap-1.5 border-2 border-slate-200 rounded-md">
               <div className="flex items-center justify-center rounded-full bg-blue-600 p-1">
                 <IconBox color="#FFFFFF" stroke={2} size={22} />
               </div>
@@ -106,7 +106,7 @@ const page = () => {
 
               </div>
             </div>
-            <div className="flex flex-row items-center justify-center px-2.5 py-2.5 gap-1.5 border-2 border-slate-200 rounded-md">
+            <div className="lg:w-full flex flex-1 flex-row items-center justify-center px-2.5 py-2.5 gap-1.5 border-2 border-slate-200 rounded-md">
               <div className="flex items-center justify-center rounded-full bg-blue-600 p-1">
                 <IconBox color="#FFFFFF" stroke={2} size={22} />
               </div>
@@ -120,7 +120,7 @@ const page = () => {
                  </a>
 
               </div>
-            </div> <div className="flex flex-row items-center justify-center px-2.5 py-2.5 gap-1.5 border-2 border-slate-200 rounded-md">
+            </div> <div className="lg:w-full flex flex-1 flex-row items-center justify-center px-2.5 py-2.5 gap-1.5 border-2 border-slate-200 rounded-md">
               <div className="flex items-center justify-center rounded-full bg-blue-600 p-1">
                 <IconBox color="#FFFFFF" stroke={2} size={22} />
               </div>
