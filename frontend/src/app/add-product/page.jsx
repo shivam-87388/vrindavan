@@ -6,7 +6,7 @@ const page = () => {
     <div className="flex flex-col items-center justify-center bg-white rounded-xl p-4 gap-2">
       <h2 className="w-full text-start text-black text-3xl font-bold font-['Poppins']">Add New Product</h2>
 
-    <form className="flex flex-col items-center justify-between lg:gap-x-4 gap-y-2">
+    <form className="flex flex-col  items-center justify-between lg:gap-x-4 gap-y-2">
       {/* product name and product categeory */}
        <div className='flex lg:flex-row items-center justify-center gap-y-1.5 gap-x-4'>
         {/* product name field  */}
@@ -51,7 +51,7 @@ const page = () => {
           <input id="product-image" type="file" accept="image/*" className="w-full text-sm text-slate-500 border-2 border-slate-200 rounded-lg p-1.5 file:mr-3 file:py-1 file:px-3 file:rounded-md file:bord file:border-slate-300 file:text-sm file:font-medium file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 cursor-pointer"></input>
         </div>
 
-        <button className="ttext-center text-base font-semibold font-['Inter'] text-white bg-[#FA5C0E] px-2.5 py-2 rounded-md">Add Product</button>
+        <button className="text-center text-base font-semibold font-['Inter'] text-white bg-[#FA5C0E] px-2.5 py-2 rounded-md">Add Product</button>
        
 
      
