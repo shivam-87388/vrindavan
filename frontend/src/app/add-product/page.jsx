@@ -44,7 +44,7 @@ const page = () => {
         </div>
 
         <div className="flex flex-row items-center justify-center">
-          <label>Product Image</label>
+          <label className="w-full text-start text-black text-sm font-bold font-['Inter']">Product Image</label>
           
         </div>
        
