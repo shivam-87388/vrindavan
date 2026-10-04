@@ -21,7 +21,7 @@ const page = () => {
 
         <p className="text-center text-sm text-gray-500 font-['Inter']">Log in with social</p>
          {/* facebook button */}
-        <button className="flex items-center justify-center gap-2 w-full text-center text-base font-semibold font-['Inter'] text-white bg-blue-500 hover:bg-blue-700 px-2.5 py-2 rounded-md">
+        <button className="flex items-center justify-center gap-2 w-full text-center text-base font-semibold font-['Inter'] text-white bg-blue-500 hover:bg-blue-700 px-2.5 py-2 rounded-md hover:cursor-pointer">
           <svg
             className="h-5 w-5 shrink-0"
             width={24}
@@ -39,7 +39,7 @@ const page = () => {
         </button> 
       </div>
       
-      <div className="flex flex-col items-center justify-between pt-4 gap-1.5 w-full ">
+      <div className="flex flex-col items-center justify-center mt-4 gap-1.5 w-full ">
         {/* full name field */}
         <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
            <label htmlFor='user-name' className="w-full text-start text-black text-sm font-bold font-['Inter']">
@@ -72,7 +72,11 @@ const page = () => {
 
       </div>
      {/* signup button  */}
-    <button type='submit' className="w-full text-center text-base font-semibold font-['Inter'] text-white bg-[#FA5C0E] px-2.5 py-2 rounded-md mt-4.5">Signup</button>
+    <button type='submit' className="w-full text-center text-base font-semibold font-['Inter'] text-white bg-[#FA5C0E] px-2.5 py-2 rounded-md mt-4.5 hover:cursor-pointer">Signup</button>
+
+     <div class="flex items-center justify-center p-4">
+        <p class="text-center text-sm text-gray-500">If you have already an account? <a href="#" class="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">Register</a></p>
+      </div>
     </form>
    </div>
   )
