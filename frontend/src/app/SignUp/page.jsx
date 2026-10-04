@@ -39,26 +39,44 @@ const page = () => {
         </button> 
       </div>
       
-      <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
+      <div className="flex flex-col items-center justify-between pt-4 gap-2 w-full ">
+        {/* full name field */}
+        <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
            <label htmlFor='user-name' className="w-full text-start text-black text-sm font-bold font-['Inter']">
-        Full Name<span className="text-red-500">*</span>
+        Full Name
         </label>
-      <input id='user-name' type='text' placeholder='₹ 320' required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+      <input id='user-name' type='text' placeholder=" Full name" required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
       </div>
 
-      <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
+       {/* email field  */}
+       <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
            <label htmlFor='user-email' className="w-full text-start text-black text-sm font-bold font-['Inter']">
-        Email<span className="text-red-500">*</span>
+        Email
         </label>
-      <input id='user-email' type='email' placeholder='₹ 320' required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+      <input id='user-email' type='email' placeholder="Email" required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
       </div>
 
+      {/* password field */}
+      <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
+           <label htmlFor='user-password' className="w-full text-start text-black text-sm font-bold font-['Inter']">
+        Password<span className="text-red-500">*</span>
+        </label>
+      <input id='user-password' type='password' placeholder="password" required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+      </div>
+      {/* consfirm pasword */}
       <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
            <label htmlFor='user-password' className="w-full text-start text-black text-sm font-bold font-['Inter']">
         Password<span className="text-red-500">*</span>
         </label>
       <input id='user-password' type='password' placeholder='₹ 320' required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
       </div>
+
+      </div>
+      
+
+     
+
+      
       
     </form>
    </div>
