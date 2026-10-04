@@ -5,7 +5,7 @@ const page = () => {
    <div className="min-h-screen flex items-center justify-center px-4 lg:px-128  bg-[#F6F8FB] ">
     <form className="w-full flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4">
       <h1 className="w-full text-center justify-center text-black text-3xl font-bold font-['Poppins'] pb-4"> signup form</h1>
-
+        {/* button section */}
       <div className="flex flex-col items-center justify-center w-full gap-y-1.5">
         {/* google button */}
         <button class="w-full flex cursor-pointer items-center justify-center gap-2 rounded-md border border-gray-300 bg-white text-base font-semibold font-['Inter'] text-gray-800 px-2.5 py-2 ring-gray-300 transition duration-100 outline-none hover:bg-gray-100 focus-visible:ring-2 active:bg-gray-200 md:text-base">
@@ -19,7 +19,7 @@ const page = () => {
           Continue with Google
         </button>
 
-        <p className="text-center text-base text-gray-500 font-['Inter']">Log in with social</p>
+        <p className="text-center text-sm text-gray-500 font-['Inter']">Log in with social</p>
          {/* facebook button */}
         <button className="flex items-center justify-center gap-2 w-full text-center text-base font-semibold font-['Inter'] text-white bg-blue-500 hover:bg-blue-700 px-2.5 py-2 rounded-md">
           <svg
@@ -39,7 +39,7 @@ const page = () => {
         </button> 
       </div>
       
-      <div className="flex flex-col items-center justify-between pt-4 gap-2 w-full ">
+      <div className="flex flex-col items-center justify-between pt-4 gap-1.5 w-full ">
         {/* full name field */}
         <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
            <label htmlFor='user-name' className="w-full text-start text-black text-sm font-bold font-['Inter']">
@@ -59,25 +59,20 @@ const page = () => {
       {/* password field */}
       <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
            <label htmlFor='user-password' className="w-full text-start text-black text-sm font-bold font-['Inter']">
-        Password<span className="text-red-500">*</span>
+        Password
         </label>
       <input id='user-password' type='password' placeholder="password" required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
       </div>
-      {/* consfirm pasword */}
+      {/* confirm pasword */}
       <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
-           <label htmlFor='user-password' className="w-full text-start text-black text-sm font-bold font-['Inter']">
-        Password<span className="text-red-500">*</span>
-        </label>
-      <input id='user-password' type='password' placeholder='₹ 320' required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+           <label htmlFor='confirm-password' className="w-full text-start text-black text-sm font-bold font-['Inter']">
+        Confirm Password</label>
+      <input id='confirm-password' type='password' placeholder='Confirm Password' required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
       </div>
 
       </div>
-      
-
-     
-
-      
-      
+     {/* signup button  */}
+    <button type='submit' className="w-full text-center text-base font-semibold font-['Inter'] text-white bg-[#FA5C0E] px-2.5 py-2 rounded-md mt-4.5">Signup</button>
     </form>
    </div>
   )
