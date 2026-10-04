@@ -2,11 +2,11 @@ import React from 'react'
 
 const page = () => {
   return (
-   <div className="min-h-screen flex items-center justify-center px-4 lg:px-128  bg-[#F6F8FB] ">
-    <form className="w-full flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4">
-      <h1 className="w-full text-center justify-center text-black text-3xl font-bold font-['Poppins'] pb-4"> signup form</h1>
+   <div className="min-h-screen flex items-center justify-center p-4 bg-[#F6F8FB] ">
+    <form className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4">
+      <h1 className="w-full text-center justify-center text-black text-3xl font-bold font-['Poppins'] pb-4">Signup form</h1>
         {/* button section */}
-      <div className="flex flex-col items-center justify-center w-full gap-y-1.5">
+      <div className="flex flex-col items-center justify-center w-full gap-y-1.5 px-2">
         {/* google button */}
         <button class="w-full flex cursor-pointer items-center justify-center gap-2 rounded-md border border-gray-300 bg-white text-base font-semibold font-['Inter'] text-gray-800 px-2.5 py-2 ring-gray-300 transition duration-100 outline-none hover:bg-gray-100 focus-visible:ring-2 active:bg-gray-200 md:text-base">
           <svg class="h-5 w-5 shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@ const page = () => {
         </button> 
       </div>
       
-      <div className="flex flex-col items-center justify-center mt-4 gap-1.5 w-full ">
+      <div className="flex flex-col items-center justify-center mt-4 gap-1.5 w-full px-2">
         {/* full name field */}
         <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
            <label htmlFor='user-name' className="w-full text-start text-black text-sm font-bold font-['Inter']">
