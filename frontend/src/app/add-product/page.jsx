@@ -72,7 +72,7 @@ const page = () => {
                 htmlFor="product-price"
                 className="w-full text-start text-black text-sm font-bold font-['Inter']"
               >
-                Product Name<span className="text-red-500">*</span>
+                Product Price<span className="text-red-500">*</span>
               </label>
               <input
                 id="product-price"
