@@ -8,8 +8,8 @@ const page = () => {
     setShowpassword(!showpassword);
   }
   return (
-    <div className="min-h-screen flex items-center justify-center w-full bg-slate-50 pl-16 pr-16">
-      <form className="bg-white rounded-md shadow-md border border-gray-200 px-6.5 py-3.5">
+    <div className="min-h-screen flex items-center justify-center w-full bg-slate-50 px-4">
+      <form className="w-full max-w-md bg-white rounded-md shadow-md border border-gray-200 p-4">
         <div className="flex flex-col items-center justify-start w-full mb-6">
            <h1 className="w-full text-black text-3xl font-bold font-['Poppins']">Admin Login</h1>
            <p className="w-full text-black text-base font-normal font-['Inter']">Sign in to access your admin panel</p>
@@ -46,8 +46,8 @@ const page = () => {
             <IconArrowNarrowRight stroke={2} color="#ffffff" />
           </div>
           <hr className="w-full border-t-2 mt-5 mb-2 border-gray-200"></hr>
-          <div className="flex items-center justify-start gap-1">
-            <IconLock stroke={2} color="#ED6200"/>
+          <div className="w-full flex flex-row items-center justify-center gap-1">
+            <IconLock stroke={2} color="#ED6200" className='flex '/>
             <p className="text-black text-base font-normal font-['Inter']">only authorized person can access this panel</p>
           </div>
          </div>
