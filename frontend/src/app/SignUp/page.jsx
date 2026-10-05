@@ -1,6 +1,16 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
+import { IconEye, IconEyeOff } from '@tabler/icons-react';
+import { handler } from 'next/dist/build/templates/app-route';
 
 const page = () => {
+  const [showpasswrod, setShowpassword]= useState(false);
+ setShowpassword(!showpasswrod);
+ const handleClick= ()=>{
+  showpasswrod ? <IconEye/> : <IconEyeOff/>
+
+ }
+
   return (
    <div className="min-h-screen flex items-center justify-center p-4 bg-[#F6F8FB] ">
     <form className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4">
@@ -58,10 +68,16 @@ const page = () => {
 
       {/* password field */}
       <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
+
            <label htmlFor='user-password' className="w-full text-start text-black text-sm font-bold font-['Inter']">
         Password
         </label>
-      <input id='user-password' type='password' placeholder="password" required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+        <div className="flex flex-row items-center  justify-center gap-x-0.5 w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 focus:border-transparent focus:ring-2 focus:ring-[#ED6200]">
+      <input id='user-password' type='password' placeholder="Password" required className="w-full  text-black text-base font-normal font-['Inter']  focus:outline-none "></input>
+      <div onClick={handleClick} className="flex items-center justify-center">
+      <IconEye/>
+      </div>
+        </div>
       </div>
       {/* confirm pasword */}
       <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
