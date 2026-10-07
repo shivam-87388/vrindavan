@@ -44,7 +44,7 @@ const navbar = () => {
     className="flex min-w-0 flex-1 items-center justify-center gap-2 lg:gap-5"
   >
     <a
-      href="#"
+      href="/"
       className="whitespace-nowrap text-xs lg:text-sm font-medium font-['Inter'] text-[#566886] hover:text-blue-600"
     >
       Home
@@ -133,7 +133,7 @@ const navbar = () => {
 
     {/* Signup */}
     <a
-      href="#"
+      href="/SignUp"
       className="flex h-8 w-14 items-center justify-center rounded-md border border-blue-600 bg-blue-600 px-1 text-xs font-semibold font-['Inter'] text-white hover:bg-blue-700 lg:h-9 lg:w-20 lg:text-sm"
     >
       Signup
@@ -165,13 +165,13 @@ const navbar = () => {
           <button onClick={handleClick} className="">{show ?  <IconArrowsCross stroke={2} color="#050505" />: <IconMenu2 stroke={2} color="#050505" />}</button>
         {show? <nav className="absolute right-4 top-full  flex flex-col items-center justify-center px-2.5 py-1.5 gap-1.5 rounded-md border-2 border-zinc-200 bg-white shadow-lg z-50 w-36">
           
-          <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Home</a>
+          <a href='/'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Home</a>
           <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Product</a>
           <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Categories</a>
           <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">About</a>
           <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Contact</a>
           <a href='#'className="flex item-center justify-center text-blue-600 inset-ring-2 ring-blue-600 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Login</a>
-          <a href='#'className="flex item-center justify-center text-white bg-blue-600 text-sm font-bold font-['Inter'] w-full py-1.5 px-0.5 rounded-md">Signup</a>
+          <a href='/SignUp'className="flex item-center justify-center text-white bg-blue-600 text-sm font-bold font-['Inter'] w-full py-1.5 px-0.5 rounded-md">Signup</a>
         </nav>:""}
 
          </div>
