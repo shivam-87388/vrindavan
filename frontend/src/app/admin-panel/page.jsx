@@ -8,11 +8,12 @@ import {
   IconSettings,
   IconMessage2,
   IconArrowNarrowRight,
+  IconSearch,
 } from "@tabler/icons-react";
 
 const page = () => {
   return (
-    <div className="h-screen pr-4 pt-4 pb-4 w-full flex flex-row items-start justify-between bg-[#F4F8FC]">
+    <div className="min-h-screen pr-4 pt-4 pb-4 w-full flex flex-row items-start justify-between bg-[#F4F8FC]">
       <div className="h-full flex flex-col  items-center justify-start bg-[#172331] lg:px-8 md:px-2 px-0.5 pt-6 rounded-tr-2xl rounded-br-2xl gap-y-2.5">
         <h3 className="text-center text-white text-lg font-semibold font-['Poppins']">
           Vrindavan Home
@@ -75,7 +76,7 @@ const page = () => {
         </div>
 
         {/* cards section */}
-        <div className="w-full grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-4    gap-2">
+        <div className="w-full grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-4 gap-2">
           {/*Total product card*/}
           <div className="w-full flex flex-row lg:items-start items-center justify-center px-0.5 rounded-md border-2 border-slate-200 bg-white py-2.5 gap-0.5">
             <div className="flex items-center justify-start bg-blue-600 rounded-full p-1">
@@ -290,7 +291,67 @@ const page = () => {
             </table>
           </div>
         </div>
-        <div className="flex flex-row items-center justify-between bg-white  rounded-xl p-5 shadow-sm"></div>
+        <div className="w-full flex flex-row items-center justify-between bg-white  rounded-xl p-5 shadow-sm">
+         <div className="flex items-center justify-between w-full">
+          
+<h3 className="flex items-start justify-center text-xl font-bold text-slate-900 font-['Poppins']">
+              Product
+            </h3>
+
+            
+
+            <div className="flex flex-row items-start justify-center gap-1.5">
+
+
+<div className="flex items-center justify-center px-2.5 py-1.5 rounded-md border-2 border-slate-200">
+              <input placeholder="search product"></input>
+              <div className="">
+                <IconSearch/>
+              </div>
+            </div>
+
+
+              <div className="flex items-center justify-center px-2.5 py-2 rounded-md border-2 border-slate-200">
+  <select className="flex items-center justify-center">
+    <option> all product</option>
+  <option value="Construction-Material">
+                  Construction Material
+                </option>
+                <option value=">Wood-&-Plywood">Wood & Plywood</option>
+                <option value="Ceiling-Fans-&-Exhaust">
+                  Ceiling Fans & Exhaust
+                </option>
+                <option value="Sanitaryware-&-Bathing-Fitting">
+                  Sanitaryware & Bathing Fitting
+                </option>
+                <option value="Tile-&-Flooring">Tile & Flooring</option>
+                <option value="Paint-&-Finishing">Paint & Finishing</option>
+                <option value="Kitche- Sink-&-Faucet">
+                  Kitchen Sink & Faucet
+                </option>
+                <option value="Wire-&-MCB">Wire & MCB</option>
+                <option value="Home-Appliences">Home Appliences</option>
+                <option value="Switchs-&-Shocket">Switchs & Shocket</option>
+                <option value="CCTV-&-Surveillance">CCTV & Surveillance</option>
+                <option value="Lightning">Lightning</option>
+</select>
+  </div> 
+
+
+              <a href="#"className="flex item-center justify-center text-center bg-[#FA5C0E] text-white text-nowrap px-2.5 py-1.5 rounded text-base font-semibold font-['Inter']">Add product</a>
+            </div>
+
+         </div>
+            
+
+           
+
+         
+
+         
+           
+          
+        </div>
       </div>
     </div>
   );
