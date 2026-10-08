@@ -14,7 +14,7 @@ import {
 const page = () => {
   return (
     <div className="min-h-screen pr-4 pt-4 pb-4 w-full flex flex-row items-start justify-between bg-[#F4F8FC]">
-      <div className="h-full flex flex-col  items-center justify-start bg-[#172331] lg:px-8 md:px-2 px-0.5 pt-6 rounded-tr-2xl rounded-br-2xl gap-y-2.5">
+      <div className="flex flex-col  items-center justify-start bg-[#172331] lg:px-8 md:px-2 px-0.5 pt-6 rounded-tr-2xl rounded-br-2xl gap-y-2.5">
         <h3 className="text-center text-white text-lg font-semibold font-['Poppins']">
           Vrindavan Home
         </h3>
@@ -291,67 +291,142 @@ const page = () => {
             </table>
           </div>
         </div>
-        <div className="w-full flex flex-row items-center justify-between bg-white  rounded-xl p-5 shadow-sm">
-         <div className="flex items-center justify-between w-full">
-          
-<h3 className="flex items-start justify-center text-xl font-bold text-slate-900 font-['Poppins']">
-              Product
-            </h3>
+        <div className="w-full rounded-xl bg-white p-5 shadow-sm">
 
-            
+  <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 
-            <div className="flex flex-row items-start justify-center gap-1.5">
+    {/* Heading */}
+    <h3 className="shrink-0 font-['Poppins'] text-xl font-bold text-slate-900">
+      Product
+    </h3>
 
+    {/* Right Section */}
+    <div className="flex w-full flex-col gap-2 sm:flex-row lg:w-auto">
 
-<div className="flex items-center justify-center px-2.5 py-1.5 rounded-md border-2 border-slate-200">
-              <input placeholder="search product"></input>
-              <div className="">
-                <IconSearch/>
-              </div>
-            </div>
+      {/* Search */}
+      <div className="flex h-10 w-full items-center rounded-md border-2 border-slate-200 px-2.5 focus-within:border-[#FA5C0E] sm:w-[220px]">
 
+        <input
+          type="text"
+          placeholder="Search product"
+          className="h-full w-full bg-transparent text-sm text-slate-700 outline-none placeholder:text-slate-400"
+        />
 
-              <div className="flex items-center justify-center px-2.5 py-2 rounded-md border-2 border-slate-200">
-  <select className="flex items-center justify-center">
-    <option> all product</option>
-  <option value="Construction-Material">
-                  Construction Material
-                </option>
-                <option value=">Wood-&-Plywood">Wood & Plywood</option>
-                <option value="Ceiling-Fans-&-Exhaust">
-                  Ceiling Fans & Exhaust
-                </option>
-                <option value="Sanitaryware-&-Bathing-Fitting">
-                  Sanitaryware & Bathing Fitting
-                </option>
-                <option value="Tile-&-Flooring">Tile & Flooring</option>
-                <option value="Paint-&-Finishing">Paint & Finishing</option>
-                <option value="Kitche- Sink-&-Faucet">
-                  Kitchen Sink & Faucet
-                </option>
-                <option value="Wire-&-MCB">Wire & MCB</option>
-                <option value="Home-Appliences">Home Appliences</option>
-                <option value="Switchs-&-Shocket">Switchs & Shocket</option>
-                <option value="CCTV-&-Surveillance">CCTV & Surveillance</option>
-                <option value="Lightning">Lightning</option>
-</select>
-  </div> 
+        <IconSearch
+          size={18}
+          className="shrink-0 text-slate-400"
+        />
+
+      </div>
 
 
-              <a href="#"className="flex item-center justify-center text-center bg-[#FA5C0E] text-white text-nowrap px-2.5 py-1.5 rounded text-base font-semibold font-['Inter']">Add product</a>
-            </div>
+      {/* Category */}
+      <div className="relative h-10 w-full sm:w-[200px]">
 
-         </div>
-            
+        <select
+          className="
+            h-full
+            w-full
+            appearance-none
+            rounded-md
+            border-2
+            border-slate-200
+            bg-white
+            px-2.5
+            pr-8
+            text-sm
+            text-slate-600
+            outline-none
+            focus:border-[#FA5C0E]
+          "
+        >
+          <option>All Product</option>
 
-           
+          <option value="Construction-Material">
+            Construction Material
+          </option>
 
-         
+          <option value="Wood-&-Plywood">
+            Wood & Plywood
+          </option>
 
-         
-           
-          
-        </div>
+          <option value="Ceiling-Fans-&-Exhaust">
+            Ceiling Fans & Exhaust
+          </option>
+
+          <option value="Sanitaryware-&-Bathing-Fitting">
+            Sanitaryware & Bathing Fitting
+          </option>
+
+          <option value="Tile-&-Flooring">
+            Tile & Flooring
+          </option>
+
+          <option value="Paint-&-Finishing">
+            Paint & Finishing
+          </option>
+
+          <option value="Kitchen-Sink-&-Faucet">
+            Kitchen Sink & Faucet
+          </option>
+
+          <option value="Wire-&-MCB">
+            Wire & MCB
+          </option>
+
+          <option value="Home-Appliances">
+            Home Appliances
+          </option>
+
+          <option value="Switches-&-Sockets">
+            Switches & Sockets
+          </option>
+
+          <option value="CCTV-&-Surveillance">
+            CCTV & Surveillance
+          </option>
+
+          <option value="Lighting">
+            Lighting
+          </option>
+        </select>
+
+        {/* Custom Arrow */}
+        <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400">
+          ▼
+        </span>
+
+      </div>
+
+
+      {/* Add Product */}
+      <a
+        href="/add-product"
+        className="
+          flex
+          h-10
+          items-center
+          justify-center
+          whitespace-nowrap
+          rounded-md
+          bg-[#FA5C0E]
+          px-4
+          font-['Inter']
+          text-sm
+          font-semibold
+          text-white
+          transition
+          hover:bg-[#e95208]
+        "
+      >
+        + Add Product
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
       </div>
     </div>
   );
