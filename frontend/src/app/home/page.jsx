@@ -256,7 +256,7 @@ const homepage = () => {
           </div>
           </div>
 
-          
+
         {/* card-12 */}
         <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
