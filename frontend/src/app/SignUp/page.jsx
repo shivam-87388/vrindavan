@@ -104,7 +104,7 @@ const handleClick2 = ()=>{
     <button type='submit' className="w-full text-center text-base font-semibold font-['Inter'] text-white bg-[#FA5C0E] px-2.5 py-2 rounded-md mt-4.5 hover:cursor-pointer">Signup</button>
 
      <div className="flex items-center justify-center p-4">
-        <p className="text-center text-sm text-gray-500">If you have already an account? <a href="#" className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">Register</a></p>
+        <p className="text-center text-sm text-gray-500">If you have already an account? <a href="/login" className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">login</a></p>
       </div>
     </form>
    </div>
