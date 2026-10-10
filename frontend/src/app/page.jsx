@@ -101,7 +101,8 @@ const homepage = () => {
       {/* cards section */}
 
       <div className="w-full flex flex-row gap-4 items-start justify-center flex-wrap">
-        {/* card-1 */}
+
+       {/* card-1 */}
         <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/construction material.png" alt='construction-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
@@ -245,9 +246,9 @@ const homepage = () => {
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/switch&shocket.png" alt='switch-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
           </div>
+        </a>
 
-
-          <div className="w-full flex flex-col items-center justify-start gap-1">
+        <div className="w-full flex flex-col items-center justify-start gap-1">
           <h3 className="text-center text-black text-lg font-semibold font-['Poppins']">Switchs & Shocket</h3>
           <div className="w-full flex items-center justify-center">
             <span className="text-orange-600 text-lg font-semibold font-['Poppins']">Shop Now</span>
@@ -255,8 +256,8 @@ const homepage = () => {
           </div>
           </div>
 
-        </a>
-        {/* card-11 */}
+          
+        {/* card-12 */}
         <a href='#' className="w-[46%] sm:w-40 h-72 flex flex-col justify-between px-1 py-4 bg-white rounded-md border border-[#E2E8F0] hover:shadow-lg">
           <div className="w-full h-32 flex items-center justify-center">
           <img src="/product-catagory-image/cctv.png" alt='cctv-camera-image' className="max-h-full max-w-full object-contain rounded-sm"></img>
@@ -291,6 +292,9 @@ const homepage = () => {
       
 
       </div>
+
+
+      
 
     </section>
 
