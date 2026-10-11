@@ -72,7 +72,7 @@ const navbar = () => {
     </a>
 
     <a
-      href="#"
+      href="/contact-us"
       className="whitespace-nowrap text-xs lg:text-sm font-medium font-['Inter'] text-[#566886] hover:text-blue-600"
     >
       Contact
@@ -124,7 +124,7 @@ const navbar = () => {
 
     {/* Login */}
     <a
-      href="#"
+      href="/login"
       className="flex h-8 w-14 items-center justify-center rounded-md border border-blue-600 px-1 text-xs font-semibold font-['Inter'] text-blue-600 hover:bg-blue-50 lg:h-9 lg:w-20 lg:text-sm"
     >
       Login
@@ -133,7 +133,7 @@ const navbar = () => {
 
     {/* Signup */}
     <a
-      href="/SignUp"
+      href="/signup"
       className="flex h-8 w-14 items-center justify-center rounded-md border border-blue-600 bg-blue-600 px-1 text-xs font-semibold font-['Inter'] text-white hover:bg-blue-700 lg:h-9 lg:w-20 lg:text-sm"
     >
       Signup
@@ -169,9 +169,9 @@ const navbar = () => {
           <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Product</a>
           <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Categories</a>
           <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">About</a>
-          <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Contact</a>
-          <a href='#'className="flex item-center justify-center text-blue-600 inset-ring-2 ring-blue-600 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Login</a>
-          <a href='/SignUp'className="flex item-center justify-center text-white bg-blue-600 text-sm font-bold font-['Inter'] w-full py-1.5 px-0.5 rounded-md">Signup</a>
+          <a href='/contact-us'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Contact</a>
+          <a href='/login'className="flex item-center justify-center text-blue-600 inset-ring-2 ring-blue-600 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Login</a>
+          <a href='/signup'className="flex item-center justify-center text-white bg-blue-600 text-sm font-bold font-['Inter'] w-full py-1.5 px-0.5 rounded-md">Signup</a>
         </nav>:""}
 
          </div>

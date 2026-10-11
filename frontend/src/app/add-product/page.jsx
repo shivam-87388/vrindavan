@@ -8,9 +8,9 @@ const page = () => {
           Add New Product
         </h1>
 
-        <div className="flex flex-col items-center justify-center mt-4 gap-2 w-full px-2">
+        <div className="flex flex-col items-center justify-center mt-4 gap-2 w-full">
           {/* product name + product catagory */}
-          <div className="w-full flex items-center justify-center gap-2">
+          <div className="w-full flex md:flex-row flex-col  items-center justify-center lg:gap-4 gap-2">
           {/* product name*/}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
               <label
@@ -22,7 +22,7 @@ const page = () => {
               <input
                 id="product-name"
                 type="text"
-                placeholder=" Full name"
+                placeholder="product"
                 required
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
               ></input>
@@ -40,6 +40,8 @@ const page = () => {
                 id="'product-catgeory"
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 h-10 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
               >
+                <option value="">select
+                </option>
                 <option value="Construction-Material">
                   Construction Material
                 </option>
@@ -65,7 +67,7 @@ const page = () => {
           </div>
 
           {/* price + stock quantiy  */}
-          <div className="w-full flex items-center justify-center gap-2">
+          <div className="w-full flex md:flex-row flex-col  items-center justify-center lg:gap-4 gap-2">
             {/* price field */}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
               <label
