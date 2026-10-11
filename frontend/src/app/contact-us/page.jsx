@@ -20,7 +20,7 @@ const page = () => {
   <div className="max-w-lg flex flex-col items-center justify-center  border-2 border-slate-200 rounded-md p-4">
     <h3 className="w-full text-start text-black text-3xl font-bold font-['Poppins'] pb-2">Send Us a Message</h3>
     {/* detail field */}
-    <form className="flex flex-col items-center justify-center  gap-2 w-full ">
+    <form className="flex flex-col items-center justify-center mt-4 gap-2 w-full ">
           {/* full name +  email address*/}
           <div className="w-full flex md:flex-row flex-col  items-center justify-center lg:gap-4 gap-2 px-2">
           {/* full name filed*/}
