@@ -63,7 +63,7 @@ const page = () => {
                       type="text"
                       placeholder="Full name"
                       required
-                      className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
+                      className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
                     ></input>
                   </div>
                   {/* email address field */}
@@ -79,7 +79,7 @@ const page = () => {
                       type="email"
                       placeholder="vrindavanHome@gmail.com"
                       required
-                      className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
+                      className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
                     ></input>
 
 
@@ -101,24 +101,28 @@ const page = () => {
                       type="tel"
                       placeholder="+91"
                       required
-                      className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
+                      className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
                     ></input>
                   </div>
                   {/* subject field */}
                   <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
                     <label
-                      htmlFor="product-quantity"
+                      htmlFor="subject"
                       className="w-full text-start text-black text-sm font-bold font-['Inter']"
                     >
                       Subject<span className="text-red-500">*</span>
                     </label>
-                    <input
-                      id="product-quantity"
-                      type="text"
-                      placeholder="300"
-                      required
-                      className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
-                    ></input>
+                   <select
+  id="subject"
+  required
+  className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] bg-white h-[42px]"
+>
+  <option value="">Select a subject</option>
+  <option value="bulk">Bulk Order Enquiry</option>
+  <option value="product">Product Details</option>
+  <option value="support">Order Support</option>
+  <option value="other">Other</option>
+</select>
 
                   </div>
                 </div>
@@ -286,6 +290,9 @@ const page = () => {
             {/* map block */}
           </div>
           {/* how can we help + map end */}
+          <div className="flex items-center  justify-center p-4 w-full bg-[#E7F4FD]">
+            <h1>raf</h1>
+          </div>
 
 
         </div>

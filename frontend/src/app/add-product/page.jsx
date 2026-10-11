@@ -24,21 +24,21 @@ const page = () => {
                 type="text"
                 placeholder="product"
                 required
-                className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
+                className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
             </div>
             {/* product catagory */}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
               <label
                 htmlFor="product-category"
-                className="w-full text-start text-black text-sm font-bold font-['Inter']"
+                className="w-full text-start text-black text-sm font-bold font-['Inter'] "
               >
                 Product Category<span className="text-red-500">*</span>
               </label>
               <select
                 name="product-catgeory"
                 id="'product-catgeory"
-                className="w-full rounded-md border-2 border-slate-200 px-2.5 h-10 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
+                className="w-full rounded-md border-2 border-slate-200 px-2.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               >
                 <option value="">select
                 </option>
@@ -81,7 +81,7 @@ const page = () => {
                 type="text"
                 placeholder="₹ Price"
                 required
-                className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
+                className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
             </div>
             {/* stock field */}
@@ -97,7 +97,7 @@ const page = () => {
                 type="number"
                 placeholder="300"
                 required
-                className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
+                className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
               
             </div>
@@ -116,7 +116,7 @@ const page = () => {
           {/* image upload field */}
           <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
             <label className="w-full text-start text-black text-sm font-bold font-['Inter']">Product Image<span className="text-red-500">*</span></label>
-            <input id="product-image" type="file" accept="image/*" className="w-full text-sm text-slate-500 border-2 border-slate-200 rounded-lg p-1.5 file:mr-3 file:py-1 file:px-3 file:rounded-md file:bord file:border-slate-300 file:text-sm file:font-medium file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 cursor-pointer focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+            <input id="product-image" type="file" accept="image/*" className="w-full text-sm text-slate-500 border-2 border-slate-200 rounded-lg p-1.5 file:mr-3 file:py-1 file:px-3 file:rounded-md file:bord file:border-slate-300 file:text-sm file:font-medium file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 cursor-pointer focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"></input>
           </div>
         {/*  add new product button  */}
         <button
