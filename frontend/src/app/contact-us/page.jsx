@@ -1,7 +1,30 @@
 import React from 'react'
-import { IconBrandTelegram,IconPhoneFilled,IconMailFilled,IconMapPinFilled,IconClockHour3} from '@tabler/icons-react';
+import { IconBrandTelegram,IconPhoneFilled,IconMailFilled,IconMapPinFilled,IconClockHour3,IconBox, 
+  IconTruck,IconHeadset,IconArrowRight} from '@tabler/icons-react';
 
 const page = () => {
+
+  const cards = [
+    {
+      title: "Product Enquiry",
+      desc: "Ask about product details, availability or specifications.",
+      linkText: "Get Details",
+      icon: <IconBox className="text-[#0F67F2]" size={36} />,
+    },
+    {
+      title: "Bulk Orders",
+      desc: "Get special pricing for large quantity orders.",
+      linkText: "Get Quote",
+      icon: <IconTruck className="text-[#0F67F2]" size={36} />,
+    },
+    {
+      title: "Order Support",
+      desc: "Track your order or get help with existing orders.",
+      linkText: "Track Order",
+      icon: <IconHeadset className="text-[#0F67F2]" size={36} />,
+    },
+  ];
+
   return (
     <div className="min-h-screen flex items-start justify-center w-full">
         
@@ -16,7 +39,7 @@ const page = () => {
       </div>
       </div>
 {/* card section */}
-<div className="w-full flex md:flex-row flex-col md:items-stretch items-start justify-center gap-4 p-4">
+<section className="w-full flex md:flex-row flex-col md:items-stretch items-start justify-center gap-4 p-4">
   <div className="w-full max-w-lg flex flex-col items-center justify-center  border-2 border-slate-200 rounded-md p-4">
     <h3 className="w-full text-start text-black text-3xl font-bold font-['Poppins'] pb-2">Send Us a Message</h3>
     {/* detail field */}
@@ -173,7 +196,98 @@ const page = () => {
 
     </div>
   </div>
+</section>
+
+{/* how can we help secttion */}
+<section className="w-full max-w-7xl mx-auto p-4 md:p-8">
+  {/* Outer Card with Soft Blue Background */}
+  <div className="relative overflow-hidden rounded-md bg-[#F0F7FF] p-6 md:p-10 border border-[#E0EDFB]">
+    
+    {/* Left Side Content Container */}
+    <div className="relative z-10 w-full lg:w-[60%] xl:w-[62%]">
+      {/* Header */}
+      <div className="mb-8 max-w-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#0D2447] font-['Poppins']">
+          How Can We Help?
+        </h2>
+        <p className="mt-2 text-base text-[#526D82] font-['Inter'] leading-relaxed">
+          Choose what you need help with, and our team will get back to you as soon as possible.
+        </p>
+      </div>
+
+      {/* 3 Action Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="flex flex-col justify-between bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-200"
+          >
+            <div>
+              <div className="mb-4 inline-block">{card.icon}</div>
+              <h3 className="text-base font-bold text-[#0D2447] font-['Poppins'] mb-1.5">
+                {card.title}
+              </h3>
+              <p className="text-xs text-gray-500 font-['Inter'] leading-relaxed">
+                {card.desc}
+              </p>
+            </div>
+
+            <a
+              href="#"
+              className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-[#0F67F2] hover:gap-2.5 transition-all duration-200 font-['Inter']"
+            >
+              {card.linkText}
+              <IconArrowRight size={14} />
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Right Side India Map Background Graphic */}
+    <div className="pointer-events-none absolute right-4 top-0 bottom-0 hidden lg:flex lg:w-[38%] items-center justify-end overflow-hidden py-4">
+      <div className="relative h-full w-[360px] flex items-center justify-center">
+        
+        {/* Simplemaps SVG Map - borders ko crisp dikhane ke liye clean contrast */}
+        <img
+          src="/india-map.svg"
+          alt="India Map"
+          className="h-[88%] w-auto max-w-none object-contain opacity-75 [filter:brightness(0.95)_contrast(1.2)]"
+        />
+
+  {/* Lucknow Pointer Pin & Text Badge - Exactly centered in UP */}
+{/* Lucknow Pointer Pin & Text Badge */}
+<div className="absolute top-[32%] left-[40%] flex items-center gap-1">
+  {/* Orange Pin Icon with Bounce */}
+  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#FA5C0E] text-white shadow-lg animate-bounce">
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+    </svg>
+  </div>
+
+  {/* White Card with Lucknow Text */}
+  <div className="rounded-lg bg-white/95 px-2.5 py-1 shadow-md border border-slate-100 whitespace-nowrap">
+    <p className="text-[10px] font-bold text-[#0D2447] leading-tight">Lucknow</p>
+    <p className="text-[8px] text-gray-500 leading-tight">Uttar Pradesh</p>
+  </div>
 </div>
+        {/* North Direction Compass (Top Right) */}
+        <div className="absolute top-4 right-6 flex flex-col items-center">
+          <span className="text-[10px] font-bold text-slate-700 leading-none mb-0.5">N</span>
+          <div className="w-0 h-0 border-x-[3.5px] border-x-transparent border-b-[8px] border-b-slate-700"></div>
+          <div className="w-0 h-0 border-x-[3.5px] border-x-transparent border-t-[8px] border-t-slate-400"></div>
+        </div>
+
+        {/* INDIA Watermark (Bottom Left of Map Area) */}
+        <span className="absolute bottom-6 left-6 text-xl font-black tracking-widest text-[#0F67F2]/20">
+          INDIA
+        </span>
+
+      </div>
+    </div>
+
+  </div>
+</section>
        
     </div>
 </div>
