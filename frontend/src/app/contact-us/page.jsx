@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconBrandTelegram } from '@tabler/icons-react';
+import { IconBrandTelegram,IconPhoneFilled,IconMailFilled,IconMapPinFilled,IconClockHour3} from '@tabler/icons-react';
 
 const page = () => {
   return (
@@ -15,9 +15,9 @@ const page = () => {
 
       </div>
       </div>
-{/* form section */}
-<div className="w-full flex md:flex-row flex-col items-center justify-center gap-4 p-4">
-  <div className="max-w-lg flex flex-col items-center justify-center  border-2 border-slate-200 rounded-md p-4">
+{/* card section */}
+<div className="w-full flex md:flex-row flex-col md:items-stretch items-start justify-center gap-4 p-4">
+  <div className="w-full max-w-lg flex flex-col items-center justify-center  border-2 border-slate-200 rounded-md p-4">
     <h3 className="w-full text-start text-black text-3xl font-bold font-['Poppins'] pb-2">Send Us a Message</h3>
     {/* detail field */}
     <form className="flex flex-col items-center justify-center mt-4 gap-2 w-full ">
@@ -123,10 +123,53 @@ const page = () => {
         {/* detailfield end*/}
 
   </div>
-  <div className="max-w-lg flex flex-col items-center justify-center  border-2 border-slate-200 rounded-md p-4">
-    <h3 className="w-full text-start text-black text-3xl font-bold font-['Poppins']">Contact Infomation</h3>
-    
-    <div className="flex flex-col items-center justify-center mt-4 gap-2 w-full px-2">
+  <div className="w-full max-w-lg flex flex-col items-center justify-center  border-2 border-slate-200 rounded-md p-4">
+    <h3 className="w-full text-start text-black text-3xl font-bold font-['Poppins'] px-2">Contact Infomation</h3>
+    {/* row section */}
+    <div className="flex flex-col justify-around flex-1 mt-4 gap-4 w-full px-2">
+      {/* phone number field*/}
+      <div className="w-full flex flex-row items-center justify-start px-2 gap-2.5">
+        <div className="flex items-center justify-center p-2 rounded-full border-2 border-slate-200 shadow-lg">
+        <IconPhoneFilled color='#0F67F2' size={35}/>
+        </div>
+        <div className="flex flex-col items-start justify-center">
+          <h3 className="text-black text-lg font-semibold font-['Poppins']">Phone</h3>
+          <p className="text-gray-500">+91-1515151515</p>
+        </div>
+        
+      </div>
+      {/* email field  */}
+      <div className="w-full flex flex-row items-center justify-start px-2 gap-2.5">
+        <div className="flex items-center justify-center p-2 rounded-full border-2 border-slate-200 shadow-lg">
+        <IconMailFilled color='#0F67F2' size={35}/>
+        </div>
+        <div className="flex flex-col items-start justify-center">
+          <h3 className="text-black text-lg font-semibold font-['Poppins']">Email</h3>
+          <p className="text-gray-500 break-all">vrindavanHome@gmail.com</p>
+        </div>
+      </div>
+        {/* location */}
+      <div className="w-full flex flex-row items-center justify-start px-2 gap-2.5">
+        <div className="flex items-center justify-center p-2 rounded-full border-2 border-slate-200 shadow-lg">
+        <IconMapPinFilled color='#0F67F2' size={35}/>
+        </div>
+        <div className="flex flex-col items-start justify-center">
+          <h3 className="text-black text-lg font-semibold font-['Poppins']">Location</h3>
+          <p className="text-gray-500">Lucknow</p>
+        </div>
+        {/* working hour */}
+      </div>
+      <div className="w-full flex flex-row items-center justify-start px-2 gap-2.5">
+        <div className="flex items-center justify-center p-2 rounded-full border-2 border-slate-200 shadow-lg">
+        <IconClockHour3 color='#0F67F2' size={35}/>
+        </div>
+        <div className="flex flex-col items-start justify-center">
+          <h3 className="text-black text-lg font-semibold font-['Poppins']">Working Hours</h3>
+          <p className="text-gray-500">Mon - Sat: 9:00 AM - 6:00 PM</p>
+          <p className="text-gray-500">Sanday: Closed</p>
+        </div>
+        
+      </div>
 
     </div>
   </div>
