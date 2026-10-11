@@ -290,9 +290,49 @@ const page = () => {
             {/* map block */}
           </div>
           {/* how can we help + map end */}
-          <div className="flex items-center  justify-center p-4 w-full bg-[#E7F4FD]">
-            <h1>raf</h1>
-          </div>
+    
+<div className="w-full overflow-hidden rounded-md bg-[#E7F4FD]">
+  <div className="flex w-full flex-col md:flex-row items-stretch">
+
+    {/* Left: Construction Materials Image */}
+    <div className="relative w-full min-w-0 h-[200px] md:w-[55%] md:h-[240px] lg:h-[260px] overflow-hidden">
+      <img
+        src="/contactfooter.png"
+        alt="Construction materials available at Vrindavan Home"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      />
+
+      {/* Smooth image-to-background blend */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-28 bg-gradient-to-r from-transparent to-[#E7F4FD] md:block" />
+    </div>
+
+    {/* Right: Support Content */}
+    <div className="flex w-full min-w-0 flex-col justify-center bg-[#E7F4FD] px-5 py-6 sm:px-8 md:w-[45%] md:px-6 md:py-4 lg:px-8">
+
+      <div className="mx-auto w-full max-w-md md:mx-0">
+
+        <h3 className="w-full text-start text-2xl font-bold font-['Poppins']">
+          Need Immediate Support?
+        </h3>
+
+        <p className="mt-1.5  text-black text-base font-normal font-['Inter'] leading-relaxed w-full text-start">
+          For urgent queries, bulk orders or order issues, our team is just a
+          call or message away.
+        </p>
+
+        <a
+          href="#"
+          className="mt-4 inline-flex items-center justify-center gap-2 rounded-md bg-[#FA5C0E] px-5 py-2.5 text-white text-base font-semibold font-['Inter'] transition-colors duration-200 hover:bg-[#E04F08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FA5C0E] "
+        >
+          Contact Now <span aria-hidden="true">→</span>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
 
         </div>
