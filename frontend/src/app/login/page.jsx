@@ -13,7 +13,7 @@ const page = () => {
         <h2 className="w-full text-center justify-center text-black text-3xl font-bold font-['Poppins'] pb-4">
           login form
         </h2>
-        <div className="flex flex-col items-center justify-center mt-4 gap-1.5 w-full px-2">
+        <div className="flex flex-col items-center justify-center  gap-1.5 w-full px-2">
             {/* email field */}
           <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
            <label htmlFor='user-email' className="w-full text-start text-black text-sm font-bold font-['Inter']">
