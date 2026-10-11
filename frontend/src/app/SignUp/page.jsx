@@ -32,7 +32,7 @@ const handleClick2 = ()=>{
           Continue with Google
         </button>
 
-        <p className="text-center text-sm text-gray-500 font-['Inter']">Log in with social</p>
+        <p className="text-center text-sm text-gray-500 font-['Inter']">Login with social media</p>
          {/* facebook button */}
         <button className="flex items-center justify-center gap-2 w-full text-center text-base font-semibold font-['Inter'] text-white bg-blue-500 hover:bg-blue-700 px-2.5 py-2 rounded-md hover:cursor-pointer">
           <svg
