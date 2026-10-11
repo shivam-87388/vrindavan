@@ -7,7 +7,7 @@ const page = () => {
         
     <div className="w-full flex flex-col items-center justify-center">
       {/* header image section */}
-      <div className="w-full bg-[url(/contact.png)] bg-cover bg-center bg-no-repeat h-auto">
+      <div className="w-full bg-[url(/contact.png)] bg-cover bg-center bg-no-repeat h-48">
       <div className="flex flex-col w-1/2 items-center justify-center py-4 px-6">
       <h3 className="w-full text-start text-orange-600 text-lg font-semibold font-['Poppins']">Contact Us</h3>
       <h2 className="w-full text-start text-black text-3xl font-bold font-['Poppins']">WE're Here to Help</h2>
