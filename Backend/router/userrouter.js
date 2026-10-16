@@ -22,7 +22,7 @@ router.post('/login', async(req,res)=>{
   } catch (error) {
     return res.status(500).json({message:error.message})
   }
-})
+});
 
 //create user
 router.post('/create-user', async(req, res) => {
@@ -42,7 +42,7 @@ router.post('/create-user', async(req, res) => {
  } catch (error) {
 return res.status(500).json({message:error.message})
  }
-})
+});
 
 
 module.exports = router;

@@ -14,6 +14,7 @@ database();
 
 app.use('/user',require("./router/userrouter"));
 app.use('/admin',require("./router/adminrouter"));
+app.use('/product',require("./router/productrouter"));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
