@@ -17,7 +17,7 @@ const upload = multer({
     if (file.mimetype.startsWith("image/")) {
       cb(null, true);
     } else {
-      cb(new Error("Only image files are allowed"));
+      cb(new multer.MulterError("LIMIT_UNEXPECTED_FILE", file.fieldname));
     }
   },
 });
@@ -76,6 +76,16 @@ router.get('/all-product/:id',async(req,res)=>{
 // add product
 router.post('/add-product',upload.single("image"), async(req, res)=>{
     try {
+        if (
+    !req.body.productname?.trim() ||
+    !req.body.productcategory?.trim() ||
+    req.body.productprice === undefined ||
+    req.body.productprice === "" ||
+    req.body.productquantity === undefined ||
+    req.body.productquantity === "" ||
+    !req.body.productdescription?.trim()
+) {
+    return res.status(400).json({message: "All product fields are required",});
         let imageUrl = "";
 
         if (req.file) {
