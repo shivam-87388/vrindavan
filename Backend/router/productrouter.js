@@ -3,6 +3,7 @@ const router = express.Router();
 const product = require("../model/Productmodel");
 const multer = require("multer");
 const cloudinary = require("../config/cloudinary");
+const { Readable } = require("stream");
 
 const storage = multer.memoryStorage();
 
@@ -19,6 +20,27 @@ const upload = multer({
     }
   },
 });
+
+const uploadToCloudinary = (file) => {
+  return new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      {
+        folder: "vrindavan-home-products",
+        resource_type: "image",
+      },
+      (error, result) => {
+        if (error) {
+          return reject(error);
+        }
+
+        resolve(result);
+      }
+    );
+
+    Readable.from(file.buffer).pipe(stream);
+  });
+};
+
 
 //get
 router.get('/all-product',async(req,res)=>{
@@ -51,15 +73,21 @@ router.get('/all-product/:id',async(req,res)=>{
 });
 
 // add product
-router.post('/add-product', async(req, res)=>{
+router.post('/add-product',upload.single("image"), async(req, res)=>{
     try {
+        let imageUrl = "";
+
+        if (req.file) {
+         const result = await uploadToCloudinary(req.file);
+         imageUrl = result.secure_url;
+        }
         const productadd = await product.create({
         productname: req.body.productname,
         productcategory: req.body.productcategory,
         productprice: req.body.productprice,
         productquantity: req.body.productquantity,
         productdescription: req.body.productdescription,
-        image: req.body.image,
+        image: imageUrl,
         });
         return res.status(201).json({message:"product add sucessful", data:productadd});
         
