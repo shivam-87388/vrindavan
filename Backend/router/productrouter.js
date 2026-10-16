@@ -86,6 +86,7 @@ router.post('/add-product',upload.single("image"), async(req, res)=>{
     !req.body.productdescription?.trim()
 ) {
     return res.status(400).json({message: "All product fields are required",});
+}
         let imageUrl = "";
 
         if (req.file) {
