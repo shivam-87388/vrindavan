@@ -3,6 +3,16 @@ const router = express.Router();
 const user = require("../model/User");
 
 
+//login
+router.post('/login', async(req,res)=>{
+  try {
+    
+  } catch (error) {
+    
+  }
+})
+
+//create user
 router.post('/create-user', async(req, res) => {
  try {
     const existUser = await user.findOne({email:req.body.email});
