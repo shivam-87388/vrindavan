@@ -92,8 +92,7 @@ router.post('/add-product',upload.single("image"), async(req, res)=>{
         return res.status(201).json({message:"product add sucessful", data:productadd});
         
     } catch (error) {
-
-    return res.status(400).json({message: "Product not added",error: error.message,});
+    return res.status(500).json({message: "Internal server error while adding product",});
   }
 
 });
