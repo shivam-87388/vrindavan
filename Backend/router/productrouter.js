@@ -7,7 +7,7 @@ const product = require("../model/Productmodel");
 router.get('/all-product',async(req,res)=>{
     try {
         const allproduct = await product.find();
-        return res.status(200).json({message:"product fetched  sucessful"});
+        return res.status(200).json({message:"product fetched  sucessful", data:allproduct});
        
     } catch (error) {
         return res.status(500).json({message:error.message});
@@ -21,9 +21,9 @@ router.get('/all-product/:id',async(req,res)=>{
     try {
         const findproduct = await product.findById(req.params.id);
         if (findproduct != null) {
-            return res.status(200).json({message:"product fetched  sucessful"});
+            return res.status(200).json({message:"product fetched  sucessful",data:findproduct});
         } else {
-            return res.status(400).json({message:"product not find"});
+            return res.status(404).json({message:"product not find"});
         }
     
     } catch (error) {
@@ -44,7 +44,7 @@ router.post('/add-product', async(req, res)=>{
         productdescription: req.body.productdescription,
         Image: req.body.Image,
         });
-        return res.status(200).json({message:"product add sucessful"});
+        return res.status(201).json({message:"product add sucessful", data:productadd});
         
     } catch (error) {
 
@@ -76,7 +76,7 @@ router.put('/update-product/:id', async(req,res)=>{
     try {
         const update_product = await product.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true })
         if (update_product != null) {
-            return res.status(200).json({message:"product update sucessful"})
+            return res.status(200).json({message:"product update sucessful", data:update_product})
             
         } else {
             return res.status(404).json({message:"product not found"})
