@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const product = require("../model/Productmodel");
+const mongoose = require("mongoose");
 const multer = require("multer");
 const cloudinary = require("../config/cloudinary");
 const { Readable } = require("stream");
@@ -92,6 +93,9 @@ router.post('/add-product',upload.single("image"), async(req, res)=>{
         return res.status(201).json({message:"product add sucessful", data:productadd});
         
     } catch (error) {
+        if (error instanceof mongoose.Error.ValidationError) {
+    return res.status(400).json({message: "Product validation failed",error: error.message,});
+}
     return res.status(500).json({message: "Internal server error while adding product",});
   }
 
