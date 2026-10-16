@@ -5,9 +5,29 @@ const ProductSchema = new mongoose.Schema({
   productprice:{type: Number, required: true, min:0}, 
   productquantity:{type: Number, required: true, min: 0}, 
   productdescription:{type: String, required: true, trim: true},
-  Image:{type: String, required: true, trim: true},
+  image:{type: String, required: true, trim: true},
 },
 {
-timestamps: true,
+  timestamps: true,
+
+  toJSON: {
+    transform: function (doc, ret) {
+      if (ret.createdAt) {
+        ret.createdAtIST = new Date(ret.createdAt).toLocaleString(
+          "en-IN",
+          { timeZone: "Asia/Kolkata" }
+        );
+      }
+
+      if (ret.updatedAt) {
+        ret.updatedAtIST = new Date(ret.updatedAt).toLocaleString(
+          "en-IN",
+          { timeZone: "Asia/Kolkata" }
+        );
+      }
+
+      return ret;
+    }
+  }
 })
 module.exports = mongoose.model('Product', ProductSchema);

@@ -1,7 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const product = require("../model/Productmodel");
+const multer = require("multer");
+const cloudinary = require("../config/cloudinary");
 
+const storage = multer.memoryStorage();
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 5 * 1024 * 1024, // Maximum 5 MB
+  },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith("image/")) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only image files are allowed"));
+    }
+  },
+});
 
 //get
 router.get('/all-product',async(req,res)=>{
@@ -42,7 +59,7 @@ router.post('/add-product', async(req, res)=>{
         productprice: req.body.productprice,
         productquantity: req.body.productquantity,
         productdescription: req.body.productdescription,
-        Image: req.body.Image,
+        image: req.body.image,
         });
         return res.status(201).json({message:"product add sucessful", data:productadd});
         
@@ -74,7 +91,7 @@ router.delete('/delete-product/:id',async(req,res)=>{
 //update
 router.put('/update-product/:id', async(req,res)=>{
     try {
-        const update_product = await product.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true })
+        const update_product = await product.findByIdAndUpdate(req.params.id, req.body, {returnDocument: 'after', runValidators: true })
         if (update_product != null) {
             return res.status(200).json({message:"product update sucessful", data:update_product})
             
