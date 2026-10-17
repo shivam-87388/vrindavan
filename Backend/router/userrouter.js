@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const user = require("../model/User");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+// const auth = require("../middleware/auth");
 
 //login
 router.post("/login", async (req, res) => {
@@ -22,7 +24,13 @@ router.post("/login", async (req, res) => {
     if (loginuser != null) {
       const passwordMatch = await bcrypt.compare(password, loginuser.password);
       if (passwordMatch == true) {
-        return res.status(200).json({ message: "Login successful" });
+        const payload = {
+                    id: loginuser._id,
+                    email: loginuser.email,
+                };
+                // Generate token with an expiration time
+                const token = jwt.sign(payload, process.env.JWT_SECRET,{ expiresIn: '1 day' });
+                return res.status(200).json({message: "Login successful",token: token});
       } else {
         return res.status(401).json({ message: "password is incorrect" });
       }
@@ -60,7 +68,7 @@ router.post("/create-user", async (req, res) => {
       const createUser = await user.create({
         fullname: fullname.trim(),
         email: email.trim().toLowerCase(),
-        password: hashedPassword,
+        password: hassedPasswrod,
       });
       return res.status(201).json({ message: "account created sucessfully" });
     }
