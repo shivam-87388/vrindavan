@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const adminuser = require("../model/Adminuser");
+  const bcrypt = require("bcrypt");
 
 //login
 router.post('/login', async(req,res)=>{
   try {
     const loginuser = await adminuser.findOne({email:req.body.email})
    if (loginuser!=null) {
-      if (loginuser.password == req.body.password) {
+     const passwordMatch = await bcrypt.compare(req.body.password,loginuser.password);
+            if (passwordMatch == true) {
         return res.status(200).json({message:"Login successful"})
       } else {
         return res.status(401).json({message:"password is incorrect"})
@@ -31,10 +33,11 @@ router.post('/create-user', async(req, res) => {
     return res.status(400).json({message:"email already exist"})
 
    } else {
+    const hassedPasswrod = await bcrypt.hash(req.body.password, 10);
   const createUser = await adminuser.create({
     fullname: req.body.fullname,
     email: req.body.email,
-    password: req.body.password,
+    password: hassedPasswrod,
   })
   return res.status(200).json({message:"account created sucessfully"})  
    }

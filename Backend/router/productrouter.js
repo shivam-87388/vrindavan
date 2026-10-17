@@ -237,23 +237,18 @@ router.post(
       });
     } catch (error) {
       // Avoid leaving an uploaded image behind if saving fails
-      if (uploadedImageUrl) {
-        try {
-          await deleteCloudinaryImage(uploadedImageUrl);
-        } catch {
-          // Do not expose internal cleanup errors
-        }
-      }
-
-      if (error instanceof mongoose.Error.ValidationError) {
+       console.error("Add Product Error:", error);
+        if (error instanceof mongoose.Error.ValidationError) {
         return res.status(400).json({
-          message: "Product validation failed",
+            message: "Product validation failed",
+            error: error.message,
         });
-      }
+    }
 
-      return res.status(500).json({
-        message: "Unable to add product. Please try again.",
-      });
+    return res.status(500).json({
+        message: "Internal server error while adding product",
+        error: error.message,
+    });
     }
   },
 );
