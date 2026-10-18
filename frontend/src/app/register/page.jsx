@@ -27,7 +27,7 @@ const SignupSchema = yup.object().shape({
     .matches(/\W/, 'any special character is required')
     .min(6, '6 characters are required'),
   confirmPassword: yup.string().required('Confirm password is required')
-  .oneOf([yup.ref('password')], 'Passwords must match') // for comparing 
+  .oneOf([yup.ref('password')], 'Passwords and confirm password must match') // for comparing 
 });
 
 const signupform = useFormik({
@@ -39,9 +39,6 @@ const signupform = useFormik({
      },
      onSubmit: async(values) => {
       try {
-        if (values.password != values.confirmPassword) {
-         return toast.error('pasword and confirm password is not match');
-        }
         const response = await axios.post("http://localhost:5000/user/create-user",values);
         console.log(response.data.status);
         console.log("Account created sucessfully",response.data.message);
@@ -101,7 +98,12 @@ const signupform = useFormik({
            <label htmlFor='fullname' className="w-full text-start text-black text-sm font-bold font-['Inter']">
         Full Name
         </label>
-      <input id='fullname' type='text' placeholder=" Full Name" name="fullname" onChange={signupform.handleChange} value={signupform.values.fullname} required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+      <input id='fullname' type='text' placeholder=" Full Name" name="fullname" onChange={signupform.handleChange} value={signupform.values.fullname} onBlur={signupform.handleBlur} required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+     {signupform.touched.fullname && signupform.errors.fullname && (
+  <span className="text-red-500 text-xs text-left w-full">
+    {signupform.errors.fullname}
+  </span>
+)}
       </div>
 
        {/* email field  */}
@@ -109,7 +111,12 @@ const signupform = useFormik({
            <label htmlFor='email' className="w-full text-start text-black text-sm font-bold font-['Inter']">
         Email
         </label>
-      <input id='email' type='email' placeholder="Email" required name="email" onChange={signupform.handleChange} value={signupform.values.email} className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+      <input id='email' type='email' placeholder="Email" required name="email" onChange={signupform.handleChange} value={signupform.values.email} onBlur={signupform.handleBlur} className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+       {signupform.touched.email && signupform.errors.email && (
+  <span className="text-red-500 text-xs text-left w-full">
+    {signupform.errors.email}
+  </span>
+)}
       </div>
 
       {/* password field */}
@@ -119,27 +126,36 @@ const signupform = useFormik({
         Password
         </label>
         <div className="flex flex-row items-center  justify-center gap-x-0.5 w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 focus-within:border-transparent focus-within:ring-2 focus-within:ring-[#ED6200]">
-      <input id='password' type={show? "text":"password"} placeholder="Password" name="password" onChange={signupform.handleChange} value={signupform.values.password} required className="w-full  text-black text-base font-normal font-['Inter']  focus:outline-none "></input>
+      <input id='password' type={show? "text":"password"} placeholder="Password" name="password" onChange={signupform.handleChange} value={signupform.values.password} onBlur={signupform.handleBlur} required className="w-full  text-black text-base font-normal font-['Inter']  focus:outline-none "></input>
       <div onClick={handleClick} className="flex items-center justify-center cursor-pointer">
       {
         show?<IconEye/>:<IconEyeOff/>
       }
       </div>
         </div>
+        {signupform.touched.password && signupform.errors.password && (
+  <span className="text-red-500 text-xs text-left w-full">
+    {signupform.errors.password}
+  </span>
+)}
       </div>
       {/* confirm pasword */}
       <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
            <label htmlFor='confirmPassword' className="w-full text-start text-black text-sm font-bold font-['Inter']">
         Confirm Password</label>
     <div className="flex flex-row items-center  justify-center gap-x-0.5 w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 focus-within:border-transparent focus-within:ring-2 focus-within:ring-[#ED6200]">
-      <input id='confirmPassword' type={confirm? "text":"password"} placeholder="Password" name="confirmPassword" onChange={signupform.handleChange} value={signupform.values.confirmPassword} required className="w-full  text-black text-base font-normal font-['Inter']  focus:outline-none "></input>
+      <input id='confirmPassword' type={confirm? "text":"password"} placeholder="Password" name="confirmPassword" onChange={signupform.handleChange} value={signupform.values.confirmPassword} onBlur={signupform.handleBlur}  required className="w-full text-black text-base font-normal font-['Inter'] focus:outline-none "></input>
       <div onClick={handleClick2} className="flex items-center justify-center cursor-pointer">
       {
         confirm?<IconEye/>:<IconEyeOff/>
       }
       </div>
         </div>
-      
+      {signupform.touched.confirmPassword && signupform.errors.confirmPassword && (
+  <span className="text-red-500 text-xs text-left w-full">
+    {signupform.errors.confirmPassword}
+  </span>
+)}
       </div>
 
       </div>
