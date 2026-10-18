@@ -39,6 +39,9 @@ const signupform = useFormik({
      },
      onSubmit: async(values) => {
       try {
+        if (values.password != values.confirmPassword) {
+         return toast.error('pasword and confirm password is not match');
+        }
         const response = await axios.post("http://localhost:5000/user/create-user",values);
         console.log(response.data.status);
         console.log("Account created sucessfully",response.data.message);
