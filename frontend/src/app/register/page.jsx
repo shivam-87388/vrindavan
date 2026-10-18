@@ -1,6 +1,10 @@
 'use client'
 import React, { useState } from 'react'
 import { IconEye, IconEyeOff } from '@tabler/icons-react';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 const page = () => {
   const [show, setShow]= useState(false);
@@ -11,12 +15,48 @@ const handleClick = ()=>{
 }
 const handleClick2 = ()=>{
     setConfirm(!confirm)
-}
+};
+
+const SignupSchema = yup.object().shape({
+  fullname: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Name is required'),
+  email: yup.string().email('Invalid email').required('Required'),
+  password: yup.string().required('Password is required')
+    .matches(/[a-z]/, 'lowercase letter is required')
+    .matches(/[A-Z]/, 'uppercase letter is required')
+    .matches(/[0-9]/, 'number is required')
+    .matches(/\W/, 'any special character is required')
+    .min(6, '6 characters are required'),
+  confirmPassword: yup.string().required('Confirm password is required')
+  .oneOf([yup.ref('password')], 'Passwords must match') // for comparing 
+});
+
+const signupform = useFormik({
+     initialValues: {
+      fullname:"",
+      email: "",
+      password: '',
+      confirmPassword:"",
+     },
+     onSubmit: async(values) => {
+      try {
+        const response = await axios.post("http://localhost:5000/user/create-user",values);
+        console.log(response.data.status);
+        console.log("Account created sucessfully",response.data.message);
+       toast.success('Account created sucessfully');
+      } catch (error) {
+           const message = error.response?.data?.message || "Login error";
+           toast.error(message);
+      };
+     },
+      validationSchema: SignupSchema
+   });
+
 
 
   return (
    <div className="min-h-screen flex items-center justify-center p-4 bg-[#F6F8FB] ">
-    <form className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4">
+     <Toaster position="top-center" reverseOrder={false}/>
+    <form onSubmit={signupform.handleSubmit} className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4">
       <h1 className="w-full text-center justify-center text-black text-3xl font-bold font-['Poppins'] pb-4">Signup form</h1>
         {/* button section */}
       <div className="flex flex-col items-center justify-center w-full gap-y-1.5 px-2">
@@ -55,29 +95,29 @@ const handleClick2 = ()=>{
       <div className="flex flex-col items-center justify-center mt-4 gap-1.5 w-full px-2">
         {/* full name field */}
         <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
-           <label htmlFor='user-name' className="w-full text-start text-black text-sm font-bold font-['Inter']">
+           <label htmlFor='fullname' className="w-full text-start text-black text-sm font-bold font-['Inter']">
         Full Name
         </label>
-      <input id='user-name' type='text' placeholder=" Full name" required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+      <input id='fullname' type='text' placeholder=" Full Name" name="fullname" onChange={signupform.handleChange} value={signupform.values.fullname} required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
       </div>
 
        {/* email field  */}
        <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
-           <label htmlFor='user-email' className="w-full text-start text-black text-sm font-bold font-['Inter']">
+           <label htmlFor='email' className="w-full text-start text-black text-sm font-bold font-['Inter']">
         Email
         </label>
-      <input id='user-email' type='email' placeholder="Email" required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
+      <input id='email' type='email' placeholder="Email" required name="email" onChange={signupform.handleChange} value={signupform.values.email} className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></input>
       </div>
 
       {/* password field */}
       <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
 
-           <label htmlFor='user-password' className="w-full text-start text-black text-sm font-bold font-['Inter']">
+           <label htmlFor='password' className="w-full text-start text-black text-sm font-bold font-['Inter']">
         Password
         </label>
-        <div className="flex flex-row items-center  justify-center gap-x-0.5 w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 focus:border-transparent focus:ring-2 focus:ring-[#ED6200]">
-      <input id='user-password' type={show? "text":"password"} placeholder="Password" required className="w-full  text-black text-base font-normal font-['Inter']  focus:outline-none "></input>
-      <div onClick={handleClick} className="flex items-center justify-center">
+        <div className="flex flex-row items-center  justify-center gap-x-0.5 w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 focus-within:border-transparent focus-within:ring-2 focus-within:ring-[#ED6200]">
+      <input id='password' type={show? "text":"password"} placeholder="Password" name="password" onChange={signupform.handleChange} value={signupform.values.password} required className="w-full  text-black text-base font-normal font-['Inter']  focus:outline-none "></input>
+      <div onClick={handleClick} className="flex items-center justify-center cursor-pointer">
       {
         show?<IconEye/>:<IconEyeOff/>
       }
@@ -86,11 +126,11 @@ const handleClick2 = ()=>{
       </div>
       {/* confirm pasword */}
       <div className="w-full flex flex-col items-center justify-center gap-y-0.5">
-           <label htmlFor='confirm-password' className="w-full text-start text-black text-sm font-bold font-['Inter']">
+           <label htmlFor='confirmPassword' className="w-full text-start text-black text-sm font-bold font-['Inter']">
         Confirm Password</label>
-    <div className="flex flex-row items-center  justify-center gap-x-0.5 w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 focus:border-transparent focus:ring-2 focus:ring-[#ED6200]">
-      <input id='confirm-password' type={confirm? "text":"password"} placeholder="Password" required className="w-full  text-black text-base font-normal font-['Inter']  focus:outline-none "></input>
-      <div onClick={handleClick2} className="flex items-center justify-center">
+    <div className="flex flex-row items-center  justify-center gap-x-0.5 w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 focus-within:border-transparent focus-within:ring-2 focus-within:ring-[#ED6200]">
+      <input id='confirmPassword' type={confirm? "text":"password"} placeholder="Password" name="confirmPassword" onChange={signupform.handleChange} value={signupform.values.confirmPassword} required className="w-full  text-black text-base font-normal font-['Inter']  focus:outline-none "></input>
+      <div onClick={handleClick2} className="flex items-center justify-center cursor-pointer">
       {
         confirm?<IconEye/>:<IconEyeOff/>
       }
