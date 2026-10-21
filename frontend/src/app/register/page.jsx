@@ -19,7 +19,7 @@ const handleClick2 = ()=>{
 
 const SignupSchema = yup.object().shape({
   fullname: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Name is required'),
-  email: yup.string().email('Invalid email').required('Required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
   password: yup.string().required('Password is required')
     .matches(/[a-z]/, 'lowercase letter is required')
     .matches(/[A-Z]/, 'uppercase letter is required')
