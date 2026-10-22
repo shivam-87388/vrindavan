@@ -12,42 +12,9 @@ const homepage = () => {
   return (
     <div className="min-h-screen">
       {/* desktop hero section */}
-      <header className="hidden md:flex w-full">
-        <div className="bg-[url('/hero-section.png')] bg-cover bg-center bg-no-repeat">
-          <div className="flex flex-col items-start justify-start lg:pl-40 lg:pr-210 lg:py-12 pl-8 pr-110 py-2.5">
-            <p className="text-orange-600 text-lg font-semibold font-['Poppins']">
-              EVERYTHING FOR YOUR HOME
-            </p>
-            <h1 className="w-full text-start text-black text-3xl font-bold font-['Poppins'] mt-1">
-              Build, Renovate & Furnish Your Home Better.
-            </h1>
-            <p className="text-black text-base font-normal font-['Inter'] lg:mt-3 mt-0">
-              From construction material and plywood to tiles, sanitaryware,
-              electricals appliances, lighting and more - find everything you
-              need for home in one place.
-            </p>
-            <div className="w-full flex flex-row items-center justify-start gap-2.5 mt-2.5">
-              {/* shop now button*/}
-              <a
-                href="#"
-                className="w-42 flex items-center justify-center  bg-orange-600 rounded-md py-2.5"
-              >
-                <span className="text-neutral-50 text-base font-semibold font-['Inter']">
-                  Shop Now
-                </span>
-                <IconArrowNarrowRight color="#FFFAFA" stroke={2} />
-              </a>
-              {/* explore product button */}
-              <a
-                href=""
-                className="w-42 flex items-center justify-center text-blue-400 text-base font-semibold font-['Inter'] rounded-md py-2.5 text-center bg-[#EFF7FE]  ring-[#4085F5] inset-ring-2"
-              >
-                Explore Product
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
+      <div className="bg-[url('/hero-section.png')] w-full flex">
+        
+      </div>
 
       {/* mobile herosection */}
       <header className="md:hidden flex flex-col items-center justify-center px-4 w-full">
