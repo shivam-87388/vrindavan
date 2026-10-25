@@ -12,8 +12,42 @@ const homepage = () => {
   return (
     <div className="min-h-screen">
       {/* desktop hero section */}
-      <div className="bg-[url('/hero-section.png')] w-full flex">
-        
+      <div className="bg-[url('/hero-section.png')] bg-cover bg-center bg-no-repeat min-h-80 flex items-stretch">
+        <div className="max-w-1/2 flex flex-col items-start justify-center py-4 px-8">
+           <p className="text-orange-600 text-lg font-semibold font-['Poppins']">
+              EVERYTHING FOR YOUR HOME
+            </p>
+          <h1 className="w-full text-start text-black text-3xl font-bold font-['Poppins'] mt-1">
+              Build, Renovate & Furnish Your Home Better.
+            </h1>
+          <p className="text-black text-base font-normal font-['Inter'] lg:mt-1.5 mt-0">
+              From construction material and plywood to tiles, sanitaryware,
+              electricals appliances, lighting and more - find everything you
+              need for home in one place.
+            </p>
+<div className="w-full flex flex-row items-center justify-start gap-2.5 mt-2.5">
+              {/* shop now button*/}
+              <a
+                href="#"
+                className="w-42 flex items-center justify-center  bg-orange-600 rounded-md py-2.5"
+              >
+                <span className="text-neutral-50 text-base font-semibold font-['Inter']">
+                  Shop Now
+                </span>
+                <IconArrowNarrowRight color="#FFFAFA" stroke={2} />
+              </a>
+              {/* explore product button */}
+              <a
+                href=""
+                className="w-42 flex items-center justify-center text-blue-400 text-base font-semibold font-['Inter'] rounded-md py-2.5 text-center bg-[#EFF7FE]  ring-[#4085F5] inset-ring-2"
+              >
+                Explore Product
+              </a>
+            </div>
+
+
+        </div>
+
       </div>
 
       {/* mobile herosection */}
