@@ -100,9 +100,9 @@ const AboutPage = () => {
           {/* Story Image */}
           <div className="relative w-full min-w-0">
             <img
-              src="/about-story.png"
+              src="/about sectionimage.png"
               alt="Construction materials and home improvement products"
-              className="h-[220px] w-full rounded-md object-cover sm:h-[280px] lg:h-[290px]"
+              className="h-[220px] w-full rounded-lg object-cover sm:h-[280px] lg:h-[290px] "
             />
 
             <div className="absolute bottom-3 left-3 right-3 flex items-center gap-3 rounded-md bg-[#0D2447]/95 p-3 text-white">
