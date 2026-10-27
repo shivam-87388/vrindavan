@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -8,7 +9,7 @@ import axios from 'axios';
 const page = () => {
   const AddproductSchema = yup.object().shape({
     productname: yup.string().min(3, 'Product name must be at least 3 characters').required('Product name is required'),
-    productcategory: yup.string() .required('Product category is required'),
+    productcategory: yup.string() .required('Please select a product category'),
     productprice: yup.number().typeError('Price must be a number').positive('Price must be greater than 0').required('Product price is required'),
     productquantity: yup.number().typeError('Quantity must be a number').integer('Quantity must be a whole number').min(0, 'Quantity cannot be negative').required('Product quantity is required'),
     productdescription: yup.string().required('Product description is required').min(50, 'Description must be at least 50 characters'),
@@ -22,16 +23,16 @@ const page = () => {
       productprice: '',
       productquantity: '',
       productdescription: '',
-      image: '',
+      image: null,
      },
      onSubmit: async(values) => {
       try {
         const response = await axios.post("http://localhost:5000/product/add-product",values);
         console.log(response.data.status);
-        console.log("Account created sucessfully",response.data.message);
-       toast.success('Account created sucessfully');
+        console.log("Product add sucessfully",response.data.message);
+       toast.success('Product add sucessfully');
       } catch (error) {
-           const message = error.response?.data?.message || "Login error";
+           const message = error.response?.data?.message || "Product not added";
            toast.error(message);
       };
      },
@@ -40,7 +41,10 @@ const page = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-[#F6F8FB] ">
-      <form className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4">
+      <form
+        onSubmit={addproductfrom.handleSubmit}
+        className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4"
+      >
         <h1 className="w-full text-center justify-center text-black text-3xl font-bold font-['Poppins'] pb-4">
           Add New Product
         </h1>
@@ -48,37 +52,47 @@ const page = () => {
         <div className="flex flex-col items-center justify-center mt-4 gap-2 w-full">
           {/* product name + product catagory */}
           <div className="w-full flex md:flex-row flex-col  items-center justify-center lg:gap-4 gap-2">
-          {/* product name*/}
+            {/* product name*/}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
               <label
-                htmlFor="product-name"
+                htmlFor="productname"
                 className="w-full text-start text-black text-sm font-bold font-['Inter']"
               >
                 Product Name<span className="text-red-500">*</span>
               </label>
               <input
-                id="product-name"
+                id="productname"
+                name="productname"
                 type="text"
-                placeholder="product"
+                onChange={addproductfrom.handleChange}
+                value={addproductfrom.values.productname}
+                onBlur={addproductfrom.handleBlur}
+                placeholder="Product name"
                 required
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
+              {addproductfrom.touched.productname && addproductfrom.errors.productname && (
+              <span className="text-red-500 text-xs text-left w-full">
+                {addproductfrom.errors.productname}
+              </span>
+            )}
             </div>
             {/* product catagory */}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
               <label
-                htmlFor="product-category"
+                htmlFor="productcategory"
                 className="w-full text-start text-black text-sm font-bold font-['Inter'] "
               >
                 Product Category<span className="text-red-500">*</span>
               </label>
               <select
-                name="product-catgeory"
-                id="'product-catgeory"
+                value={addproductfrom.values.productcategory}
+                name="productcategory"
+                onChange={addproductfrom.handleChange}
+                onBlur={addproductfrom.handleBlur}
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               >
-                <option value="">select
-                </option>
+                <option value="">select</option>
                 <option value="Construction-Material">
                   Construction Material
                 </option>
@@ -100,6 +114,11 @@ const page = () => {
                 <option value="CCTV-&-Surveillance">CCTV & Surveillance</option>
                 <option value="Lightning">Lightning</option>
               </select>
+               {addproductfrom.touched.productcategory && addproductfrom.errors.productcategory && (
+              <span className="text-red-500 text-xs text-left w-full">
+                {addproductfrom.errors.productcategory}
+              </span>
+            )}
             </div>
           </div>
 
@@ -108,60 +127,117 @@ const page = () => {
             {/* price field */}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
               <label
-                htmlFor="product-price"
+                htmlFor="productprice"
                 className="w-full text-start text-black text-sm font-bold font-['Inter']"
               >
                 Product Price<span className="text-red-500">*</span>
               </label>
               <input
-                id="product-price"
-                type="text"
+                id="productprice"
+                name="productprice"
+                type="number"
+                min="0"
+                step="0.01"
+                onChange={addproductfrom.handleChange}
+                value={addproductfrom.values.productprice}
+                onBlur={addproductfrom.handleBlur}
                 placeholder="₹ Price"
                 required
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
+              {addproductfrom.touched.productprice && addproductfrom.errors.productprice && (
+              <span className="text-red-500 text-xs text-left w-full">
+                {addproductfrom.errors.productprice}
+              </span>
+            )}
             </div>
             {/* stock field */}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
               <label
-                htmlFor="product-quantity"
+                htmlFor="productquantity"
                 className="w-full text-start text-black text-sm font-bold font-['Inter']"
               >
                 Product Quantity <span className="text-red-500">*</span>
               </label>
               <input
-                id="product-quantity"
+                id="productquantity"
+                name="productquantity"
+                onChange={addproductfrom.handleChange}
+                value={addproductfrom.values.productquantity}
+                onBlur={addproductfrom.handleBlur}
+                min="0"
+                step="1"
                 type="number"
                 placeholder="300"
                 required
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
-              
+              {addproductfrom.touched.productquantity && addproductfrom.errors.productquantity && (
+              <span className="text-red-500 text-xs text-left w-full">
+                {addproductfrom.errors.productquantity}
+              </span>
+            )}
             </div>
           </div>
-            {/* description field */}
-            <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
-              <label
-                htmlFor="description"
-                className="w-full text-start text-black text-sm font-bold font-['Inter']"
-              >
-                Description<span className="text-red-500">*</span>
-              </label>
-              <textarea id="description"  rows={3} placeholder="Write details about the product..." required className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"></textarea>
-              
-            </div>
+          {/* description field */}
+          <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
+            <label
+              htmlFor="productdescription"
+              className="w-full text-start text-black text-sm font-bold font-['Inter']"
+            >
+              Description<span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="productdescription"
+              name="productdescription"
+              onChange={addproductfrom.handleChange}
+              value={addproductfrom.values.productdescription}
+              onBlur={addproductfrom.handleBlur}
+              type="text"
+              rows={3}
+              placeholder="Write details about the product..."
+              required
+              className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
+            ></textarea>
+             {addproductfrom.touched.productdescription && addproductfrom.errors.productdescription && (
+              <span className="text-red-500 text-xs text-left w-full">
+                {addproductfrom.errors.productdescription}
+              </span>
+            )}
+          </div>
           {/* image upload field */}
           <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
-            <label className="w-full text-start text-black text-sm font-bold font-['Inter']">Product Image<span className="text-red-500">*</span></label>
-            <input id="product-image" type="file" accept="image/*" className="w-full text-sm text-slate-500 border-2 border-slate-200 rounded-lg p-1.5 file:mr-3 file:py-1 file:px-3 file:rounded-md file:bord file:border-slate-300 file:text-sm file:font-medium file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 cursor-pointer focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"></input>
+            <label
+              htmlFor="image"
+              className="w-full text-start text-black text-sm font-bold font-['Inter']"
+            >
+              Product Image<span className="text-red-500">*</span>
+            </label>
+            <input
+              id="image"
+              type="file"
+              accept="image/*"
+              name="image"
+              onChange={(e) => {
+                addproductfrom.setFieldValue("image", e.currentTarget.files[0]);
+              }}
+              onBlur={addproductfrom.handleBlur}
+              className="w-full text-sm text-slate-500 border-2 border-slate-200 rounded-lg p-1.5 file:mr-3 file:py-1 file:px-3 file:rounded-md file:bord file:border-slate-300 file:text-sm file:font-medium file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 cursor-pointer focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
+            ></input>
+            {addproductfrom.touched.image && addproductfrom.errors.image && (
+              <span className="text-red-500 text-xs text-left w-full">
+                {addproductfrom.errors.image}
+              </span>
+            )}
+            
           </div>
-        {/*  add new product button  */}
-        <button
-          type="submit"
-          className="w-full text-center text-base font-semibold font-['Inter'] text-white bg-[#FA5C0E] px-2.5 py-2 rounded-md mt-4.5 hover:cursor-pointer"
-        >
-          Add Product
-        </button>
+          {/*  add new product button  */}
+          <button
+            type="submit"
+            className="w-full text-center text-base font-semibold font-['Inter'] text-white bg-[#FA5C0E] px-2.5 py-2 rounded-md mt-4.5 hover:cursor-pointer"
+          >
+            Add Product
+          </button>
         </div>
       </form>
     </div>
