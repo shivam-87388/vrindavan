@@ -1,6 +1,43 @@
 import React from "react";
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
+
 
 const page = () => {
+  const AddproductSchema = yup.object().shape({
+    productname: yup.string().min(3, 'Product name must be at least 3 characters').required('Product name is required'),
+    productcategory: yup.string() .required('Product category is required'),
+    productprice: yup.number().typeError('Price must be a number').positive('Price must be greater than 0').required('Product price is required'),
+    productquantity: yup.number().typeError('Quantity must be a number').integer('Quantity must be a whole number').min(0, 'Quantity cannot be negative').required('Product quantity is required'),
+    productdescription: yup.string().required('Product description is required').min(50, 'Description must be at least 50 characters'),
+    image: yup.mixed().required('Product image is required'),
+    
+  });
+  const addproductfrom = useFormik({
+     initialValues: {
+      productname: "",
+      productcategory: '',
+      productprice: '',
+      productquantity: '',
+      productdescription: '',
+      image: '',
+     },
+     onSubmit: async(values) => {
+      try {
+        const response = await axios.post("http://localhost:5000/product/add-product",values);
+        console.log(response.data.status);
+        console.log("Account created sucessfully",response.data.message);
+       toast.success('Account created sucessfully');
+      } catch (error) {
+           const message = error.response?.data?.message || "Login error";
+           toast.error(message);
+      };
+     },
+     validationSchema: AddproductSchema
+   });
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-[#F6F8FB] ">
       <form className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4">
