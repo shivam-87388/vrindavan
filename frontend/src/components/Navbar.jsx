@@ -129,40 +129,95 @@ const Navbar = () => {
     </header>
     </div>
     {/* mobile navbar  */}
-    <header className="relative flex md:hidden items-center justify-between p-4">
-        <div className="flex justify-start">
-       <h3 className="text-black text-lg font-semibold font-['Poppins']">Vrindavan Home</h3>
-        </div>
+    
+<header className="relative flex md:hidden items-center gap-2 px-3 py-4">
+  {/* Logo */}
+ <div className="shrink-0">
+  <h3 className="whitespace-nowrap text-sm min-[375px]:text-base font-semibold font-['Poppins'] text-black">
+    Vrindavan Home
+  </h3>
+</div>
 
-          <div className="flex flex-row gap-1.5 items-center justify-center px-2.5 py-1.5 ">
-            <form onSubmit={(e) => e.preventDefault()} className="w-full flex items-center justify-center rounded-sm border border-[#494949] px-1 h-6">
-              <input  type="search" placeholder="Search..." aria-label="Search products" className="w-full bg-transparent px-1 text-xs font-normal font-['Inter'] text-zinc-700  outline-none placeholder:text-zinc-400 "></input>
-             <button type="submit" aria-label="Search products" className="flex items-center border-l border-[#494949] pl-1">
-              <IconSearch size={16} color="#2068F4" className="h-[18px] w-[18px]"/>
-             </button>
-            </form>
+  {/* Search, Cart and Menu */}
+  <div className="flex flex-1 min-w-0 items-center gap-1.5">
+    {/* Search */}
+    <div className="flex flex-1 min-w-0 items-center gap-2">
+  {/* Search */}
+  <form
+  onSubmit={(e) => e.preventDefault()}
+  className="flex flex-1 min-w-0 items-center h-9 rounded-md border border-[#494949] px-1.5"
+>
+  <input
+    type="search"
+    placeholder="Search..."
+    aria-label="Search products"
+    className="w-full min-w-0 bg-transparent px-1 text-sm outline-none placeholder:text-zinc-400"
+  />
 
-            <a href="#" className="flex items-center justify-center px-0.5 bg-white rounded-sm inset-ring ring-zinc-[#494949] hover:cursor-pointer">
-              <IconShoppingCart stroke={2} color="#050505"/>
-            </a>
+  <button type="submit" aria-label="Search products" className="shrink-0">
+    <IconSearch size={20} color="#2068F4" />
+  </button>
+</form>
 
-            <div ref={navRef} className="flex flex-col mr-2.5 ">
-          <button onClick={handleClick} className="">{show ?  <IconArrowsCross stroke={2} color="#050505" />: <IconMenu2 stroke={2} color="#050505" />}</button>
-        {show? <nav className="absolute right-4 top-full  flex flex-col items-center justify-center px-2.5 py-1.5 gap-1.5 rounded-md border-2 border-zinc-200 bg-white shadow-lg z-50 w-36">
-          
-          <a href='/'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Home</a>
-          <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Product</a>
-          <a href='#'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Categories</a>
-          <a href='/about-us'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">About</a>
-          <a href='/contact-us'className="flex item-center justify-center text-slate-500 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Contact</a>
-          <a href='/login'className="flex item-center justify-center text-blue-600 inset-ring-2 ring-blue-600 text-sm font-bold font-['Inter'] hover:text-white hover:bg-blue-600 w-full py-1.5 px-0.5 rounded-md">Login</a>
-          <a href='/register' className="flex item-center justify-center text-white bg-blue-600 text-sm font-bold font-['Inter'] w-full py-1.5 px-0.5 rounded-md">Signup</a>
-        </nav>:""}
+  {/* Cart */}
+  <a href="#" aria-label="Shopping cart" className="shrink-0 p-1">
+    <IconShoppingCart size={22} stroke={2} color="#050505" />
+  </a>
 
-         </div>
-          </div>
-         
-    </header>
+  {/* Keep your existing mobile menu here */}
+</div>
+  
+
+    {/* Mobile Menu */}
+    <div ref={navRef} className="relative shrink-0">
+      <button
+        type="button"
+        onClick={handleClick}
+        aria-label={show ? "Close menu" : "Open menu"}
+        aria-expanded={show}
+        className="flex items-center justify-center p-1"
+      >
+        {show ? (
+          <IconArrowsCross size={22} stroke={2} color="#050505" />
+        ) : (
+          <IconMenu2 size={22} stroke={2} color="#050505" />
+        )}
+      </button>
+
+      {show && (
+        <nav className="absolute right-0 top-full z-50 mt-2 flex w-40 flex-col gap-1 rounded-md border border-zinc-200 bg-white p-2 shadow-lg">
+          <a href="/" className="flex items-center justify-center rounded-md px-2 py-2 text-sm font-bold text-slate-600 hover:bg-blue-600 hover:text-white">
+            Home
+          </a>
+
+          <a href="#" className="flex items-center justify-center rounded-md px-2 py-2 text-sm font-bold text-slate-600 hover:bg-blue-600 hover:text-white">
+            Product
+          </a>
+
+          <a href="#" className="flex items-center justify-center rounded-md px-2 py-2 text-sm font-bold text-slate-600 hover:bg-blue-600 hover:text-white">
+            Categories
+          </a>
+
+          <a href="/about-us" className="flex items-center justify-center rounded-md px-2 py-2 text-sm font-bold text-slate-600 hover:bg-blue-600 hover:text-white">
+            About
+          </a>
+
+          <a href="/contact-us" className="flex items-center justify-center rounded-md px-2 py-2 text-sm font-bold text-slate-600 hover:bg-blue-600 hover:text-white">
+            Contact
+          </a>
+
+          <a href="/login" className="flex items-center justify-center rounded-md px-2 py-2 text-sm font-bold text-blue-600 ring-1 ring-blue-600 hover:bg-blue-600 hover:text-white">
+            Login
+          </a>
+
+          <a href="/register" className="flex items-center justify-center rounded-md bg-blue-600 px-2 py-2 text-sm font-bold text-white hover:bg-blue-700">
+            Signup
+          </a>
+        </nav>
+      )}
+    </div>
+  </div>
+</header>
 
     </div>
     
