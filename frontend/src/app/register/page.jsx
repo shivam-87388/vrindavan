@@ -55,7 +55,6 @@ const signupform = useFormik({
 
   return (
    <div className="min-h-screen flex items-center justify-center p-4 bg-[#F6F8FB] ">
-     <Toaster position="top-center" reverseOrder={false}/>
     <form onSubmit={signupform.handleSubmit} className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4">
       <h1 className="w-full text-center justify-center text-black text-3xl font-bold font-['Poppins'] pb-4">Signup form</h1>
         {/* button section */}

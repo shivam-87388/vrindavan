@@ -45,7 +45,7 @@ const loginform = useFormik({
 
   return (
     <div className="min-h-screen flex items-center justify-center w-full bg-slate-50 p-4">
-      <form className="w-full max-w-md bg-white rounded-md shadow-md border border-gray-200 p-4">
+      <form  onSubmit={loginform.handleSubmit} className="w-full max-w-md bg-white rounded-md shadow-md border border-gray-200 p-4">
         <div className="flex flex-col items-center justify-start w-full mb-6">
            <h1 className="w-full text-black text-3xl font-bold font-['Poppins']">Admin Login</h1>
            <p className="w-full text-black text-base font-normal font-['Inter']">Sign in to access your admin panel</p>
@@ -87,7 +87,7 @@ const loginform = useFormik({
         </div>
          {/* login button */}
         <div className="flex w-full flex-col items-center justify-center">
-          <button type="button" className="flex w-full items-center justify-center gap-0.5 rounded-md bg-orange-600 px-3.5 py-2.5 font-['Inter'] text-base font-semibold text-white transition-colors hover:bg-orange-700  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 hover:cursor-pointer"><span>Login</span> <IconArrowNarrowRight stroke={2} className="h-5 w-5 text-white" /></button>
+          <button type="submit" className="flex w-full items-center justify-center gap-0.5 rounded-md bg-orange-600 px-3.5 py-2.5 font-['Inter'] text-base font-semibold text-white transition-colors hover:bg-orange-700  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 hover:cursor-pointer"><span>Login</span> <IconArrowNarrowRight stroke={2} className="h-5 w-5 text-white" /></button>
           <hr className="w-full border-t-2 mt-5 mb-2 border-gray-200"></hr>
           <div className="w-full flex flex-row items-center justify-center gap-1">
             <IconLock stroke={2} color="#ED6200" className='flex '/>

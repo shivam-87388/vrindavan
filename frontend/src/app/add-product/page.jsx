@@ -17,30 +17,42 @@ const page = () => {
     
   });
   const addproductfrom = useFormik({
-     initialValues: {
+    initialValues: {
       productname: "",
-      productcategory: '',
-      productprice: '',
-      productquantity: '',
-      productdescription: '',
+      productcategory: "",
+      productprice: "",
+      productquantity: "",
+      productdescription: "",
       image: null,
-     },
-     onSubmit: async(values) => {
+    },
+    onSubmit: async (values) => {
       try {
-        const response = await axios.post("http://localhost:5000/product/add-product",values);
-        console.log(response.data.status);
-        console.log("Product add sucessfully",response.data.message);
-       toast.success('Product add sucessfully');
+        const formData = new FormData();
+
+        formData.append("productname", values.productname);
+        formData.append("productcategory", values.productcategory);
+        formData.append("productprice", values.productprice);
+        formData.append("productquantity", values.productquantity);
+        formData.append("productdescription", values.productdescription);
+        formData.append("image", values.image);
+
+        const response = await axios.post(
+          "http://localhost:5000/product/add-product",
+          formData,
+        );
+        console.log("Product added successfully", response.data);
+        toast.success("Product added successfully");
       } catch (error) {
-           const message = error.response?.data?.message || "Product not added";
-           toast.error(message);
-      };
-     },
-     validationSchema: AddproductSchema
-   });
+        const message = error.response?.data?.message || "Product not added";
+        toast.error(message);
+      }
+    },
+    validationSchema: AddproductSchema,
+  });
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-[#F6F8FB] ">
+      
       <form
         onSubmit={addproductfrom.handleSubmit}
         className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4"
