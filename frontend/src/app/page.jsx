@@ -12,8 +12,8 @@ const homepage = () => {
   return (
     <div className="min-h-screen">
       {/* desktop hero section */}
-      <header className="hidden md:block md:bg-[url('/hero-section.png')] bg-cover bg-center bg-no-repeat min-h-80 flex items-stretch">
-        <div className="max-w-1/2 flex flex-col items-start justify-center py-4 px-8">
+      <header className="hidden md:block md:bg-[url('/hero-section.png')] bg-cover bg-center bg-no-repeat min-h-96 items-stretch">
+        <div className="max-w-1/2 flex flex-col items-start justify-center lg:py-14 py-4 px-8">
           <p className="text-orange-600 text-lg font-semibold font-['Poppins']">
             EVERYTHING FOR YOUR HOME
           </p>
