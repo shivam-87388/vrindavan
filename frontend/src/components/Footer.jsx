@@ -4,7 +4,7 @@ import { IconBrandFacebook, IconBrandWhatsapp, IconBrandInstagram, IconBrandLink
 const Footer = () => {
   return (
     <footer className='w-full flex flex-col bg-[#0D2447]'>
-      <div className="grid lg:grid-cols-4 grid-cols-2 p-6 items-start">
+      <div className="grid lg:grid-cols-4 grid-cols-2 px-6 py-8 items-start">
         {/* grid1 */}
       <div className="flex flex-col items-start justify-start">
       <h1 className="text-white text-2xl font-medium font-['Poppins']">Vrindavan Home</h1>
@@ -36,7 +36,7 @@ const Footer = () => {
         <a href="#" className="hover:cursor-pointer">Help</a>
       </nav>
       {/* grid4 */}
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-end">
         <h2 className="text-white text-base font-semibold font-['Poppins']">News Letter</h2>
         <div className="flex flex-row bg-slate-700 w-fit gap-1.5 py-1.5 px-2 rounded-md focus-within:border-white focus-within:ring-1 focus-within:ring-white transition-all ">
         <input type="email" placeholder="email" className="focus:outline-none w-full min-w-0 text-white"></input>
@@ -51,12 +51,21 @@ const Footer = () => {
       </div>
        <hr className="border-slate-700 border-t-2"></hr>
       {/* copy right section */}
-        <div className="grid grid-cols-3 items-start justify-center px-6 py-2.5">
-          <p className="text-white text-xs font-normal font['Inter'] lg:w-fit w-full text-start lg:text-center">© 2026 Vrindavan Home. All rights reserved</p>
+       <div className="grid grid-cols-3 px-6 py-2.5 justify-start items-center">
+        <div className="flex items-center justify-center"><p className="text-white text-xs font-normal font-['Inter'] lg:w-fit w-full text-start lg:text-center">© 2026 Vrindavan Home. All rights reserved</p>
+       </div>
+        <div className="flex items-center justify-center">
           <a href='https://shivam-87388.github.io/New-portfolio/' className="text-white text-xs font-normal font-['Inter'] hover:cursor-pointer">Developed by Shivam.dev</a>
+        </div>
+        <div className="flex items-center justify-center">
           <p className="text-white text-xs font-normal font-['Inter']">Privacy Policy | Terms Conditions</p>
 
         </div>
+       
+        
+
+
+       </div>
 
 
 
