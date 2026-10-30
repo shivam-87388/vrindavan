@@ -3,7 +3,7 @@ import { IconEdit, IconTrash } from '@tabler/icons-react';
 
 const page = () => {
   return (
-   <div className="min-h-screen felx felx-col p-4 w-full ">
+   <div className="min-h-screen flex flex-col p-4 w-full ">
     <div className="grid grid-cols-7 gap-1.5 items-start border-b-2 border-slate-200 bg-[#F3F7FD] py-2.5 rounded-md">
         {/* S.no */}
         <div className="flex justify-center items-center">
