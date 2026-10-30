@@ -236,7 +236,7 @@ router.post(
       const newProduct = await Product.create({
         productname: req.body.productname.trim(),
         productcategory: req.body.productcategory.trim(),
-        productprice: Number(req.body.productprice),
+        productprice: productprice,
         finalPrice: finalPrice,
         productquantity: Number(req.body.productquantity),
         productrating: Number(req.body.productrating ?? 0),
