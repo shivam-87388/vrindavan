@@ -146,6 +146,12 @@ const validateProductFields = (body) => {
   return null;
 };
 
+const rating = Number(body.productrating ?? 0);
+
+if (!Number.isFinite(rating) || rating < 0 || rating > 5) {
+  return "Rating must be between 0 and 5";
+}
+
 const isValidId = (id) => {
   return mongoose.isObjectIdOrHexString(id);
 };
