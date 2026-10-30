@@ -1,6 +1,6 @@
 import React from 'react'
 
-const productsellingcard = () => {
+const ProductSellingCard = ({product}) => {
   return (
    <div className="min-w-32 flex flex-col justify-center items-start p-1.5 border-2 border-slate-200 rounded-md gap-1 hover:shadow-xl">
           {/* Product Image + Discount */}
@@ -50,4 +50,4 @@ const productsellingcard = () => {
   )
 }
 
-export default productsellingcard;
+export default ProductSellingCard;
