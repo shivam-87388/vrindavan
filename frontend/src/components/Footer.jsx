@@ -4,7 +4,7 @@ import { IconBrandFacebook, IconBrandWhatsapp, IconBrandInstagram, IconBrandLink
 const Footer = () => {
   return (
     <footer className='w-full flex flex-col bg-[#0D2447]'>
-      <div className="grid lg:grid-cols-4 grid-cols-2 px-6 py-8">
+      <div className="grid lg:grid-cols-4 grid-cols-2 px-6 py-8 gap-y-2">
         {/* grid1 */}
       <div className="flex flex-col items-start justify-start ">
       <h1 className="text-white text-2xl font-medium font-['Poppins']">Vrindavan Home</h1>
@@ -29,7 +29,7 @@ const Footer = () => {
 
       </nav>
       {/* grid3 */}
-      <nav className="flex flex-col items-center justify-start text-white">
+      <nav className="flex flex-col items-center  justify-start  text-white">
         <h2 className=" text-base font-semibold font-['Poppins']">Support</h2>
         <a href="#" className="hover:cursor-pointer">FAQ</a>
         <a href="#" className="hover:cursor-pointer">Shipping</a>
@@ -51,13 +51,14 @@ const Footer = () => {
       </div>
        <hr className="border-slate-700 border-t-2"></hr>
       {/* copy right section */}
-       <div className="grid grid-cols-3 px-6 py-2.5 justify-start items-center">
-        <div className="flex items-center justify-center"><p className="text-white text-xs font-normal font-['Inter'] lg:w-fit w-full text-start lg:text-center">© 2026 Vrindavan Home. All rights reserved</p>
+       <div className="grid lg:grid-cols-3 grid-row-3 px-6 py-2.5 gap-y-2">
+        <div className="flex items-start justify-center">
+        <p className="text-white text-xs font-normal font-['Inter'] lg:w-fit w-full text-center">© 2026 Vrindavan Home. All rights reserved</p>
        </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-start justify-center">
           <a href='https://shivam-87388.github.io/New-portfolio/' className="text-white text-xs font-normal font-['Inter'] hover:cursor-pointer">Developed by Shivam.dev</a>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-start justify-center ">
           <p className="text-white text-xs font-normal font-['Inter']">Privacy Policy | Terms Conditions</p>
 
         </div>
