@@ -129,6 +129,7 @@ const page = () => {
                 Product Category<span className="text-red-500">*</span>
               </label>
               <select
+                id="productcategory"
                 value={addproductfrom.values.productcategory}
                 name="productcategory"
                 onChange={addproductfrom.handleChange}
@@ -139,7 +140,7 @@ const page = () => {
                 <option value="Construction-Material">
                   Construction Material
                 </option>
-                <option value=">Wood-&-Plywood">Wood & Plywood</option>
+                <option value="Wood-&-Plywood">Wood & Plywood</option>
                 <option value="Ceiling-Fans-&-Exhaust">
                   Ceiling Fans & Exhaust
                 </option>
@@ -267,6 +268,7 @@ const page = () => {
                 value={addproductfrom.values.productdiscount}
                 onBlur={addproductfrom.handleBlur}
                 min="0"
+                max="100"
                 step="1"
                 type="number"
                 placeholder="20%"
