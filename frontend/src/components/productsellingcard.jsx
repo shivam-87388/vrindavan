@@ -23,7 +23,7 @@ const ProductSellingCard = ({product}) => {
         {product.productname}
       </h1>
 
-      <p className="w-full text-start">kamal</p>
+      <p className="w-full text-start text-base font-normal font-['Inter']">{product.productdescription}</p>
 
       {/* Rating */}
       <div className="flex items-center gap-1">
