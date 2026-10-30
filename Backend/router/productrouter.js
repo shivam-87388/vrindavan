@@ -143,14 +143,16 @@ const validateProductFields = (body) => {
     return "Discount must be between 0 and 100";
   }
 
-  return null;
-};
-
 const rating = Number(body.productrating ?? 0);
 
 if (!Number.isFinite(rating) || rating < 0 || rating > 5) {
   return "Rating must be between 0 and 5";
 }
+
+  return null;
+};
+
+
 
 const isValidId = (id) => {
   return mongoose.isObjectIdOrHexString(id);
