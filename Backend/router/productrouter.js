@@ -222,10 +222,16 @@ router.post(
       const imageResult = await uploadToCloudinary(req.file);
       uploadedImageUrl = imageResult.secure_url;
 
+      const productprice = Number(req.body.productprice);
+      const productdiscount = Number(req.body.productdiscount ?? 0);
+      const discountAmount = (productprice * productdiscount) / 100;
+      const finalPrice = productprice - discountAmount;
+
       const newProduct = await Product.create({
         productname: req.body.productname.trim(),
         productcategory: req.body.productcategory.trim(),
         productprice: Number(req.body.productprice),
+        finalPrice: finalPrice,
         productquantity: Number(req.body.productquantity),
         productrating: Number(req.body.productrating ?? 0),
         productdiscount: Number(req.body.productdiscount ?? 0),
@@ -239,18 +245,18 @@ router.post(
       });
     } catch (error) {
       // Avoid leaving an uploaded image behind if saving fails
-       console.error("Add Product Error:", error);
-        if (error instanceof mongoose.Error.ValidationError) {
+      console.error("Add Product Error:", error);
+      if (error instanceof mongoose.Error.ValidationError) {
         return res.status(400).json({
-            message: "Product validation failed",
-            error: error.message,
+          message: "Product validation failed",
+          error: error.message,
         });
-    }
+      }
 
-    return res.status(500).json({
+      return res.status(500).json({
         message: "Internal server error while adding product",
         error: error.message,
-    });
+      });
     }
   },
 );
