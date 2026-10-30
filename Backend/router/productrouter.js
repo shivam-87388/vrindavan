@@ -137,6 +137,12 @@ const validateProductFields = (body) => {
     return "Quantity must be a non-negative integer";
   }
 
+  const discount = Number(body.productdiscount ?? 0);
+
+  if (!Number.isFinite(discount) || discount < 0 || discount > 100) {
+    return "Discount must be between 0 and 100";
+  }
+
   return null;
 };
 
