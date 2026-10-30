@@ -8,13 +8,40 @@ import axios from 'axios';
 
 const page = () => {
   const AddproductSchema = yup.object().shape({
-    productname: yup.string().min(3, 'Product name must be at least 3 characters').required('Product name is required'),
-    productcategory: yup.string() .required('Please select a product category'),
-    productprice: yup.number().typeError('Price must be a number').positive('Price must be greater than 0').required('Product price is required'),
-    productquantity: yup.number().typeError('Quantity must be a number').integer('Quantity must be a whole number').min(0, 'Quantity cannot be negative').required('Product quantity is required'),
-    productdescription: yup.string().required('Product description is required').min(50, 'Description must be at least 50 characters'),
-    image: yup.mixed().required('Product image is required'),
-    
+    productname: yup
+      .string()
+      .min(3, "Product name must be at least 3 characters")
+      .required("Product name is required"),
+    productcategory: yup.string().required("Please select a product category"),
+    productprice: yup
+      .number()
+      .typeError("Price must be a number")
+      .positive("Price must be greater than 0")
+      .required("Product price is required"),
+    productquantity: yup
+      .number()
+      .typeError("Quantity must be a number")
+      .integer("Quantity must be a whole number")
+      .min(0, "Quantity cannot be negative")
+      .required("Product quantity is required"),
+    productdescription: yup
+      .string()
+      .required("Product description is required")
+      .min(50, "Description must be at least 50 characters"),
+    productrating: yup
+      .number()
+      .typeError("Rating must be a number")
+      .min(0, "Rating cannot be less than 0")
+      .max(5, "Rating cannot be greater than 5")
+      .required("Product rating is required"),
+
+    productdiscount: yup
+      .number()
+      .typeError("Discount must be a number")
+      .min(0, "Discount cannot be negative")
+      .max(100, "Discount cannot exceed 100%")
+      .required("Product discount is required"),
+    image: yup.mixed().required("Product image is required"),
   });
   const addproductfrom = useFormik({
     initialValues: {
@@ -23,6 +50,8 @@ const page = () => {
       productprice: "",
       productquantity: "",
       productdescription: "",
+      productrating: 0,
+      productdiscount: 0,
       image: null,
     },
     onSubmit: async (values) => {
@@ -34,6 +63,8 @@ const page = () => {
         formData.append("productprice", values.productprice);
         formData.append("productquantity", values.productquantity);
         formData.append("productdescription", values.productdescription);
+        formData.append("productrating", values.productrating);
+        formData.append("productdiscount", values.productdiscount);
         formData.append("image", values.image);
 
         const response = await axios.post(
@@ -187,6 +218,63 @@ const page = () => {
               {addproductfrom.touched.productquantity && addproductfrom.errors.productquantity && (
               <span className="text-red-500 text-xs text-left w-full">
                 {addproductfrom.errors.productquantity}
+              </span>
+            )}
+            </div>
+          </div>
+          {/* product rating and discount field  */}
+          <div className="w-full flex md:flex-row flex-col  items-center justify-center lg:gap-4 gap-2">
+            {/* rating field */}
+            <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
+              <label
+                htmlFor="productrating"
+                className="w-full text-start text-black text-sm font-bold font-['Inter']"
+              >
+                Product Rating<span className="text-red-500">*</span>
+              </label>
+              <input
+                id="productrating"
+                name="productrating"
+                type="number"
+                min="0"
+                max="5"
+                onChange={addproductfrom.handleChange}
+                value={addproductfrom.values.productrating}
+                onBlur={addproductfrom.handleBlur}
+                placeholder="1-5"
+                required
+                className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
+              ></input>
+              {addproductfrom.touched.productrating && addproductfrom.errors.productrating && (
+              <span className="text-red-500 text-xs text-left w-full">
+                {addproductfrom.errors.productrating}
+              </span>
+            )}
+            </div>
+            {/* discount field */}
+            <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
+              <label
+                htmlFor="productdiscount"
+                className="w-full text-start text-black text-sm font-bold font-['Inter']"
+              >
+                Product Discount <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="productdiscount"
+                name="productdiscount"
+                onChange={addproductfrom.handleChange}
+                value={addproductfrom.values.productdiscount}
+                onBlur={addproductfrom.handleBlur}
+                min="0"
+                step="1"
+                type="number"
+                placeholder="20%"
+                required
+                className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
+              ></input>
+              {addproductfrom.touched.productdiscount && addproductfrom.errors.productdiscount && (
+              <span className="text-red-500 text-xs text-left w-full">
+                {addproductfrom.errors.productdiscount}
               </span>
             )}
             </div>

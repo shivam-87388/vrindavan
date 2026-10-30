@@ -5,6 +5,8 @@ const ProductSchema = new mongoose.Schema({
   productprice:{type: Number, required: true, min:0}, 
   productquantity:{type: Number, required: true, min: 0}, 
   productdescription:{type: String, required: true, trim: true},
+  productrating:{type:Number, default:0, min:0, max:5},
+  productdiscount:{type:Number, default:0, min:0, max:100},
   image:{type: String, required: true, trim: true},
 },
 {
