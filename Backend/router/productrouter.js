@@ -227,6 +227,8 @@ router.post(
         productcategory: req.body.productcategory.trim(),
         productprice: Number(req.body.productprice),
         productquantity: Number(req.body.productquantity),
+        productrating: Number(req.body.productrating ?? 0),
+        productdiscount: Number(req.body.productdiscount ?? 0),
         productdescription: req.body.productdescription.trim(),
         image: uploadedImageUrl,
       });
