@@ -4,9 +4,9 @@ import { IconBrandFacebook, IconBrandWhatsapp, IconBrandInstagram, IconBrandLink
 const Footer = () => {
   return (
     <footer className='w-full flex flex-col bg-[#0D2447]'>
-      <div className="grid lg:grid-cols-4 grid-cols-2 px-6 py-8 items-start">
+      <div className="grid lg:grid-cols-4 grid-cols-2 px-6 py-8">
         {/* grid1 */}
-      <div className="flex flex-col items-start justify-start">
+      <div className="flex flex-col items-start justify-start ">
       <h1 className="text-white text-2xl font-medium font-['Poppins']">Vrindavan Home</h1>
       <p className="text-white text-sm font-normal font-['Inter'] ">Your one-stop shop for all construction material. Build your dream with us</p>
       <div className="w-full flex-row flex items-center justify-start gap-3.5 mt-1.5">
@@ -20,7 +20,7 @@ const Footer = () => {
 
       </div>
       {/* grid2 */}
-      <nav className="flex flex-col items-center justify-center text-white">
+      <nav className="flex flex-col items-center justify-start text-white">
         <h2 className=" text-base font-semibold font-['Poppins']">Quick Links</h2>
         <a href="#" className="hover:cursor-pointer">Home</a>
         <a href="#" className="hover:cursor-pointer">Product</a>
@@ -29,7 +29,7 @@ const Footer = () => {
 
       </nav>
       {/* grid3 */}
-      <nav className="flex flex-col lg:items-center items-start justify-center text-white">
+      <nav className="flex flex-col items-center justify-start text-white">
         <h2 className=" text-base font-semibold font-['Poppins']">Support</h2>
         <a href="#" className="hover:cursor-pointer">FAQ</a>
         <a href="#" className="hover:cursor-pointer">Shipping</a>
