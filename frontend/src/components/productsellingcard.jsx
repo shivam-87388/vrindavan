@@ -11,9 +11,11 @@ const ProductSellingCard = ({product}) => {
           className="w-full h-36 object-contain rounded-md p-0.5"
         />
 
-        <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
-          {product.productdiscount}% OFF
-        </span>
+        {product.productdiscount > 0 && (
+          <span className="absolute top-2 left-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
+            {product.productdiscount}% OFF
+          </span>
+        )}
       </div>
 
       {/* Product Name */}
@@ -31,10 +33,12 @@ const ProductSellingCard = ({product}) => {
 
       {/* Price */}
       <div className="flex items-center gap-2">
-        <h3 className="text-lg font-bold">₹{product.finalprice}</h3>
-        <span className="text-sm text-gray-400 line-through">
-          ₹{product.productprice}
-        </span>
+        <h3 className="text-lg font-bold">₹{product.finalPrice}</h3>
+        {product.productdiscount > 0 && (
+          <span className="text-sm text-gray-400 line-through">
+            ₹{product.productprice}
+          </span>
+        )}
       </div>
 
       {/* Buttons */}
