@@ -83,7 +83,6 @@ const page = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-[#F6F8FB] ">
-      
       <form
         onSubmit={addproductfrom.handleSubmit}
         className="w-full max-w-md flex flex-col items-center justify-center bg-white rounded-md shadow-md p-4"
@@ -114,11 +113,12 @@ const page = () => {
                 required
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
-              {addproductfrom.touched.productname && addproductfrom.errors.productname && (
-              <span className="text-red-500 text-xs text-left w-full">
-                {addproductfrom.errors.productname}
-              </span>
-            )}
+              {addproductfrom.touched.productname &&
+                addproductfrom.errors.productname && (
+                  <span className="text-red-500 text-xs text-left w-full">
+                    {addproductfrom.errors.productname}
+                  </span>
+                )}
             </div>
             {/* product catagory */}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
@@ -158,11 +158,12 @@ const page = () => {
                 <option value="CCTV-&-Surveillance">CCTV & Surveillance</option>
                 <option value="Lightning">Lightning</option>
               </select>
-               {addproductfrom.touched.productcategory && addproductfrom.errors.productcategory && (
-              <span className="text-red-500 text-xs text-left w-full">
-                {addproductfrom.errors.productcategory}
-              </span>
-            )}
+              {addproductfrom.touched.productcategory &&
+                addproductfrom.errors.productcategory && (
+                  <span className="text-red-500 text-xs text-left w-full">
+                    {addproductfrom.errors.productcategory}
+                  </span>
+                )}
             </div>
           </div>
 
@@ -189,11 +190,12 @@ const page = () => {
                 required
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
-              {addproductfrom.touched.productprice && addproductfrom.errors.productprice && (
-              <span className="text-red-500 text-xs text-left w-full">
-                {addproductfrom.errors.productprice}
-              </span>
-            )}
+              {addproductfrom.touched.productprice &&
+                addproductfrom.errors.productprice && (
+                  <span className="text-red-500 text-xs text-left w-full">
+                    {addproductfrom.errors.productprice}
+                  </span>
+                )}
             </div>
             {/* stock field */}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
@@ -216,11 +218,12 @@ const page = () => {
                 required
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
-              {addproductfrom.touched.productquantity && addproductfrom.errors.productquantity && (
-              <span className="text-red-500 text-xs text-left w-full">
-                {addproductfrom.errors.productquantity}
-              </span>
-            )}
+              {addproductfrom.touched.productquantity &&
+                addproductfrom.errors.productquantity && (
+                  <span className="text-red-500 text-xs text-left w-full">
+                    {addproductfrom.errors.productquantity}
+                  </span>
+                )}
             </div>
           </div>
           {/* product rating and discount field  */}
@@ -247,11 +250,12 @@ const page = () => {
                 required
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
-              {addproductfrom.touched.productrating && addproductfrom.errors.productrating && (
-              <span className="text-red-500 text-xs text-left w-full">
-                {addproductfrom.errors.productrating}
-              </span>
-            )}
+              {addproductfrom.touched.productrating &&
+                addproductfrom.errors.productrating && (
+                  <span className="text-red-500 text-xs text-left w-full">
+                    {addproductfrom.errors.productrating}
+                  </span>
+                )}
             </div>
             {/* discount field */}
             <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
@@ -275,11 +279,12 @@ const page = () => {
                 required
                 className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
               ></input>
-              {addproductfrom.touched.productdiscount && addproductfrom.errors.productdiscount && (
-              <span className="text-red-500 text-xs text-left w-full">
-                {addproductfrom.errors.productdiscount}
-              </span>
-            )}
+              {addproductfrom.touched.productdiscount &&
+                addproductfrom.errors.productdiscount && (
+                  <span className="text-red-500 text-xs text-left w-full">
+                    {addproductfrom.errors.productdiscount}
+                  </span>
+                )}
             </div>
           </div>
           {/* description field */}
@@ -302,11 +307,12 @@ const page = () => {
               required
               className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
             ></textarea>
-             {addproductfrom.touched.productdescription && addproductfrom.errors.productdescription && (
-              <span className="text-red-500 text-xs text-left w-full">
-                {addproductfrom.errors.productdescription}
-              </span>
-            )}
+            {addproductfrom.touched.productdescription &&
+              addproductfrom.errors.productdescription && (
+                <span className="text-red-500 text-xs text-left w-full">
+                  {addproductfrom.errors.productdescription}
+                </span>
+              )}
           </div>
           {/* image upload field */}
           <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
@@ -322,7 +328,10 @@ const page = () => {
               accept="image/*"
               name="image"
               onChange={(e) => {
-                addproductfrom.setFieldValue("image", e.currentTarget.files[0]);
+                addproductfrom.setFieldValue(
+                  "image",
+                  e.currentTarget.files[0] || null,
+                );
               }}
               onBlur={addproductfrom.handleBlur}
               className="w-full text-sm text-slate-500 border-2 border-slate-200 rounded-lg p-1.5 file:mr-3 file:py-1 file:px-3 file:rounded-md file:bord file:border-slate-300 file:text-sm file:font-medium file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 cursor-pointer focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
@@ -332,7 +341,6 @@ const page = () => {
                 {addproductfrom.errors.image}
               </span>
             )}
-            
           </div>
           {/*  add new product button  */}
           <button
