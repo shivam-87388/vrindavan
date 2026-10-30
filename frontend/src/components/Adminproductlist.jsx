@@ -1,4 +1,6 @@
 import React from 'react'
+import { IconEdit, IconTrash } from '@tabler/icons-react';
+
 
 const Adminproductlist = () => {
   return (
