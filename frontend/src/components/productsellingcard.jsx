@@ -23,11 +23,38 @@ const ProductSellingCard = ({product}) => {
         {product.productname}
       </h1>
 
-      <p className="w-full text-start text-base font-normal font-['Inter']">{product.productdescription}</p>
+      <p className="w-full text-start text-base font-normal font-['Inter']">
+        {product.productdescription}
+      </p>
 
       {/* Rating */}
       <div className="flex items-center gap-1">
-        <span className="text-yellow-500">★★★★★</span>
+        <div className="flex">
+          {Array.from({ length: 5 }, (_, index) => {
+            const rating = Number(product.productrating) || 0;
+            const fillPercentage =
+              Math.min(Math.max(rating - index, 0), 1) * 100;
+
+            return (
+              <span
+                key={index}
+                className="relative inline-block text-xl leading-none"
+              >
+                {/* Background Star */}
+                <span className="text-gray-300">★</span>
+
+                {/* Filled Star */}
+                <span
+                  className="absolute top-0 left-0 overflow-hidden text-yellow-500"
+                  style={{ width: `${fillPercentage}%` }}
+                >
+                  ★
+                </span>
+              </span>
+            );
+          })}
+        </div>
+
         <span className="text-sm text-gray-600">{product.productrating}</span>
       </div>
 
