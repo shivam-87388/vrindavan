@@ -1,6 +1,7 @@
 'use client'
 import React,{useState,useEffect} from 'react'
 import ProductSellingCard from '@/components/Productsellingcard'
+import axios from 'axios';
 
 
 const page = () => {
@@ -8,10 +9,9 @@ const page = () => {
     useEffect(()=>{
     const fetchProducts = async()=>{
         try {
-            const response = await fetch("http://localhost:5000/product/all-product");
-            const result =  await response.json();
-           setProducts(result.data);
-           console.log(result.data);
+            const response = await axios.get("http://localhost:5000/product/all-product");
+           setProducts(response.data.data);
+           console.log(response.data.data);
 
         } catch (error) {
             console.log("Error fetching products:", error)

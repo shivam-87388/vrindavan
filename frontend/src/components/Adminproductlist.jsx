@@ -2,7 +2,7 @@ import React from 'react'
 import { IconEdit, IconTrash } from '@tabler/icons-react';
 
 
-const Adminproductlist = () => {
+const AdminProductList = () => {
   return (
     <div className="w-full flex flex-col p-4">
         <div className="grid grid-cols-7 gap-1.5 items-start border-b-2 border-slate-200 bg-[#F3F7FD] py-2.5 rounded-md">
@@ -78,4 +78,4 @@ const Adminproductlist = () => {
   )
 }
 
-export default Adminproductlist
+export default AdminProductList

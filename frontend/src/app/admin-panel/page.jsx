@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React,{useEffect,useState} from "react";
 
 import {
   IconHomeFilled,
@@ -13,8 +13,22 @@ import {
   IconSearch,
   IconChevronDown,
 } from "@tabler/icons-react";
+import axios from "axios";
 
 const page = () => {
+  const [product,setProduct]= useState([]);
+  useEffect(()=>{
+    const product = async()=>{
+      try {
+        const response = await axios.get("http://localhost:5000/product/all-product")
+        setProduct(response.data.data)
+        console.log(response.data.data)
+      } catch (error) {
+         console.log("Error fetching products:", error)
+      }
+    }
+    product();
+  },[]);
   return (
     <div className="min-h-screen w-full bg-[#F4F8FC]">
 
