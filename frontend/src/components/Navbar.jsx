@@ -45,7 +45,7 @@ const Navbar = () => {
         </a>
 
         <a
-          href="#"
+          href="/product-listing"
           className="whitespace-nowrap text-xs lg:text-sm font-medium font-['Inter'] text-[#566886] hover:text-blue-600"
         >
           Product
@@ -190,7 +190,7 @@ const Navbar = () => {
             Home
           </a>
 
-          <a href="#" className="flex items-center justify-center rounded-md px-2 py-2 text-sm font-bold text-slate-600 hover:bg-blue-600 hover:text-white">
+          <a href="/product-listing" className="flex items-center justify-center rounded-md px-2 py-2 text-sm font-bold text-slate-600 hover:bg-blue-600 hover:text-white">
             Product
           </a>
 

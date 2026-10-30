@@ -141,7 +141,7 @@ const homepage = () => {
             Product Cart
           </h2>
           <a
-            href="#"
+            href="/product-listing"
             className="flex flex-row gap-1.5 items-center justify-center"
           >
             <span className="text-blue-600 text-sm font-medium font-['Inter']">

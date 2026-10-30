@@ -1,6 +1,6 @@
 'use client'
 import React,{useState,useEffect} from 'react'
-import ProductSellingCard from '@/components/ProductSellingCard'
+import ProductSellingCard from '@/components/Productsellingcard'
 
 
 const page = () => {
