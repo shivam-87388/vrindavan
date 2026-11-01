@@ -250,7 +250,7 @@ const page = () => {
           {/* ================= RECENT QUERIES ================= */}
           <div className="mt-4 w-full rounded-xl bg-white p-4 shadow-sm sm:p-5">
             {/* Header */}
-            <div className="flex items-center justify-between gap-3 pb-4">
+            <div className="flex items-center justify-between mb-4">
               <h3 className="font-['Poppins'] text-xl font-bold text-slate-900">
                 Recent Queries
               </h3>
@@ -264,7 +264,7 @@ const page = () => {
                 <IconArrowNarrowRight size={16} />
               </a>
             </div>
-            <div className="grid grid-cols-5 gap-1.5 items-center justify-center py-2.5 rounded-md bg-[#F4F6F8]">
+            <div className="grid grid-cols-5 gap-1.5 items-center justify-center py-2.5 rounded-md bg-[#F4F6F8] mb-2">
               {/* serial no */}
               <div className="flex justify-center items-center">
                 <h3 className="text-center font-semibold text-slate-700">
@@ -296,12 +296,40 @@ const page = () => {
                 </h3>
               </div>
             </div>
-            
+            <div className="grid grid-cols-5 gap-1.5 items-center justify-center border-b-2 border-slate-200 py-2.5 hover:bg-gray-200">
+              <div className="flex items-center justify-center">
+                <h3 className="text-center font-medium text-slate-800">1</h3>
+              </div>
+              {/* name field */}
+              <div className="flex items-center justify-center">
+                <h3 className="text-center font-medium text-slate-800">
+                  ankit
+                </h3>
+              </div>
+              {/* email field */}
+              <div className="flex items-center justify-center">
+                <h3 className="text-center font-medium text-slate-800">
+                  ankit@gmail.com
+                </h3>
+              </div>
+              {/* message field */}
+              <div className="flex items-center justify-center">
+                <h3 className="text-center font-medium text-slate-800">
+                  hey i am ankit that this th
+                </h3>
+              </div>
+              {/* date */}
+              <div className="flex items-center justify-center">
+                <h3 className="text-center font-medium text-slate-800">
+                  28/05/2026
+                </h3>
+              </div>
+            </div>
           </div>
 
           {/* ================= PRODUCT HEADER ================= */}
-          <div className=" flex flex-col mt-4 w-full rounded-xl bg-white p-4 shadow-sm sm:p-5 gap-4">
-            <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className=" flex flex-col mt-4 w-full rounded-xl bg-white p-4 shadow-sm sm:p-5">
+            <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-center lg:justify-between mb-4">
               {/* Heading */}
               <h3 className="shrink-0 font-['Poppins'] text-xl font-bold text-slate-900">
                 Product
@@ -411,7 +439,7 @@ const page = () => {
               </div>
             </div>
             {/* label section */}
-            <div className="grid grid-cols-7 gap-1.5 items-start border-b-2 border-slate-200 bg-[#F3F7FD] py-2.5 rounded-md">
+            <div className="grid grid-cols-7 gap-1.5 items-start border-b-2 border-slate-200 bg-[#F3F7FD] py-2.5 rounded-md mb-2">
               {/* S.no */}
               <div className="flex justify-center items-center">
                 <h3 className="text-center font-semibold text-slate-700">
@@ -455,11 +483,10 @@ const page = () => {
                 </h3>
               </div>
             </div>
-            
-            {product.map((item,index)=>(
-            <Adminproductlist key={item._id} product={item} index={index}/>
-        )
-        )}
+
+            {product.map((item, index) => (
+              <Adminproductlist key={item._id} product={item} index={index} />
+            ))}
           </div>
         </main>
       </div>

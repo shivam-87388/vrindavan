@@ -4,7 +4,6 @@ import { IconEdit, IconTrash } from '@tabler/icons-react';
 
 const AdminProductList = ({product,index}) => {
   return (
-    <div className="w-full flex flex-col">
     <div  className="grid grid-cols-7 gap-1.5 py-2 border-b-2 border-slate-200">
         {/* serial no field */}
         <div className="flex items-center justify-center">
@@ -43,7 +42,7 @@ const AdminProductList = ({product,index}) => {
             
     </div>
     </div>
-    </div>
+    
   )
 }
 
