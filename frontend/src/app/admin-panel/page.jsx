@@ -296,6 +296,7 @@ const page = () => {
                 </h3>
               </div>
             </div>
+            {/* fixing */}
             <div className="grid grid-cols-5 gap-1.5 items-center justify-center border-b-2 border-slate-200 py-2.5 hover:bg-gray-200">
               <div className="flex items-center justify-center">
                 <h3 className="text-center font-medium text-slate-800">1</h3>
