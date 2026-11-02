@@ -6,7 +6,7 @@ const Queryform = require("../model/Querymodel");
 router.get("/all-query",async(req,res)=>{
     try {
         const query = await Queryform.find()
-        return res.status(200).json({message:"query fetch successfully"})
+        return res.status(200).json({message:"query fetch successfully", data:query})
     } catch (error) {
          return res.status(500).json({ message: error.message });
     }
