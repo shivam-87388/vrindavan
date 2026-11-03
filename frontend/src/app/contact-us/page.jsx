@@ -1,15 +1,10 @@
-import React from "react";
-import {
-  IconBrandTelegram,
-  IconPhoneFilled,
-  IconMailFilled,
-  IconMapPinFilled,
-  IconClockHour3,
-  IconBox,
-  IconTruck,
-  IconHeadset,
-  IconArrowRight,
-} from "@tabler/icons-react";
+'use client'
+import React,{useEffect,useState} from "react";
+import {IconBrandTelegram,IconPhoneFilled,IconMailFilled,IconMapPinFilled,IconClockHour3,IconBox,IconTruck,IconHeadset,IconArrowRight,} from "@tabler/icons-react";
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 const page = () => {
   const cards = [
@@ -32,37 +27,74 @@ const page = () => {
       icon: <IconHeadset className="text-[#0F67F2]" size={36} />,
     },
   ];
+  const QuerySchema = yup.object().shape({
+      fullname: yup.string().min(3, "Product name must be at least 3 characters").required("Name is required"),
+      email: yup.string().email("Enter a valid email").required("Email is required"),
+      phonenumber: yup.string().matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits").required("Phone number is required"),
+      subject: yup.string().required("Please select the subject"),
+      message: yup.string().min(20, "minimum 20 are required").required()
+    });
+    const queryfrom = useFormik({
+        initialValues: {
+          fullname:"",
+          email:"",
+          phonenumber: "",
+          subject: "",
+          message: ""
+        },
+        onSubmit: async(values) => {
+          console.log("Form submitted:", values);
+          try {
+            const response = await axios.post("http://localhost:5000/query/submit-query",values)
+            toast.success("Message send");
+          } catch (error) {
+            toast.error(error.response?.data?.message || "Failed to send message");
+          }
+      
+     },
+     validationSchema: QuerySchema,
+   });
+
+   const [query, setQuery] =  useState([]);
+   useEffect(() => {
+    const  query = async()=>{
+     try {
+        const response = await axios.get("http://localhost:5000/query/all-query")
+        setQuery(response.data.data)
+        console.log(response.data.data)
+      } catch (error) {
+         console.log("Error fetching query:", error)
+      }
+    }
+    query();
+  },[]);
 
   return (
     <div className="min-h-screen flex items-start justify-center">
       <div className="flex flex-col items-start justify-center w-full">
-        {/* header image section */}
-       {/* Header Image Section */}
-<div className="relative w-full h-[250px] sm:h-[280px] md:h-[250px] lg:h-[280px] overflow-hidden bg-[url('/contactpage.png')] bg-cover bg-[position:58%_center] md:bg-center bg-no-repeat">
+        {/* Header Image Section */}
+        <div className="relative w-full h-[250px] sm:h-[280px] md:h-[250px] lg:h-[280px] overflow-hidden bg-[url('/contactpage.png')] bg-cover bg-[position:58%_center] md:bg-center bg-no-repeat">
+          {/* Light overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-transparent md:from-white/90 md:via-white/50 md:to-transparent" />
 
-  {/* Light overlay for text readability */}
-  <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-transparent md:from-white/90 md:via-white/50 md:to-transparent" />
+          {/* Header Content */}
+          <div className="relative z-10 flex h-full w-full md:w-[58%] flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-10 py-4">
+            <h3 className="text-start text-orange-600 text-lg sm:text-base font-semibold font-['Poppins']">
+              Contact Us
+            </h3>
 
-  {/* Header Content */}
-  <div className="relative z-10 flex h-full w-full md:w-[58%] flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-10 py-4">
+            <h2 className="mt-1 text-start text-black text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold leading-tight font-['Poppins']">
+              We're Here to Help
+            </h2>
 
-    <h3 className="text-start text-orange-600 text-lg sm:text-base font-semibold font-['Poppins']">
-      Contact Us
-    </h3>
-
-    <h2 className="mt-1 text-start text-black text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold leading-tight font-['Poppins']">
-      We're Here to Help
-    </h2>
-
-    <p className="mt-2 max-w-lg text-start text-gray-800 text-xs sm:text-sm md:text-sm lg:text-base font-normal leading-relaxed font-['Inter']">
-      Have a question, need support or want to discuss a bulk order? Our team
-      is ready to assist you. Get in touch with us and we'll get back to you
-      as soon as possible.
-    </p>
-
-  </div>
-</div>
-{/* Header Image Section End */}
+            <p className="mt-2 max-w-lg text-start text-gray-800 text-xs sm:text-sm md:text-sm lg:text-base font-normal leading-relaxed font-['Inter']">
+              Have a question, need support or want to discuss a bulk order? Our
+              team is ready to assist you. Get in touch with us and we'll get
+              back to you as soon as possible.
+            </p>
+          </div>
+        </div>
+        {/* Header Image Section End */}
         {/* header image section end */}
         <div className="flex flex-col items-center justify-center p-4 w-full gap-4">
           {/* card section */}
@@ -72,20 +104,23 @@ const page = () => {
                 Send Us a Message
               </h3>
               {/* detail field */}
-              <form className="flex flex-col items-center justify-center mt-4 gap-2 w-full ">
+              <form onSubmit={queryfrom.handleSubmit} className="flex flex-col items-center justify-center mt-4 gap-2 w-full ">
                 {/* full name +  email address*/}
                 <div className="w-full flex md:flex-row flex-col  items-center justify-center lg:gap-4 gap-2 px-2">
                   {/* full name filed*/}
                   <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
                     <label
-                      htmlFor="full-name"
+                      htmlFor="fullname"
                       className="w-full text-start text-black text-sm font-bold font-['Inter']"
                     >
                       Full Name<span className="text-red-500">*</span>
                     </label>
                     <input
-                      id="full-name"
+                      id="fullname"
+                      name="fullname"
                       type="text"
+                      onChange={queryfrom.handleChange}
+                      value={queryfrom.values.fullname}
                       placeholder="Full name"
                       required
                       className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
@@ -94,14 +129,17 @@ const page = () => {
                   {/* email address field */}
                   <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
                     <label
-                      htmlFor="email-address"
+                      htmlFor="email"
                       className="w-full text-start text-black text-sm font-bold font-['Inter']"
                     >
                       Email Address<span className="text-red-500">*</span>
                     </label>
                     <input
-                      id="email-address"
+                      id="email"
+                      name="email"
                       type="email"
+                      onChange={queryfrom.handleChange}
+                      value={queryfrom.values.email}
                       placeholder="vrindavanHome@gmail.com"
                       required
                       className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
@@ -114,13 +152,16 @@ const page = () => {
                   {/* phone number field */}
                   <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
                     <label
-                      htmlFor="phone"
+                      htmlFor="phonenumber"
                       className="w-full text-start text-black text-sm font-bold font-['Inter']"
                     >
                       Phone Number<span className="text-red-500">*</span>
                     </label>
                     <input
-                      id="phone"
+                      name="phonenumber"
+                      onChange={queryfrom.handleChange}
+                      value={queryfrom.values.phonenumber}
+                      id="phonenumber"
                       type="tel"
                       placeholder="+91"
                       required
@@ -136,6 +177,10 @@ const page = () => {
                       Subject<span className="text-red-500">*</span>
                     </label>
                     <select
+                      name="subject"
+                      type="text"
+                      onChange={queryfrom.handleChange}
+                      value={queryfrom.values.subject}
                       id="subject"
                       required
                       className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] bg-white h-[42px]"
@@ -157,7 +202,11 @@ const page = () => {
                     Message<span className="text-red-500">*</span>
                   </label>
                   <textarea
-                    id="message"
+                   id="message"
+         name="message"
+         type="text"
+         onChange={queryfrom.handleChange}
+         value={queryfrom.values.message}
                     rows={3}
                     placeholder="Write your message here..."
                     required
