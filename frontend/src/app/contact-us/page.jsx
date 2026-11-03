@@ -1,6 +1,6 @@
 'use client'
-import React,{useEffect,useState} from "react";
-import {IconBrandTelegram,IconPhoneFilled,IconMailFilled,IconMapPinFilled,IconClockHour3,IconBox,IconTruck,IconHeadset,IconArrowRight,} from "@tabler/icons-react";
+import React, { useEffect, useState } from "react";
+import { IconBrandTelegram, IconPhoneFilled, IconMailFilled, IconMapPinFilled, IconClockHour3, IconBox, IconTruck, IconHeadset, IconArrowRight, } from "@tabler/icons-react";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import toast, { Toaster } from 'react-hot-toast';
@@ -28,46 +28,46 @@ const page = () => {
     },
   ];
   const QuerySchema = yup.object().shape({
-      fullname: yup.string().min(3, "Product name must be at least 3 characters").required("Name is required"),
-      email: yup.string().email("Enter a valid email").required("Email is required"),
-      phonenumber: yup.string().matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits").required("Phone number is required"),
-      subject: yup.string().required("Please select the subject"),
-      message: yup.string().min(20, "minimum 20 are required").required()
-    });
-    const queryfrom = useFormik({
-        initialValues: {
-          fullname:"",
-          email:"",
-          phonenumber: "",
-          subject: "",
-          message: ""
-        },
-        onSubmit: async(values) => {
-          console.log("Form submitted:", values);
-          try {
-            const response = await axios.post("http://localhost:5000/query/submit-query",values)
-            toast.success("Message send");
-          } catch (error) {
-            toast.error(error.response?.data?.message || "Failed to send message");
-          }
-      
-     },
-     validationSchema: QuerySchema,
-   });
+    fullname: yup.string().min(3, "Product name must be at least 3 characters").required("Name is required"),
+    email: yup.string().email("Enter a valid email").required("Email is required"),
+    phonenumber: yup.string().matches(/^[0-9]{10}$/, "Phone number must be exactly 10 digits").required("Phone number is required"),
+    subject: yup.string().required("Please select the subject"),
+    message: yup.string().min(20, "minimum 20 are required").required("Message is required")
+  });
+  const queryfrom = useFormik({
+    initialValues: {
+      fullname: "",
+      email: "",
+      phonenumber: "",
+      subject: "",
+      message: ""
+    },
+    onSubmit: async (values) => {
 
-   const [query, setQuery] =  useState([]);
-   useEffect(() => {
-    const  query = async()=>{
-     try {
+      try {
+        const response = await axios.post("http://localhost:5000/query/submit-query", values)
+        toast.success("Message send");
+      } catch (error) {
+        toast.error(error.response?.data?.message || "Failed to send message");
+      }
+
+    },
+    validationSchema: QuerySchema,
+  });
+
+  const [query, setQuery] = useState([]);
+  useEffect(() => {
+    const query = async () => {
+      try {
         const response = await axios.get("http://localhost:5000/query/all-query")
         setQuery(response.data.data)
         console.log(response.data.data)
       } catch (error) {
-         console.log("Error fetching query:", error)
+        console.log("Error fetching query:", error)
       }
     }
     query();
-  },[]);
+  }, []);
 
   return (
     <div className="min-h-screen flex items-start justify-center">
@@ -121,10 +121,16 @@ const page = () => {
                       type="text"
                       onChange={queryfrom.handleChange}
                       value={queryfrom.values.fullname}
+                      onBlur={queryfrom.handleBlur}
                       placeholder="Full name"
                       required
                       className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
                     ></input>
+                    {queryfrom.touched.fullname && queryfrom.errors.fullname && (
+                      <span className="text-red-500 text-xs text-left w-full">
+                        {queryfrom.errors.fullname}
+                      </span>
+                    )}
                   </div>
                   {/* email address field */}
                   <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
@@ -140,10 +146,16 @@ const page = () => {
                       type="email"
                       onChange={queryfrom.handleChange}
                       value={queryfrom.values.email}
+                      onBlur={queryfrom.handleBlur}
                       placeholder="vrindavanHome@gmail.com"
                       required
                       className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
                     ></input>
+                    {queryfrom.touched.email && queryfrom.errors.email && (
+                      <span className="text-red-500 text-xs text-left w-full">
+                        {queryfrom.errors.email}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -161,12 +173,18 @@ const page = () => {
                       name="phonenumber"
                       onChange={queryfrom.handleChange}
                       value={queryfrom.values.phonenumber}
+                      onBlur={queryfrom.handleBlur}
                       id="phonenumber"
                       type="tel"
                       placeholder="+91"
                       required
                       className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
                     ></input>
+                    {queryfrom.touched.phonenumber && queryfrom.errors.phonenumber && (
+                      <span className="text-red-500 text-xs text-left w-full">
+                        {queryfrom.errors.phonenumber}
+                      </span>
+                    )}
                   </div>
                   {/* subject field */}
                   <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
@@ -181,6 +199,7 @@ const page = () => {
                       type="text"
                       onChange={queryfrom.handleChange}
                       value={queryfrom.values.subject}
+                      onBlur={queryfrom.handleBlur}
                       id="subject"
                       required
                       className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 text-black text-base font-normal font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] bg-white h-[42px]"
@@ -191,6 +210,11 @@ const page = () => {
                       <option value="support">Order Support</option>
                       <option value="other">Other</option>
                     </select>
+                    {queryfrom.touched.subject && queryfrom.errors.subject && (
+                      <span className="text-red-500 text-xs text-left w-full">
+                        {queryfrom.errors.subject}
+                      </span>
+                    )}
                   </div>
                 </div>
                 {/* message field */}
@@ -202,16 +226,22 @@ const page = () => {
                     Message<span className="text-red-500">*</span>
                   </label>
                   <textarea
-                   id="message"
-         name="message"
-         type="text"
-         onChange={queryfrom.handleChange}
-         value={queryfrom.values.message}
+                    id="message"
+                    name="message"
+                    type="text"
+                    onChange={queryfrom.handleChange}
+                    value={queryfrom.values.message}
+                    onBlur={queryfrom.handleBlur}
                     rows={3}
                     placeholder="Write your message here..."
                     required
                     className="w-full rounded-md border-2 border-slate-200 px-2.5 py-1.5 font-['Inter'] focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200]"
                   ></textarea>
+                  {queryfrom.touched.message && queryfrom.errors.message && (
+                    <span className="text-red-500 text-xs text-left w-full">
+                      {queryfrom.errors.message}
+                    </span>
+                  )}
                 </div>
 
                 {/* send message button */}
