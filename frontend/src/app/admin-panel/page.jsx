@@ -1,6 +1,6 @@
 "use client";
 
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   IconHomeFilled,
@@ -14,22 +14,39 @@ import {
   IconChevronDown,
 } from "@tabler/icons-react";
 import axios from "axios";
-import Adminproductlist from '@/components/Adminproductlist';
+import Adminproductlist from "@/components/Adminproductlist";
 
 const page = () => {
-  const [product,setProduct]= useState([]);
-  useEffect(()=>{
-    const product = async()=>{
+  const [product, setProduct] = useState([]);
+  useEffect(() => {
+    const product = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/product/all-product")
-        setProduct(response.data.data)
-        console.log(response.data.data)
+        const response = await axios.get(
+          "http://localhost:5000/product/all-product",
+        );
+        setProduct(response.data.data);
+        console.log(response.data.data);
       } catch (error) {
-         console.log("Error fetching products:", error)
+        console.log("Error fetching products:", error);
       }
-    }
+    };
     product();
-  },[]);
+  }, []);
+  const [query, setQuery] = useState([]);
+  useEffect(() => {
+    const query = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/query/all-query",
+        );
+        setQuery(response.data.data);
+        console.log(response.data.data);
+      } catch (error) {
+        console.log("Error fetching query:", error);
+      }
+    };
+    query();
+  }, []);
   return (
     <div className="min-h-screen w-full bg-[#F4F8FC]">
       {/* ================= MAIN LAYOUT ================= */}
@@ -296,36 +313,44 @@ const page = () => {
                 </h3>
               </div>
             </div>
+            {query.map((querydata, index) => (
+              <div
+                key={querydata._id}
+                className="grid grid-cols-5 gap-1.5 items-center justify-center border-b-2 border-slate-200 py-2.5 hover:bg-gray-200"
+              >
+                <div className="flex items-center justify-center">
+                  <h3 className="text-center font-medium text-slate-800">
+                    {index + 1}
+                  </h3>
+                </div>
+                {/* name field */}
+                <div className="flex items-center justify-center">
+                  <h3 className="text-center font-medium text-slate-800">
+                    {querydata.fullname}
+                  </h3>
+                </div>
+                {/* email field */}
+                <div className="flex items-center justify-center">
+                  <h3 className="text-center font-medium text-slate-800">
+                    {querydata.email}
+                  </h3>
+                </div>
+                {/* message field */}
+                <div className="flex items-center justify-center">
+                  <h3 className="text-center font-medium text-slate-800 line-clamp-1">
+                    {querydata.message}
+                  </h3>
+                </div>
+                {/* date */}
+                <div className="flex items-center justify-center">
+                  <h3 className="text-center font-medium text-slate-800">
+                    {querydata.createdAt}
+                  </h3>
+                </div>
+              </div>
+            ))}
+
             {/* fixing */}
-            <div className="grid grid-cols-5 gap-1.5 items-center justify-center border-b-2 border-slate-200 py-2.5 hover:bg-gray-200">
-              <div className="flex items-center justify-center">
-                <h3 className="text-center font-medium text-slate-800">1</h3>
-              </div>
-              {/* name field */}
-              <div className="flex items-center justify-center">
-                <h3 className="text-center font-medium text-slate-800">
-                  ankit
-                </h3>
-              </div>
-              {/* email field */}
-              <div className="flex items-center justify-center">
-                <h3 className="text-center font-medium text-slate-800">
-                  ankit@gmail.com
-                </h3>
-              </div>
-              {/* message field */}
-              <div className="flex items-center justify-center">
-                <h3 className="text-center font-medium text-slate-800">
-                  hey i am ankit that this th
-                </h3>
-              </div>
-              {/* date */}
-              <div className="flex items-center justify-center">
-                <h3 className="text-center font-medium text-slate-800">
-                  28/05/2026
-                </h3>
-              </div>
-            </div>
           </div>
 
           {/* ================= PRODUCT HEADER ================= */}

@@ -5,6 +5,6 @@ const QuerySchema = new mongoose.Schema({
   phonenumber:{type: Number , required: true},
   subject:{type: String, required:true},
   message:{type: String, required:true},
-  createdAt: {type: Date,default: Date.now}
+ createdAt: {type: String,default: () => new Date().toISOString().split("T")[0]}
 })
 module.exports = mongoose.model('Querymodel', QuerySchema);
