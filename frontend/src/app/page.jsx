@@ -182,9 +182,9 @@ const homepage = () => {
 
             {/* Button: Mobile par compact padding aur text-xs */}
             <div className="w-full flex items-center justify-start">
-              <button className="text-white text-xs sm:text-sm md:text-base font-semibold font-['Inter'] bg-[#0B64F1] hover:bg-blue-600 rounded-md px-2.5 py-1.5 md:py-2 hover:cursor-pointer">
+              <a href="/contact-us" className="text-white text-xs sm:text-sm md:text-base font-semibold font-['Inter'] bg-[#0B64F1] hover:bg-blue-600 rounded-md px-2.5 py-1.5 md:py-2 hover:cursor-pointer">
                 Request a Quote
-              </button>
+              </a>
             </div>
           </div>
         </div>

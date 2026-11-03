@@ -1,8 +1,22 @@
 import React from 'react'
 import { IconEdit, IconTrash } from '@tabler/icons-react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 
 const AdminProductList = ({product,index}) => {
+  const handeldelete = async(id)=>{
+   
+    try {
+      const deleteitem = await axios.delete(`http://localhost:5000/product/delete-product/${id}`)
+      setProduct(product)
+      toast.success("Delete product sucessfully")
+    } catch (error) {
+      toast.error("Product not delete")
+      console.log(error.message)
+    }
+
+  }
   return (
     <div  className="grid grid-cols-7 gap-1.5 py-2 border-b-2 border-slate-200">
         {/* serial no field */}
@@ -36,9 +50,9 @@ const AdminProductList = ({product,index}) => {
             <IconEdit size={28} stroke={2} color="#fcfcfc"/>
         </a>
         {/* delete button */}
-        <a href="#" className="flex items-center justify-center bg-[#EC454A] p-0.5 rounded-md">
+        <button onClick={()=>handeldelete(product._id)} href="#" className="flex items-center justify-center bg-[#EC454A] p-0.5 rounded-md">
            <IconTrash size={28} stroke={2} color="#fcfcfc" />
-        </a>
+        </button>
             
     </div>
     </div>
