@@ -313,10 +313,11 @@ const page = () => {
                 </h3>
               </div>
             </div>
+            <div className="max-h-64 overflow-y-auto">
             {query.map((querydata, index) => (
               <div
                 key={querydata._id}
-                className="grid grid-cols-5 gap-1.5 items-center justify-center border-b-2 border-slate-200 py-2.5 hover:bg-gray-200"
+                className="grid grid-cols-5 gap-1.5 items-center justify-center border-b-2 border-slate-200 py-3.5 hover:bg-gray-200 hover:cursor-pointer"
               >
                 <div className="flex items-center justify-center">
                   <h3 className="text-center font-medium text-slate-800">
@@ -349,6 +350,8 @@ const page = () => {
                 </div>
               </div>
             ))}
+            </div>
+            
 
             {/* fixing */}
           </div>
@@ -509,10 +512,11 @@ const page = () => {
                 </h3>
               </div>
             </div>
-
+            <div className="max-h-80 overflow-y-auto">
             {product.map((item, index) => (
               <Adminproductlist key={item._id} product={item} index={index} />
             ))}
+            </div>
           </div>
         </main>
       </div>

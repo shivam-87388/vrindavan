@@ -245,15 +245,10 @@ const page = () => {
                 </div>
 
                 {/* send message button */}
-                <div className="w-full flex flex-row items-center justify-center mt-4.5 bg-[#FA5C0E] py-2 rounded-md hover:cursor-pointer gap-0.5">
-                  <IconBrandTelegram color="#FFFFFF" stroke={2} />
-                  <button
-                    type="submit"
-                    className="text-center text-base font-semibold font-['Inter'] text-white "
-                  >
-                    Send Message
-                  </button>
-                </div>
+                <button  type="submit" className="w-full flex flex-row items-center justify-center mt-4.5 bg-[#FA5C0E] py-2 rounded-md hover:cursor-pointer gap-0.5">
+                 <IconBrandTelegram color="#FFFFFF" stroke={2} />
+                  <span className="text-center text-base font-semibold font-['Inter'] text-white"> Send Message</span>
+                </button>
               </form>
               {/* detailfield end*/}
             </div>
