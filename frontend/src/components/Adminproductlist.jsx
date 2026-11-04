@@ -1,15 +1,17 @@
 import React from 'react'
 import { IconEdit, IconTrash } from '@tabler/icons-react';
-import axios from 'axios';
-import toast from 'react-hot-toast';
 
 
-const AdminProductList = ({product,index}) => {
+
+const AdminProductList = ({product,index,on}) => {
   const handeldelete = async(id)=>{
    
     try {
       const deleteitem = await axios.delete(`http://localhost:5000/product/delete-product/${id}`)
-      setProduct(product)
+      const deleteproduct = product.filter((item)=>(
+       item._id !== id
+      ))
+    setProduct(deleteproduct)
       toast.success("Delete product sucessfully")
     } catch (error) {
       toast.error("Product not delete")
@@ -17,6 +19,7 @@ const AdminProductList = ({product,index}) => {
     }
 
   }
+  
   return (
     <div  className="grid grid-cols-7 gap-1.5 py-2 border-b-2 border-slate-200">
         {/* serial no field */}
