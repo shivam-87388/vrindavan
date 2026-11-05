@@ -21,6 +21,9 @@ const Navbar = () => {
   };
 }, []);
 
+ const [username, setUsername] = useState("");
+ const fullname =localStorage.getItem("user_name") 
+
   return (
     <div>
       {/* desktop navbar  */}
