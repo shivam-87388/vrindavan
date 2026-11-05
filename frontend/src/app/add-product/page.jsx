@@ -2,7 +2,7 @@
 import React from "react";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import axios from 'axios';
 
 
@@ -71,7 +71,7 @@ const page = () => {
           "http://localhost:5000/product/add-product",
           formData,
         );
-        console.log("Product added successfully", response.data);
+        console.log("Product added successfully");
         toast.success("Product added successfully");
       } catch (error) {
         const message = error.response?.data?.message || "Product not added";

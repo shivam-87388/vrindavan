@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import toast from 'react-hot-toast';
 
 import {
   IconHomeFilled,
@@ -12,9 +13,11 @@ import {
   IconArrowNarrowRight,
   IconSearch,
   IconChevronDown,
+  IconEdit,
+  IconTrash,
 } from "@tabler/icons-react";
 import axios from "axios";
-import Adminproductlist from "@/components/Adminproductlist";
+
 
 const page = () => {
   const [product, setProduct] = useState([]);
@@ -25,12 +28,16 @@ const page = () => {
           "http://localhost:5000/product/all-product",
         );
         setProduct(response.data.data);
-        console.log(response.data.data);
+        
       } catch (error) {
         console.log("Error fetching products:", error);
       }
     };
     product();
+
+    const timeduration = setInterval(() => {
+    product()}, 3000);
+    return () => clearInterval(timeduration);
   }, []);
   const [query, setQuery] = useState([]);
   useEffect(() => {
@@ -40,15 +47,33 @@ const page = () => {
           "http://localhost:5000/query/all-query",
         );
         setQuery(response.data.data);
-        console.log(response.data.data);
+       
       } catch (error) {
         console.log("Error fetching query:", error);
       }
     };
     query();
+    const timeduration = setInterval(() => {
+    query()}, 3000);
+    return () => clearInterval(timeduration);
   }, []);
 
-  
+   const handeldelete = async(id)=>{
+   
+    try {
+      await axios.delete(`http://localhost:5000/product/delete-product/${id}`)
+      const deleteproduct = product.filter((item)=>{
+      return item._id !== id
+    })
+    setProduct(deleteproduct)
+      toast.success("Delete product sucessfully")
+    } catch (error) {
+      toast.error("Product not delete")
+      console.log(error.message)
+    }
+
+  }
+
   return (
     <div className="min-h-screen w-full bg-[#F4F8FC]">
       {/* ================= MAIN LAYOUT ================= */}
@@ -158,7 +183,7 @@ const page = () => {
                   </h3>
 
                   <p className="text-center text-xl font-bold text-slate-900">
-                    24
+                    {product.length}
                   </p>
 
                   <a
@@ -188,7 +213,7 @@ const page = () => {
                   </h3>
 
                   <p className="text-center text-xl font-bold text-slate-900">
-                    24
+                  {query.length}
                   </p>
 
                   <a
@@ -218,7 +243,7 @@ const page = () => {
                   </h3>
 
                   <p className="text-center text-xl font-bold text-slate-900">
-                    24
+                  24
                   </p>
 
                   <a
@@ -316,44 +341,43 @@ const page = () => {
               </div>
             </div>
             <div className="max-h-64 overflow-y-auto">
-            {query.map((querydata, index) => (
-              <div
-                key={querydata._id}
-                className="grid grid-cols-5 gap-1.5 items-center justify-center border-b-2 border-slate-200 py-3.5 hover:bg-gray-200 hover:cursor-pointer"
-              >
-                <div className="flex items-center justify-center">
-                  <h3 className="text-center font-medium text-slate-800">
-                    {index + 1}
-                  </h3>
+              {query.map((querydata, index) => (
+                <div
+                  key={querydata._id}
+                  className="grid grid-cols-5 gap-1.5 items-center justify-center border-b-2 border-slate-200 py-3.5 hover:bg-gray-200 hover:cursor-pointer"
+                >
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-800">
+                      {index + 1}
+                    </h3>
+                  </div>
+                  {/* name field */}
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-800">
+                      {querydata.fullname}
+                    </h3>
+                  </div>
+                  {/* email field */}
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-800">
+                      {querydata.email}
+                    </h3>
+                  </div>
+                  {/* message field */}
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-800 line-clamp-1">
+                      {querydata.message}
+                    </h3>
+                  </div>
+                  {/* date */}
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-800">
+                      {querydata.createdAt}
+                    </h3>
+                  </div>
                 </div>
-                {/* name field */}
-                <div className="flex items-center justify-center">
-                  <h3 className="text-center font-medium text-slate-800">
-                    {querydata.fullname}
-                  </h3>
-                </div>
-                {/* email field */}
-                <div className="flex items-center justify-center">
-                  <h3 className="text-center font-medium text-slate-800">
-                    {querydata.email}
-                  </h3>
-                </div>
-                {/* message field */}
-                <div className="flex items-center justify-center">
-                  <h3 className="text-center font-medium text-slate-800 line-clamp-1">
-                    {querydata.message}
-                  </h3>
-                </div>
-                {/* date */}
-                <div className="flex items-center justify-center">
-                  <h3 className="text-center font-medium text-slate-800">
-                    {querydata.createdAt}
-                  </h3>
-                </div>
-              </div>
-            ))}
+              ))}
             </div>
-            
 
             {/* fixing */}
           </div>
@@ -515,9 +539,69 @@ const page = () => {
               </div>
             </div>
             <div className="max-h-80 overflow-y-auto">
-            {product.map((item, index) => (
-              <Adminproductlist key={item._id} product={item} index={index} />
-            ))}
+              {product.map((item, index) => (
+                // <Adminproductlist key={item._id} product={item} index={index} />
+                <div
+                  key={item._id}
+                  className="grid grid-cols-7 gap-1.5 py-2 border-b-2 border-slate-200"
+                >
+                  {/* serial no field */}
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-800">
+                      {index + 1}
+                    </h3>
+                  </div>
+                  {/* image field */}
+                  <div className="flex items-center justify-center ">
+                    <img
+                      src={item.image}
+                      alt={item.productname}
+                      className="max-h-24 rounded-md"
+                    ></img>
+                  </div>
+                  {/* name  field  */}
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-500">
+                      {item.productname}
+                    </h3>
+                  </div>
+                  {/* product category */}
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-500">
+                      {item.productcategory}
+                    </h3>
+                  </div>
+                  {/* product quantity */}
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-500">
+                      {item.productquantity}
+                    </h3>
+                  </div>
+                  {/* product price */}
+                  <div className="flex items-center justify-center">
+                    <h3 className="text-center font-medium text-slate-500">
+                      ₹{item.finalPrice}
+                    </h3>
+                  </div>
+                  {/* edit & delete button */}
+                  <div className="flex flex-row items-center justify-center gap-2.5">
+                    {/* edit button */}
+                    <a
+                      href="#"
+                      className="flex items-center justify-center bg-[#2273F3] p-0.5 rounded-md"
+                    >
+                      <IconEdit size={28} stroke={2} color="#fcfcfc" />
+                    </a>
+                    {/* delete button */}
+                    <button
+                      onClick={() => handeldelete(item._id)}
+                      className="flex items-center justify-center bg-[#EC454A] p-0.5 rounded-md"
+                    >
+                      <IconTrash size={28} stroke={2} color="#fcfcfc" />
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </main>

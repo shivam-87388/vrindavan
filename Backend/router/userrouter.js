@@ -30,7 +30,7 @@ router.post("/login", async (req, res) => {
                 };
                 // Generate token with an expiration time
                 const token = jwt.sign(payload, process.env.JWT_SECRET,{ expiresIn: '1 day' });
-                return res.status(200).json({message: "Login successful",token: token});
+                return res.status(200).json({message: "Login successful",token: token, fullname: loginuser.fullname});
       } else {
         return res.status(401).json({ message: "password is incorrect" });
       }

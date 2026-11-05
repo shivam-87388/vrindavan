@@ -35,7 +35,9 @@ const page = () => {
           "http://localhost:5000/user/login",
           values,
         );
-        console.log(response.data.status);
+        localStorage.setItem("jwtToken",response.data.token);
+        console.log(response.status);
+       
         console.log("login sucessfully", response.data.message);
         toast.success("login sucessfully");
       } catch (error) {
