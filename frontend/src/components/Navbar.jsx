@@ -21,8 +21,15 @@ const Navbar = () => {
   };
 }, []);
 
- const [username, setUsername] = useState("");
- const fullname =localStorage.getItem("user_name") 
+ const [username, setUsername] = useState(false);
+ const fullname = localStorage.getItem("user_name");
+ if (fullname=!null) {
+  setUsername(fullname)
+ }else{
+setUsername("")
+ }
+
+
 
   return (
     <div>
