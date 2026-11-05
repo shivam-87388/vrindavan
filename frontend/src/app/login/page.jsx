@@ -36,8 +36,8 @@ const page = () => {
           values,
         );
         localStorage.setItem("jwtToken",response.data.token);
+        localStorage.setItem("user_name",response.data.fullname);
         console.log(response.status);
-       
         console.log("login sucessfully", response.data.message);
         toast.success("login sucessfully");
       } catch (error) {
