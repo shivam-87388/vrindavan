@@ -4,12 +4,12 @@ import React,{useState} from 'react'
 
 
 const page = () => {
-  const [user, setUser] =  useState("");
   const fullname = localStorage.getItem("user_name");
+  const [user, setUser] =  useState("");
  
   return (
    <div className="min-h-screen flex  items-center justify-center gap-2.5">
-   { user ?<h1>
+   { setUser ?<h1>
 
      {fullname}
    </h1>
