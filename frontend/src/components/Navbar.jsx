@@ -1,8 +1,10 @@
 'use client'
 import React, { useState, useEffect, useRef } from "react";
-import { IconShoppingCart, IconSearch, IconArrowsCross,IconMenu2 } from '@tabler/icons-react';
+import { IconShoppingCart, IconSearch, IconArrowsCross,IconMenu2,IconUserCircle } from '@tabler/icons-react';
 
 const Navbar = () => {
+
+
    const [show, setShow] = useState(false);
   const navRef = useRef(null);
   const handleClick = () => {
@@ -20,7 +22,8 @@ const Navbar = () => {
     document.removeEventListener("mousedown", handleOutsideClick);
   };
 }, []);
-
+ const [user, setUser] = useState("");
+  const username = localStorage.getItem("user_name");
 
 
 
@@ -113,7 +116,7 @@ const Navbar = () => {
         </button>
 
         {/* Login */}
-       <a
+      <a
           href="/login"
           className="flex h-8 w-14 shrink-0 items-center justify-center rounded-md border border-blue-600 px-1 text-xs font-semibold font-['Inter'] text-blue-600 hover:bg-blue-50 lg:h-9 lg:w-20 lg:text-sm"
         >
