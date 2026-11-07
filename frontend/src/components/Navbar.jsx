@@ -1,29 +1,43 @@
 'use client'
 import React, { useState, useEffect, useRef } from "react";
-import { IconShoppingCart, IconSearch, IconArrowsCross,IconMenu2,IconUserCircle } from '@tabler/icons-react';
+import { IconShoppingCart, IconSearch, IconArrowsCross,IconMenu2,IconUserCircle,IconChevronDown,IconLogout } from '@tabler/icons-react';
 
 const Navbar = () => {
 
 
-   const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
   const navRef = useRef(null);
-  const handleClick = () => {
+  const handleMenuClick = () => {
     setShow(!show);
   };
-    useEffect(() => {
+  useEffect(() => {
     const handleOutsideClick = (event) => {
-    if (navRef.current && !navRef.current.contains(event.target)) {
-      setShow(false);
-       }
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setShow(false);
+      }
     };
 
-  document.addEventListener("mousedown", handleOutsideClick);
-  return () => {
-    document.removeEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    const username = localStorage.getItem("user_name");
+    setUser(username)
+  }, []);
+
+  const [dropdown, setDropdown] = useState(false);
+  const handleDropdownClick = () => {
+    setDropdown(!dropdown);
   };
-}, []);
- const [user, setUser] = useState("");
-  const username = localStorage.getItem("user_name");
+  const handledelete =()=>{
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("user_name");
+    setUser("")
+  }
 
 
 
@@ -114,9 +128,31 @@ const Navbar = () => {
         >
           <IconShoppingCart size={25} />
         </button>
-
-        {/* Login */}
-      <a
+        
+        {
+        user ?
+       <div className="relative flex flex-col items-center justify-center">
+        <div className="flex h-8 lg:h-9 shrink-0 items-center justify-center rounded-md bg-blue-600 px-2.5 gap-1.5">
+          <div className="flex flex-row items-center justify-center">
+          <IconUserCircle stroke={2} color="#ffffff" size={24}/>
+          <h1 className="text-xs font-semibold font-['Inter'] text-white text-nowrap">{user}</h1>
+          </div>
+          <button onClick={handleDropdownClick} className="border-2 rounded-md border-white items-center justify-center mx-">
+          <IconChevronDown stroke={2} color="#ffffff" size={24}/>
+          </button>
+        </div>
+        {
+        dropdown ?
+        <button onClick={handledelete} className="absolute top-full right-0 z-50 mt-1 flex h-8 w-full items-center justify-center rounded-md bg-red-400 px-1">
+        <IconLogout stroke={2} color="#ffffff" size={24}/>
+        <span className="text-xs font-semibold font-['Inter'] text-white text-nowrap">logout</span>
+       </button>:""
+        }
+       
+       </div>
+        :
+        <div className="flex flex-row items-center justify-center gap-1.5">
+          <a
           href="/login"
           className="flex h-8 w-14 shrink-0 items-center justify-center rounded-md border border-blue-600 px-1 text-xs font-semibold font-['Inter'] text-blue-600 hover:bg-blue-50 lg:h-9 lg:w-20 lg:text-sm"
         >
@@ -130,6 +166,9 @@ const Navbar = () => {
         >
           Signup
         </a>
+        </div>
+      }
+      
       </div>
 
     </header>
@@ -178,7 +217,7 @@ const Navbar = () => {
     <div ref={navRef} className="relative shrink-0">
       <button
         type="button"
-        onClick={handleClick}
+        onClick={handleMenuClick}
         aria-label={show ? "Close menu" : "Open menu"}
         aria-expanded={show}
         className="flex items-center justify-center p-1"
