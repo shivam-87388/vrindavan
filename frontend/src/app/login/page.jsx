@@ -6,6 +6,8 @@ import * as yup from "yup";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 
+
+
 const page = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => {
@@ -37,6 +39,7 @@ const page = () => {
         );
         localStorage.setItem("jwtToken",response.data.token);
         localStorage.setItem("user_name",response.data.fullname);
+       
         console.log(response.status);
         console.log("login sucessfully", response.data.message);
         toast.success("login sucessfully");
@@ -142,5 +145,5 @@ const page = () => {
     </div>
   );
 };
-
+ 
 export default page;

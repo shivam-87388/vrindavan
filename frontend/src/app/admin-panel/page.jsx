@@ -24,7 +24,7 @@ const page = () => {
     const product = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/product/all-product",
+          "http://localhost:5000/product/all-product"
         );
         setProduct(response.data.data);
         
