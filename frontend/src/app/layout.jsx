@@ -2,7 +2,9 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+import UserContext from "@/components/UserContext";
+
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,10 +30,12 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${poppins.variable} ${inter.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <UserContext>
         <Navbar />
         <Toaster position="top-center" reverseOrder={false} />
         {children}
         <Footer />
+       </UserContext>
       </body>
     </html>
   );

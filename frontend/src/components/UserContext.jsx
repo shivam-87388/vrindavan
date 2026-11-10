@@ -1,10 +1,17 @@
-import React, { createContext } from 'react'
+'use client'
+import { createContext, useState } from 'react'
+const userContext = createContext();
 
-const UserContext = () => {
-    const user = createContext();
+
+
+
+const UserContext = ({children}) => {
+  const [fullname, setFullname] = useState("");
+const [token, setToken] = useState("");
+
   return (
-    <div>UserContext</div>
+    <userContext.Provider value={{fullname, setFullname,token,setToken}}>{children}</userContext.Provider>
   )
 }
 
-export default UserContext
+export default UserContext;
