@@ -1,5 +1,6 @@
 'use client'
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { userContext } from "@/components/UserContext";
 import { IconShoppingCart, IconSearch, IconArrowsCross,IconMenu2,IconUserCircle,IconChevronDown,IconLogout } from '@tabler/icons-react';
 
 const Navbar = () => {
@@ -22,22 +23,19 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
-  const [user, setUser] = useState("");
-
-  useEffect(() => {
-    const username = localStorage.getItem("user_name");
-    setUser(username)
-  }, []);
+ const { fullname, setFullname, setToken } = useContext(userContext);
 
   const [dropdown, setDropdown] = useState(false);
   const handleDropdownClick = () => {
     setDropdown(!dropdown);
   };
-  const handledelete =()=>{
-    localStorage.removeItem("jwtToken");
-    localStorage.removeItem("user_name");
-    setUser("")
-  }
+ const handledelete = () => {
+  localStorage.removeItem("jwtToken");
+  localStorage.removeItem("user_name");
+
+  setFullname("");
+  setToken("");
+};
 
 
 
@@ -130,12 +128,12 @@ const Navbar = () => {
         </button>
         
         {
-        user ?
+        fullname ?
        <div className="relative flex flex-col items-center justify-center">
         <div className="flex h-8 lg:h-9 shrink-0 items-center justify-center rounded-md bg-blue-600 px-2.5 gap-1.5">
           <div className="flex flex-row items-center justify-center">
           <IconUserCircle stroke={2} color="#ffffff" size={24}/>
-          <h1 className="text-xs font-semibold font-['Inter'] text-white text-nowrap">{user}</h1>
+          <h1 className="text-xs font-semibold font-['Inter'] text-white text-nowrap">{fullname}</h1>
           </div>
           <button onClick={handleDropdownClick} className="border-2 rounded-md border-white items-center justify-center mx-">
           <IconChevronDown stroke={2} color="#ffffff" size={24}/>
