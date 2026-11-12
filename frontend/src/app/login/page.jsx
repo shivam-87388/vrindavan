@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { userContext } from "@/components/UserContext";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -9,6 +10,7 @@ import axios from "axios";
 
 
 const page = () => {
+  const { fullname, setFullname, token, setToken } = useContext(userContext);
   const [show, setShow] = useState(false);
   const handleClick = () => {
     setShow(!show);
