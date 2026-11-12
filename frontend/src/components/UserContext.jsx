@@ -1,6 +1,6 @@
 'use client'
 import { createContext, useState } from 'react'
-const userContext = createContext();
+export const userContext = createContext();
 
 
 
