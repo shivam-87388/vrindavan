@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
-const AdminContext = createContext("");
-export function AdminContext({ children }) {
+export const adminContext = createContext("");
+export const AdminContext = ({ children }) => {
   const [adminuser, setAdminUser] = useState("");
   const [admintoken, setAdminToken] = useState("");
   useEffect(() => {
@@ -8,15 +8,12 @@ export function AdminContext({ children }) {
  const saveAdmintoken = localStorage.getItem("admintoken")
  setAdminUser(saveAdminuser||"");
  setAdminToken(saveAdmintoken||"");
-  return () => {
-   
-  };
 }, []);
   return (
-    <AdminContext.Provider
+    <adminContext.Provider
       value={{ adminuser, setAdminUser, admintoken, setAdminToken }}
     >
       {children}
-    </AdminContext.Provider>
+    </adminContext.Provider>
   );
 }

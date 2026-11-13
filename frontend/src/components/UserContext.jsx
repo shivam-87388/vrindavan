@@ -2,9 +2,6 @@
 import { createContext, useState, useEffect } from 'react'
 export const userContext = createContext();
 
-
-
-
 const UserContext = ({children}) => {
   const [fullname, setFullname] = useState("");
 const [token, setToken] = useState("");
