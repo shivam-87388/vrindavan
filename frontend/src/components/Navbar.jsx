@@ -1,10 +1,13 @@
 'use client'
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { userContext } from "@/components/UserContext";
+
 import { IconShoppingCart, IconSearch, IconArrowsCross,IconMenu2,IconUserCircle,IconChevronDown,IconLogout } from '@tabler/icons-react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+
 
 const Navbar = () => {
-
 
   const [show, setShow] = useState(false);
   const navRef = useRef(null);
@@ -36,7 +39,7 @@ const Navbar = () => {
   setFullname("");
   setToken("");
 };
-
+ const pathname = usePathname();
 
 
   return (
@@ -150,12 +153,14 @@ const Navbar = () => {
        </div>
         :
         <div className="flex flex-row items-center justify-center gap-1.5">
-          <a
-          href="/login"
-          className="flex h-8 w-14 shrink-0 items-center justify-center rounded-md border border-blue-600 px-1 text-xs font-semibold font-['Inter'] text-blue-600 hover:bg-blue-50 lg:h-9 lg:w-20 lg:text-sm"
+
+          {/* loginbutton */}
+          <Link
+           href={pathname === '/admin-panel' ? '/admin-login' : '/login'} 
+          className=" flex h-8 w-14 shrink-0 items-center justify-center rounded-md border border-blue-600 px-1 text-xs font-semibold font-['Inter'] text-blue-600 hover:bg-blue-50 lg:h-9 lg:w-20 lg:text-sm"
         >
           Login
-        </a>
+        </Link>
 
         {/* Signup */}
         <a
@@ -165,7 +170,7 @@ const Navbar = () => {
           Signup
         </a>
         </div>
-      }
+}
       
       </div>
 

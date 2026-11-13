@@ -12,8 +12,8 @@ useEffect(() => {
   const savedName = localStorage.getItem("user_name");
   const savedToken = localStorage.getItem("jwtToken");
 
-  setFullname(savedName || "");
-  setToken(savedToken || "");
+  setFullname(savedName||"");
+  setToken(savedToken||"");
 }, []);
   return (
     <userContext.Provider value={{fullname, setFullname,token,setToken}}>{children}</userContext.Provider>

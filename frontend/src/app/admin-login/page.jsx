@@ -30,13 +30,17 @@ const loginform = useFormik({
      },
      onSubmit: async(values) => {
       try {
-        const response = await axios.post("http://localhost:5000/admin/login",values);
-        console.log(response.data.status);
-        console.log("Account created sucessfully",response.data.message);
-       toast.success('Account created sucessfully');
+        const response = await axios.post(
+          "http://localhost:5000/admin/login",
+          values,
+        );
+        console.log(response.data.message, response.status);
+        localStorage.setItem("admin_name",response.data.fullname);
+        localStorage.setItem("admin_token",response.data.token);
+        toast.success(response.data.message);
       } catch (error) {
-           const message = error.response?.data?.message || "Login error";
-           toast.error(message);
+        const message = error.response?.data?.message || "Login error";
+        toast.error(message);
       };
      },
       validationSchema: LoginSchema

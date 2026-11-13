@@ -25,7 +25,7 @@ router.post("/login", async (req, res) => {
         });
         return res
           .status(200)
-          .json({ message: "Login successful", token: token });
+          .json({ message: "Admin Login successful",token: token, fullname:loginuser.fullname});
       } else {
         return res.status(401).json({ message: "password is incorrect" });
       }
