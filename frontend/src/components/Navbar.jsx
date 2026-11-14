@@ -27,7 +27,7 @@ const Navbar = () => {
     };
   }, []);
  const { fullname, setFullname, setToken, token} = useContext(userContext);
- useContext(userContext);
+ 
  const [dropdown, setDropdown] = useState(false);
  const handleDropdownClick = () => {
    setDropdown(!dropdown);
@@ -39,7 +39,7 @@ const Navbar = () => {
     setFullname("");
     setToken("");
   };
-  const { adminuser, setAdminuser, admintoken, AdminToken } = useContext(adminContext)
+  const { adminuser,setAdminUser,admintoken,setAdminToken} = useContext(adminContext)
 const handleadmindelete = () => {
     localStorage.removeItem("admin_name");
     localStorage.removeItem("admin_token");
