@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Toaster } from 'react-hot-toast';
 import UserContext from "@/components/UserContext";
+import { AdminContext } from "@/components/AdminContext";
 
 
 const inter = Inter({
@@ -31,10 +32,12 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <UserContext>
+          <AdminContext>
         <Navbar />
         <Toaster position="top-center" reverseOrder={false} />
         {children}
         <Footer />
+        </AdminContext>
        </UserContext>
       </body>
     </html>
