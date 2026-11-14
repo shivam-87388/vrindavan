@@ -44,10 +44,12 @@ const handleadmindelete = () => {
     localStorage.removeItem("admin_name");
     localStorage.removeItem("admin_token");
     
-    setAdminuser("");
+    setAdminUser("");
     setAdminToken("");
   };
- const pathname = usePathname();
+  const pathname = usePathname();
+  const isAdmin = pathname.startsWith("/admin-panel");
+  const displayName = isAdmin?adminuser:fullname;
 
 
   return (
@@ -139,12 +141,12 @@ const handleadmindelete = () => {
         </button>
         
         {
-        fullname ?
+        displayName ?
        <div className="relative flex flex-col items-center justify-center">
         <div className="flex h-8 lg:h-9 shrink-0 items-center justify-center rounded-md bg-blue-600 px-2.5 gap-1.5">
           <div className="flex flex-row items-center justify-center">
           <IconUserCircle stroke={2} color="#ffffff" size={24}/>
-          <h1 className="text-xs font-semibold font-['Inter'] text-white text-nowrap">{fullname}</h1>
+          <h1 className="text-xs font-semibold font-['Inter'] text-white text-nowrap">{displayName}</h1>
           </div>
           <button onClick={handleDropdownClick} className="border-2 rounded-md border-white items-center justify-center mx-">
           <IconChevronDown stroke={2} color="#ffffff" size={24}/>
