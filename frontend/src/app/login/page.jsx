@@ -4,11 +4,11 @@ import { userContext } from "@/components/UserContext";
 import { IconEye, IconEyeOff } from "@tabler/icons-react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import axios from "axios";
 
 const page = () => {
-  const { fullname, setFullname, token, setToken } = useContext(userContext);
+  const { setFullname, setToken } = useContext(userContext);
   const [show, setShow] = useState(false);
   const handleClick = () => {
     setShow(!show);

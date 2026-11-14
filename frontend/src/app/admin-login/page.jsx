@@ -1,14 +1,15 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useContext} from 'react'
 import { IconMail , IconLock, IconArrowNarrowRight, IconEyeOff, IconEye } from '@tabler/icons-react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import axios from 'axios';
-
+import { adminContext } from '@/components/AdminContext';
 
 const page = () => {
   const [showpassword, setShowpassword ] = useState(false);
+  const { setAdminUser, setAdminToken } = useContext(adminContext);
   const handleclick = ()=>{
     setShowpassword(!showpassword);
   };
@@ -35,8 +36,10 @@ const loginform = useFormik({
           values,
         );
         console.log(response.data.message, response.status);
-        localStorage.setItem("admin_name",response.data.fullname);
-        localStorage.setItem("admin_token",response.data.token);
+        localStorage.setItem("admin_name", response.data.fullname);
+        localStorage.setItem("admin_token", response.data.token);
+        setAdminUser(response.data.fullname);
+        setAdminToken(response.data.token);
         toast.success(response.data.message);
       } catch (error) {
         const message = error.response?.data?.message || "Login error";

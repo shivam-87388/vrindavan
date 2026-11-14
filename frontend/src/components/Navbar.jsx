@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { userContext } from "@/components/UserContext";
-
+import { adminContext } from "@/components/AdminContext";
 import { IconShoppingCart, IconSearch, IconArrowsCross,IconMenu2,IconUserCircle,IconChevronDown,IconLogout } from '@tabler/icons-react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -26,19 +26,27 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
- const { fullname, setFullname, setToken } = useContext(userContext);
-
-  const [dropdown, setDropdown] = useState(false);
-  const handleDropdownClick = () => {
-    setDropdown(!dropdown);
+ const { fullname, setFullname, setToken, token} = useContext(userContext);
+ useContext(userContext);
+ const [dropdown, setDropdown] = useState(false);
+ const handleDropdownClick = () => {
+   setDropdown(!dropdown);
   };
- const handledelete = () => {
-  localStorage.removeItem("jwtToken");
-  localStorage.removeItem("user_name");
-
-  setFullname("");
-  setToken("");
-};
+  const handledelete = () => {
+    localStorage.removeItem("jwtToken");
+    localStorage.removeItem("user_name");
+    
+    setFullname("");
+    setToken("");
+  };
+  const { adminuser, setAdminuser, admintoken, AdminToken } = useContext(adminContext)
+const handleadmindelete = () => {
+    localStorage.removeItem("admin_name");
+    localStorage.removeItem("admin_token");
+    
+    setAdminuser("");
+    setAdminToken("");
+  };
  const pathname = usePathname();
 
 

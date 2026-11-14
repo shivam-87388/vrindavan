@@ -4,8 +4,8 @@ export const AdminContext = ({ children }) => {
   const [adminuser, setAdminUser] = useState("");
   const [admintoken, setAdminToken] = useState("");
   useEffect(() => {
- const saveAdminuser = localStorage.getItem("adminuser")
- const saveAdmintoken = localStorage.getItem("admintoken")
+ const saveAdminuser = localStorage.getItem("admin_name")
+ const saveAdmintoken = localStorage.getItem("admin_token")
  setAdminUser(saveAdminuser||"");
  setAdminToken(saveAdmintoken||"");
 }, []);
