@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState, useContext} from "react";
 import toast from 'react-hot-toast';
-import { adminContext, AdminContext } from "@/components/AdminContext";
 import {
   IconHomeFilled,
   IconBox,
@@ -72,15 +71,14 @@ const page = () => {
     }
 
   }
-  const {admintoken} = useContext(adminContext);
-  useEffect(()=>{
-   if (admintoken==="") {
 
-    
-   } else {
-    router.push()
-   }
-  },[admintoken]);
+  useEffect(()=>{
+    const token = localStorage.getItem("admin_token")
+    if (!token) {
+     window.location.href = "/admin/login"
+      
+    }
+  },[]);
   
   return (
     <div className="min-h-screen w-full bg-[#F4F8FC]">
