@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useContext} from 'react'
+import React, { useState, useContext,useEffect} from 'react'
 import { IconMail , IconLock, IconArrowNarrowRight, IconEyeOff, IconEye } from '@tabler/icons-react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -48,6 +48,13 @@ const loginform = useFormik({
      },
       validationSchema: LoginSchema
    });
+   useEffect(()=>{
+       const token = localStorage.getItem("admin_token")
+       if (token !==null || token !== undefined || token !== "") {
+        window.location.href = "/admin-panel"
+         
+       }
+     },[]);
 
 
   return (
