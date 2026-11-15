@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import toast from 'react-hot-toast';
-
+import { adminContext, AdminContext } from "@/components/AdminContext";
 import {
   IconHomeFilled,
   IconBox,
@@ -72,7 +72,16 @@ const page = () => {
     }
 
   }
+  const {admintoken} = useContext(adminContext);
+  useEffect(()=>{
+   if (admintoken==="") {
 
+    
+   } else {
+    router.push()
+   }
+  },[admintoken]);
+  
   return (
     <div className="min-h-screen w-full bg-[#F4F8FC]">
       {/* ================= MAIN LAYOUT ================= */}
