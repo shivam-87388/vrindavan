@@ -72,13 +72,6 @@ const page = () => {
 
   }
 
-  useEffect(()=>{
-    const token = localStorage.getItem("admin_token")
-    if (!token) {
-     window.location.href = "/admin-login"
-      
-    }
-  },[]);
   
   return (
     <div className="min-h-screen w-full bg-[#F4F8FC]">

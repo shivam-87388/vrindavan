@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { userContext } from "@/components/UserContext";
 import { adminContext } from "@/components/AdminContext";
 import { IconShoppingCart, IconSearch, IconArrowsCross,IconMenu2,IconUserCircle,IconChevronDown,IconLogout } from '@tabler/icons-react';
-import { usePathname } from 'next/navigation';
+import { usePathname,useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 
@@ -37,14 +37,14 @@ const Navbar = () => {
   const pathname = usePathname();
   const isAdmin = pathname.startsWith("/admin-panel");
   const displayName = isAdmin ? adminuser : fullname;
-
+const router = useRouter();
   const handledelete = () => {
     if (isAdmin===true) {
       localStorage.removeItem("admin_name");
       localStorage.removeItem("admin_token");
-
       setAdminUser("");
       setAdminToken("");
+      router.push("/admin-login")
     } else {
       localStorage.removeItem("jwtToken");
       localStorage.removeItem("user_name");

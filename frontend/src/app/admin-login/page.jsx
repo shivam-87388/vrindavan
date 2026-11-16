@@ -6,6 +6,7 @@ import * as yup from 'yup';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { adminContext } from '@/components/AdminContext';
+import { useRouter } from 'next/navigation';
 
 const page = () => {
   const [showpassword, setShowpassword ] = useState(false);
@@ -24,6 +25,7 @@ const LoginSchema = yup.object().shape({
     .min(6, '6 characters are required'),
 });
 
+const router = useRouter();
 const loginform = useFormik({
      initialValues: {
       email: "",
@@ -40,6 +42,7 @@ const loginform = useFormik({
         localStorage.setItem("admin_token", response.data.token);
         setAdminUser(response.data.fullname);
         setAdminToken(response.data.token);
+        router.push("/admin-panel")
         toast.success(response.data.message);
       } catch (error) {
         const message = error.response?.data?.message || "Login error";
@@ -48,13 +51,14 @@ const loginform = useFormik({
      },
       validationSchema: LoginSchema
    });
+   
    useEffect(()=>{
        const token = localStorage.getItem("admin_token")
-       if (token !==null || token !== undefined || token !== "") {
-        window.location.href = "/admin-panel"
+       if (token !==null && token !== undefined && token !== "") {
+       
          
        }
-     },[]);
+     },["admin_token"]);
 
 
   return (
