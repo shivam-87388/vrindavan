@@ -10,26 +10,38 @@ import Link from 'next/link';
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const navRef = useRef(null);
+  const dropdownRef = useRef(null);
   const handleMenuClick = () => {
     setShow(!show);
   };
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
-        setShow(false);
-      }
-    };
+useEffect(() => {
+  const handleOutsideClick = (event) => {
 
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
+    // Mobile menu close
+    if (navRef.current && !navRef.current.contains(event.target)) {
+      setShow(false);
+    }
+
+    // Logout dropdown close
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setDropdown(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleOutsideClick);
+
+  return () => {
+    document.removeEventListener("mousedown", handleOutsideClick);
+  };
+}, []);
   const { fullname, setFullname, setToken, token } = useContext(userContext);
 
   const [dropdown, setDropdown] = useState(false);
   const handleDropdownClick = () => {
-    setDropdown(!dropdown);
+    setDropdown((prev)=>!prev);
   };
 
   const { adminuser, setAdminUser, admintoken, setAdminToken } =
@@ -143,7 +155,7 @@ const router = useRouter();
             </button>
 
             {displayName ? (
-              <div className="relative flex flex-col items-center justify-center">
+              <div ref={dropdownRef} className="relative flex flex-col items-center justify-center">
                 <div className="flex h-8 lg:h-9 shrink-0 items-center justify-center rounded-md bg-blue-600 px-2.5 gap-1.5">
                   <div className="flex flex-row items-center justify-center">
                     <IconUserCircle stroke={2} color="#ffffff" size={24} />

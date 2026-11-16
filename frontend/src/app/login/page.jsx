@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import toast from "react-hot-toast";
 import axios from "axios";
+import {useRouter} from 'next/navigation';
 
 const page = () => {
   const { setFullname, setToken } = useContext(userContext);
@@ -25,7 +26,7 @@ const page = () => {
       .matches(/\W/, "any special character is required")
       .min(6, "6 characters are required"),
   });
-
+const router = useRouter();
   const loginform = useFormik({
     initialValues: {
       email: "",
@@ -43,6 +44,7 @@ const page = () => {
         setToken(response.data.token);
         console.log(response.status);
         console.log("login sucessfully", response.data.message);
+         router.replace("/")
         toast.success("login sucessfully");
       } catch (error) {
         const message = error.response?.data?.message || "Login error";
