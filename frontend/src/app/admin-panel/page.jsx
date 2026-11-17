@@ -15,6 +15,7 @@ import {
   IconTrash,
 } from "@tabler/icons-react";
 import axios from "axios";
+import { adminContext } from "@/components/AdminContext";
 
 
 const page = () => {
@@ -71,7 +72,8 @@ const page = () => {
     }
 
   }
-
+ const { adminuser, setAdminUser, admintoken, setAdminToken } =
+    useContext(adminContext);
   
   return (
     <div className="min-h-screen w-full bg-[#F4F8FC]">
@@ -159,7 +161,7 @@ const page = () => {
           {/* ================= WELCOME SECTION ================= */}
           <div className="mb-4 pt-2">
             <h1 className="font-['Poppins'] text-3xl font-bold text-black sm:text-4xl">
-              Welcome, Admin
+              Welcome, {adminuser}
             </h1>
 
             <p className="mt-1 font-['Inter'] text-sm text-black sm:text-base">
