@@ -78,7 +78,7 @@ const page = () => {
   return (
     <div className="min-h-screen w-full bg-[#F4F8FC]">
       {/* ================= MAIN LAYOUT ================= */}
-      <div className="flex w-full items-start gap-4 p-4">
+      <div className="flex flex-row w-full items-stretch gap-4 p-4">
         {/* ================= SIDEBAR ================= */}
         <aside className="hidden min-h-[calc(100vh-32px)] w-[220px] shrink-0 flex-col items-center rounded-tr-2xl rounded-br-2xl bg-[#172331] px-4 pt-8 md:flex">
           {/* Logo / Brand */}
