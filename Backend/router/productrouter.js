@@ -346,6 +346,7 @@ router.delete("/delete-product/:id", async (req, res) => {
 });
 
 //update
+
 router.put(
   "/update-product/:id",
   (req, res, next) => {
@@ -361,70 +362,95 @@ router.put(
     const uploadedImageUrls = [];
 
     try {
+      // 1. Validate product ID
       if (!isValidId(req.params.id)) {
         return res.status(400).json({
           message: "Invalid product ID",
         });
       }
 
-     // Get existing product images
-const oldImages = existingProduct.images?.length
-  ? existingProduct.images
-  : existingProduct.image
-    ? [existingProduct.image]
-    : [];
+      // 2. Find existing product
+      const existingProduct = await Product.findById(req.params.id);
 
-// Keep existing images if frontend does not send existingImages
-let existingImages = oldImages;
+      if (!existingProduct) {
+        return res.status(404).json({
+          message: "Product not found",
+        });
+      }
 
-if (req.body.existingImages !== undefined) {
-  try {
-    existingImages = JSON.parse(req.body.existingImages);
-  } catch {
-    return res.status(400).json({
-      message: "Invalid existing images data",
-    });
-  }
-}
-const totalImages = existingImages.length + (req.files?.length || 0);
+      // 3. Get old product images
+      const oldImages = existingProduct.images?.length
+        ? existingProduct.images
+        : existingProduct.image
+          ? [existingProduct.image]
+          : [];
 
-if (totalImages > 5) {
-  return res.status(400).json({
-    message: "A product can have a maximum of 5 images",
-  });
-}
+      // 4. Get images that should be retained
+      let existingImages = oldImages;
 
-// Validate existingImages
-if (
-  !Array.isArray(existingImages) ||
-  !existingImages.every(
-    (image) => typeof image === "string" && oldImages.includes(image)
-  )
-) {
-  return res.status(400).json({
-    message: "Invalid product images",
-  });
-}
+      if (req.body.existingImages !== undefined) {
+        try {
+          existingImages = JSON.parse(req.body.existingImages);
+        } catch {
+          return res.status(400).json({
+            message: "Invalid existing images data",
+          });
+        }
+      }
 
-      // Validate only fields supplied in this update
+      // 5. Validate existing images
+      if (
+        !Array.isArray(existingImages) ||
+        !existingImages.every(
+          (image) =>
+            typeof image === "string" && oldImages.includes(image)
+        ) ||
+        new Set(existingImages).size !== existingImages.length
+      ) {
+        return res.status(400).json({
+          message: "Invalid product images",
+        });
+      }
+
+      // 6. Check total image limit
+      const totalImages =
+        existingImages.length + (req.files?.length || 0);
+
+      if (totalImages > 5) {
+        return res.status(400).json({
+          message: "A product can have a maximum of 5 images",
+        });
+      }
+
+      // 7. Validate allowed product fields
       const allowedFields = [
         "productname",
         "productcategory",
         "productprice",
         "productquantity",
         "productdescription",
+        "productdiscount",
+        "productrating",
       ];
+
+      const updateData = {};
 
       for (const field of allowedFields) {
         if (req.body[field] !== undefined) {
-          if (typeof req.body[field] !== "string" || !req.body[field].trim()) {
+          if (
+            typeof req.body[field] !== "string" ||
+            !req.body[field].trim()
+          ) {
             return res.status(400).json({
               message: `${field} must be a non-empty value`,
             });
           }
+
+          updateData[field] = req.body[field].trim();
         }
       }
 
+      // 8. Validate and convert numeric fields
       if (req.body.productprice !== undefined) {
         const price = Number(req.body.productprice);
 
@@ -434,7 +460,7 @@ if (
           });
         }
 
-        req.body.productprice = price;
+        updateData.productprice = price;
       }
 
       if (req.body.productquantity !== undefined) {
@@ -446,91 +472,144 @@ if (
           });
         }
 
-        req.body.productquantity = quantity;
+        updateData.productquantity = quantity;
       }
 
-      const updateData = {};
+      if (req.body.productdiscount !== undefined) {
+        const discount = Number(req.body.productdiscount);
 
-      for (const field of allowedFields) {
-        if (req.body[field] !== undefined) {
-          updateData[field] =
-            typeof req.body[field] === "string"
-              ? req.body[field].trim()
-              : req.body[field];
-        }
-      }
-
-      // Upload a replacement image only if a new file is provided
-      // Upload new images if provided
-if (req.files && req.files.length > 0) {
-  for (const file of req.files) {
-    const imageResult = await uploadToCloudinary(file);
-
-    uploadedImageUrls.push(imageResult.secure_url);
-  }
-}
-
-      let updatedProduct;
-
-      try {
-        updatedProduct = await Product.findByIdAndUpdate(
-          req.params.id,
-          { $set: updateData },
-          {
-            new: true,
-            runValidators: true,
-          },
-        );
-      } catch (error) {
-        if (newImageUrl) {
-          try {
-            await deleteCloudinaryImage(newImageUrl);
-          } catch {
-            // Do not expose internal cleanup errors
-          }
-        }
-
-        if (error instanceof mongoose.Error.ValidationError) {
+        if (
+          !Number.isFinite(discount) ||
+          discount < 0 ||
+          discount > 100
+        ) {
           return res.status(400).json({
-            message: "Product validation failed",
+            message: "Discount must be between 0 and 100",
           });
         }
 
-        throw error;
+        updateData.productdiscount = discount;
       }
 
-      // Remove the old image only after the database update succeeds
-      if (newImageUrl && existingProduct.image) {
-        try {
-          await deleteCloudinaryImage(existingProduct.image);
-        } catch {
-          return res.status(200).json({
-            message:
-              "Product updated, but old image cleanup failed. Check Cloudinary.",
-            data: updatedProduct,
+      if (req.body.productrating !== undefined) {
+        const rating = Number(req.body.productrating);
+
+        if (
+          !Number.isFinite(rating) ||
+          rating < 0 ||
+          rating > 5
+        ) {
+          return res.status(400).json({
+            message: "Rating must be between 0 and 5",
           });
         }
+
+        updateData.productrating = rating;
+      }
+
+      // 9. Calculate final price
+      const productprice =
+        updateData.productprice ?? existingProduct.productprice;
+
+      const productdiscount =
+        updateData.productdiscount ?? existingProduct.productdiscount ?? 0;
+
+      const discountAmount =
+        (productprice * productdiscount) / 100;
+
+      updateData.finalPrice = productprice - discountAmount;
+
+      // 10. Upload new images
+      if (req.files && req.files.length > 0) {
+        for (const file of req.files) {
+          const imageResult = await uploadToCloudinary(file);
+
+          uploadedImageUrls.push(imageResult.secure_url);
+        }
+      }
+
+      // 11. Combine retained and newly uploaded images
+      const finalImages = [
+        ...existingImages,
+        ...uploadedImageUrls,
+      ];
+
+      updateData.images = finalImages;
+
+      // 12. Update product in database
+      const updatedProduct = await Product.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: updateData,
+          $unset: { image: 1 },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+
+      if (!updatedProduct) {
+        throw new Error("Product not found during update");
+      }
+
+      // 13. Find images removed by the user
+      const removedImages = oldImages.filter(
+        (imageUrl) => !existingImages.includes(imageUrl)
+      );
+
+      // 14. Delete removed images from Cloudinary
+      try {
+        for (const imageUrl of removedImages) {
+          await deleteCloudinaryImage(imageUrl);
+        }
+      } catch (deleteError) {
+        console.error(
+          "Old Cloudinary Image Delete Error:",
+          deleteError
+        );
+
+        return res.status(200).json({
+          message:
+            "Product updated, but some removed images could not be deleted from Cloudinary.",
+          data: updatedProduct,
+        });
       }
 
       return res.status(200).json({
         message: "Product updated successfully",
         data: updatedProduct,
       });
-    } catch {
-      if (newImageUrl) {
-        try {
-          await deleteCloudinaryImage(newImageUrl);
-        } catch {
-          // Do not expose internal cleanup errors
+
+    } catch (error) {
+      console.error("Update Product Error:", error);
+
+      // Cleanup newly uploaded images if update fails
+      try {
+        for (const imageUrl of uploadedImageUrls) {
+          await deleteCloudinaryImage(imageUrl);
         }
+      } catch (deleteError) {
+        console.error(
+          "Cloudinary Cleanup Error:",
+          deleteError
+        );
+      }
+
+      if (error instanceof mongoose.Error.ValidationError) {
+        return res.status(400).json({
+          message: "Product validation failed",
+          error: error.message,
+        });
       }
 
       return res.status(500).json({
         message: "Unable to update product",
       });
     }
-  },
+  }
 );
+
 
 // ==================== UPLOAD ERROR HANDLER ====================
 
