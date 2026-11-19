@@ -41,7 +41,11 @@ const page = () => {
       .min(0, "Discount cannot be negative")
       .max(100, "Discount cannot exceed 100%")
       .required("Product discount is required"),
-    image: yup.mixed().required("Product image is required"),
+    images: yup
+      .array()
+      .min(1, "At least one product image is required")
+      .max(5, "You can upload maximum 5 images")
+      .required("Product images are required"),
   });
   const addproductfrom = useFormik({
     initialValues: {
@@ -52,7 +56,7 @@ const page = () => {
       productdescription: "",
       productrating: 0,
       productdiscount: 0,
-      image: null,
+      images: [],
     },
     onSubmit: async (values) => {
       try {
@@ -65,7 +69,7 @@ const page = () => {
         formData.append("productdescription", values.productdescription);
         formData.append("productrating", values.productrating);
         formData.append("productdiscount", values.productdiscount);
-        formData.append("image", values.image);
+        values.images.forEach((image) => {formData.append("images", image);});
 
         const response = await axios.post(
           "http://localhost:5000/product/add-product",
@@ -317,28 +321,29 @@ const page = () => {
           {/* image upload field */}
           <div className="flex flex-col items-center justify-center gap-y-0.5 w-full">
             <label
-              htmlFor="image"
+              htmlFor="images"
               className="w-full text-start text-black text-sm font-bold font-['Inter']"
             >
               Product Image<span className="text-red-500">*</span>
             </label>
             <input
-              id="image"
+              id="images"
               type="file"
               accept="image/*"
-              name="image"
+              multiple
+              name="images"
               onChange={(e) => {
-                addproductfrom.setFieldValue(
-                  "image",
-                  e.currentTarget.files[0] || null,
-                );
+                const selectedImages = Array.from(e.currentTarget.files);
+
+                addproductfrom.setFieldValue("images", selectedImages);
+                addproductfrom.setFieldTouched("images", true);
               }}
               onBlur={addproductfrom.handleBlur}
               className="w-full text-sm text-slate-500 border-2 border-slate-200 rounded-lg p-1.5 file:mr-3 file:py-1 file:px-3 file:rounded-md file:bord file:border-slate-300 file:text-sm file:font-medium file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 cursor-pointer focus:border-transparent focus:outline-none focus:ring-2 focus:ring-[#ED6200] h-[42px]"
             ></input>
-            {addproductfrom.touched.image && addproductfrom.errors.image && (
+            {addproductfrom.touched.images && addproductfrom.errors.images && (
               <span className="text-red-500 text-xs text-left w-full">
-                {addproductfrom.errors.image}
+                {addproductfrom.errors.images}
               </span>
             )}
           </div>

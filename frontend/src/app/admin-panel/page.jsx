@@ -16,6 +16,7 @@ import {
 } from "@tabler/icons-react";
 import axios from "axios";
 import { adminContext } from "@/components/AdminContext";
+import { useRouter } from 'next/navigation';
 
 
 const page = () => {
@@ -72,11 +73,25 @@ const page = () => {
     }
 
   }
- const { adminuser, setAdminUser, admintoken, setAdminToken } =
-    useContext(adminContext);
-  
+  const { adminuser,setAdminUser,admintoken,setAdminToken,isAdminloading,setIsAdminloading } = useContext(adminContext);
+ useEffect(() => {
+  const adminUser = localStorage.getItem("admin_name")
+  const adminToken = localStorage.getItem("admin_token")
+  setAdminUser(adminUser || "");
+  setAdminToken(adminToken||"");
+}, [ ]);
+ 
+  const router = useRouter();
+  useEffect(()=>{
+    if (!isAdminloading&&(!adminuser||!admintoken)) {
+      router.replace("/admin-login")
+    }
+  },[isAdminloading,adminuser,admintoken,router])
   return (
-    <div className="min-h-screen w-full bg-[#F4F8FC]">
+    <div>
+{
+admintoken && adminuser  ?
+ <div className="min-h-screen w-full bg-[#F4F8FC]">
       {/* ================= MAIN LAYOUT ================= */}
       <div className="flex flex-row w-full items-stretch gap-4 p-4">
         {/* ================= SIDEBAR ================= */}
@@ -607,7 +622,11 @@ const page = () => {
           </div>
         </main>
       </div>
+    </div> : 
+    null
+}
     </div>
+    
   );
 };
 
