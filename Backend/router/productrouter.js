@@ -11,9 +11,9 @@ const storage = multer.memoryStorage();
 const upload = multer({
   storage,
   limits: {
-    fileSize: 5 * 1024 * 1024, // Maximum 5 MB
-    files: 1,
-  },
+  fileSize: 5 * 1024 * 1024,
+  files: 5,
+},
   fileFilter: (req, file, cb) => {
     const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
 
@@ -206,7 +206,7 @@ router.get("/all-product/:id", async (req, res) => {
 router.post(
   "/add-product",
   (req, res, next) => {
-    upload.single("image")(req, res, (error) => {
+   upload.array("images", 5)(req, res, (error) => {
       if (error) {
         return handleUploadError(error, res);
       }
