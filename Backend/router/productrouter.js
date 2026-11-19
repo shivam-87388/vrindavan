@@ -203,10 +203,12 @@ router.get("/all-product/:id", async (req, res) => {
 });
 
 // add product
+
+
 router.post(
   "/add-product",
   (req, res, next) => {
-   upload.array("images", 5)(req, res, (error) => {
+    upload.array("images", 5)(req, res, (error) => {
       if (error) {
         return handleUploadError(error, res);
       }
@@ -215,7 +217,7 @@ router.post(
     });
   },
   async (req, res) => {
-    let uploadedImageUrl = "";
+    const uploadedImageUrls = [];
 
     try {
       const validationError = validateProductFields(req.body);
@@ -226,40 +228,54 @@ router.post(
         });
       }
 
-      // Product image is required
-      if (!req.file) {
+      if (!req.files || req.files.length === 0) {
         return res.status(400).json({
-          message: "Product image is required",
+          message: "At least one product image is required",
         });
       }
 
-      const imageResult = await uploadToCloudinary(req.file);
-      uploadedImageUrl = imageResult.secure_url;
+      // Upload images one by one
+      for (const file of req.files) {
+        const imageResult = await uploadToCloudinary(file);
+
+        uploadedImageUrls.push(imageResult.secure_url);
+      }
 
       const productprice = Number(req.body.productprice);
       const productdiscount = Number(req.body.productdiscount ?? 0);
+
       const discountAmount = (productprice * productdiscount) / 100;
       const finalPrice = productprice - discountAmount;
 
       const newProduct = await Product.create({
         productname: req.body.productname.trim(),
         productcategory: req.body.productcategory.trim(),
-        productprice: productprice,
-        finalPrice: finalPrice,
+        productprice,
+        finalPrice,
         productquantity: Number(req.body.productquantity),
         productrating: Number(req.body.productrating ?? 0),
-        productdiscount: Number(req.body.productdiscount ?? 0),
+        productdiscount,
         productdescription: req.body.productdescription.trim(),
-        image: uploadedImageUrl,
+        images: uploadedImageUrls,
       });
 
       return res.status(201).json({
         message: "Product added successfully",
         data: newProduct,
       });
+
     } catch (error) {
-      // Avoid leaving an uploaded image behind if saving fails
       console.error("Add Product Error:", error);
+
+      // Delete uploaded images if an error occurs
+      try {
+        for (const imageUrl of uploadedImageUrls) {
+          await deleteCloudinaryImage(imageUrl);
+        }
+      } catch (deleteError) {
+        console.error("Cloudinary Cleanup Error:", deleteError);
+      }
+
       if (error instanceof mongoose.Error.ValidationError) {
         return res.status(400).json({
           message: "Product validation failed",
@@ -272,8 +288,10 @@ router.post(
         error: error.message,
       });
     }
-  },
+  }
 );
+
+
 
 //delete
 router.delete("/delete-product/:id", async (req, res) => {
@@ -292,27 +310,37 @@ router.delete("/delete-product/:id", async (req, res) => {
       });
     }
 
-    // Delete the database record first
     await Product.findByIdAndDelete(req.params.id);
 
-    // Image cleanup is best-effort: product is already deleted
-    if (foundProduct.image) {
-      try {
-        await deleteCloudinaryImage(foundProduct.image);
-      } catch {
-        return res.status(200).json({
-          message:
-            "Product deleted, but image cleanup failed. Check Cloudinary.",
-        });
+    const productImages = [
+      ...(foundProduct.images || []),
+      foundProduct.image,
+    ].filter(Boolean);
+
+    const uniqueImages = [...new Set(productImages)];
+
+    try {
+      for (const imageUrl of uniqueImages) {
+        await deleteCloudinaryImage(imageUrl);
       }
+    } catch (error) {
+      console.error("Cloudinary Image Delete Error:", error);
+
+      return res.status(200).json({
+        message: "Product deleted, but some images could not be deleted from Cloudinary.",
+      });
     }
 
     return res.status(200).json({
       message: "Product deleted successfully",
     });
-  } catch {
+
+  } catch (error) {
+    console.error("Delete Product Error:", error);
+
     return res.status(500).json({
-      message: "Unable to delete product",
+      message: "Internal server error while deleting product",
+      error: error.message,
     });
   }
 });
