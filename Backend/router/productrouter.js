@@ -349,7 +349,7 @@ router.delete("/delete-product/:id", async (req, res) => {
 router.put(
   "/update-product/:id",
   (req, res, next) => {
-    upload.single("image")(req, res, (error) => {
+    upload.array("images", 5)(req, res, (error) => {
       if (error) {
         return handleUploadError(error, res);
       }
@@ -358,7 +358,7 @@ router.put(
     });
   },
   async (req, res) => {
-    let newImageUrl = "";
+    const uploadedImageUrls = [];
 
     try {
       if (!isValidId(req.params.id)) {
@@ -367,13 +367,44 @@ router.put(
         });
       }
 
-      const existingProduct = await Product.findById(req.params.id);
+     // Get existing product images
+const oldImages = existingProduct.images?.length
+  ? existingProduct.images
+  : existingProduct.image
+    ? [existingProduct.image]
+    : [];
 
-      if (!existingProduct) {
-        return res.status(404).json({
-          message: "Product not found",
-        });
-      }
+// Keep existing images if frontend does not send existingImages
+let existingImages = oldImages;
+
+if (req.body.existingImages !== undefined) {
+  try {
+    existingImages = JSON.parse(req.body.existingImages);
+  } catch {
+    return res.status(400).json({
+      message: "Invalid existing images data",
+    });
+  }
+}
+const totalImages = existingImages.length + (req.files?.length || 0);
+
+if (totalImages > 5) {
+  return res.status(400).json({
+    message: "A product can have a maximum of 5 images",
+  });
+}
+
+// Validate existingImages
+if (
+  !Array.isArray(existingImages) ||
+  !existingImages.every(
+    (image) => typeof image === "string" && oldImages.includes(image)
+  )
+) {
+  return res.status(400).json({
+    message: "Invalid product images",
+  });
+}
 
       // Validate only fields supplied in this update
       const allowedFields = [
@@ -430,11 +461,14 @@ router.put(
       }
 
       // Upload a replacement image only if a new file is provided
-      if (req.file) {
-        const imageResult = await uploadToCloudinary(req.file);
-        newImageUrl = imageResult.secure_url;
-        updateData.image = newImageUrl;
-      }
+      // Upload new images if provided
+if (req.files && req.files.length > 0) {
+  for (const file of req.files) {
+    const imageResult = await uploadToCloudinary(file);
+
+    uploadedImageUrls.push(imageResult.secure_url);
+  }
+}
 
       let updatedProduct;
 
