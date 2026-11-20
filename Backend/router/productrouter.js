@@ -296,57 +296,77 @@ router.post(
 //delete
 router.delete("/delete-product/:id", async (req, res) => {
   try {
+    // 1. Validate product ID
     if (!isValidId(req.params.id)) {
       return res.status(400).json({
         message: "Invalid product ID",
       });
     }
 
-    const foundProduct = await Product.findById(req.params.id);
+    // 2. Find product
+    const product = await Product.findById(req.params.id);
 
-    if (!foundProduct) {
+    if (!product) {
       return res.status(404).json({
         message: "Product not found",
       });
     }
 
-    await Product.findByIdAndDelete(req.params.id);
-
+    // 3. Collect all product images
     const productImages = [
-      ...(foundProduct.images || []),
-      foundProduct.image,
-    ].filter(Boolean);
+      ...(product.images || []),
+      ...(product.image ? [product.image] : []),
+    ];
 
+    // 4. Remove duplicate image URLs
     const uniqueImages = [...new Set(productImages)];
 
-    try {
-      for (const imageUrl of uniqueImages) {
-        await deleteCloudinaryImage(imageUrl);
-      }
-    } catch (error) {
-      console.error("Cloudinary Image Delete Error:", error);
+    // 5. Delete product from MongoDB
+    await Product.findByIdAndDelete(req.params.id);
 
+    // 6. Attempt to delete every image from Cloudinary
+    const failedDeletions = [];
+
+    for (const imageUrl of uniqueImages) {
+      try {
+        await deleteCloudinaryImage(imageUrl);
+      } catch (deleteError) {
+        console.error(
+          "Cloudinary Image Delete Error:",
+          imageUrl,
+          deleteError
+        );
+
+        failedDeletions.push(imageUrl);
+      }
+    }
+
+    // 7. Send response
+    if (failedDeletions.length > 0) {
       return res.status(200).json({
-        message: "Product deleted, but some images could not be deleted from Cloudinary.",
+        message:
+          "Product deleted successfully, but some images could not be deleted from Cloudinary.",
+        deletedProductId: req.params.id,
+        failedImageDeletions: failedDeletions.length,
       });
     }
 
     return res.status(200).json({
-      message: "Product deleted successfully",
+      message: "Product and all associated images deleted successfully",
+      deletedProductId: req.params.id,
     });
 
   } catch (error) {
     console.error("Delete Product Error:", error);
 
     return res.status(500).json({
-      message: "Internal server error while deleting product",
-      error: error.message,
+      message: "Unable to delete product",
     });
   }
 });
 
-//update
 
+//update
 router.put(
   "/update-product/:id",
   (req, res, next) => {
@@ -360,6 +380,7 @@ router.put(
   },
   async (req, res) => {
     const uploadedImageUrls = [];
+    let productUpdated = false;
 
     try {
       // 1. Validate product ID
@@ -403,7 +424,8 @@ router.put(
         !Array.isArray(existingImages) ||
         !existingImages.every(
           (image) =>
-            typeof image === "string" && oldImages.includes(image)
+            typeof image === "string" &&
+            oldImages.includes(image)
         ) ||
         new Set(existingImages).size !== existingImages.length
       ) {
@@ -422,20 +444,23 @@ router.put(
         });
       }
 
-      // 7. Validate allowed product fields
-      const allowedFields = [
+      // At least one image is required
+      if (totalImages === 0) {
+        return res.status(400).json({
+          message: "At least one product image is required",
+        });
+      }
+
+      // 7. Validate text fields
+      const textFields = [
         "productname",
         "productcategory",
-        "productprice",
-        "productquantity",
         "productdescription",
-        "productdiscount",
-        "productrating",
       ];
 
       const updateData = {};
 
-      for (const field of allowedFields) {
+      for (const field of textFields) {
         if (req.body[field] !== undefined) {
           if (
             typeof req.body[field] !== "string" ||
@@ -450,7 +475,7 @@ router.put(
         }
       }
 
-      // 8. Validate and convert numeric fields
+      // 8. Validate numeric fields
       if (req.body.productprice !== undefined) {
         const price = Number(req.body.productprice);
 
@@ -507,36 +532,33 @@ router.put(
         updateData.productrating = rating;
       }
 
-      // 9. Calculate final price
+      // 9. Recalculate final price
       const productprice =
         updateData.productprice ?? existingProduct.productprice;
 
       const productdiscount =
-        updateData.productdiscount ?? existingProduct.productdiscount ?? 0;
+        updateData.productdiscount ??
+        existingProduct.productdiscount ??
+        0;
 
-      const discountAmount =
-        (productprice * productdiscount) / 100;
+      updateData.finalPrice =
+        productprice - (productprice * productdiscount) / 100;
 
-      updateData.finalPrice = productprice - discountAmount;
-
-      // 10. Upload new images
-      if (req.files && req.files.length > 0) {
+      // 10. Upload new images to Cloudinary
+      if (req.files?.length > 0) {
         for (const file of req.files) {
           const imageResult = await uploadToCloudinary(file);
-
           uploadedImageUrls.push(imageResult.secure_url);
         }
       }
 
       // 11. Combine retained and newly uploaded images
-      const finalImages = [
+      updateData.images = [
         ...existingImages,
         ...uploadedImageUrls,
       ];
 
-      updateData.images = finalImages;
-
-      // 12. Update product in database
+      // 12. Update product in MongoDB
       const updatedProduct = await Product.findByIdAndUpdate(
         req.params.id,
         {
@@ -553,26 +575,37 @@ router.put(
         throw new Error("Product not found during update");
       }
 
+      productUpdated = true;
+
       // 13. Find images removed by the user
       const removedImages = oldImages.filter(
         (imageUrl) => !existingImages.includes(imageUrl)
       );
 
-      // 14. Delete removed images from Cloudinary
-      try {
-        for (const imageUrl of removedImages) {
-          await deleteCloudinaryImage(imageUrl);
-        }
-      } catch (deleteError) {
-        console.error(
-          "Old Cloudinary Image Delete Error:",
-          deleteError
-        );
+      // 14. Attempt to delete every removed image
+      const failedDeletions = [];
 
+      for (const imageUrl of removedImages) {
+        try {
+          await deleteCloudinaryImage(imageUrl);
+        } catch (deleteError) {
+          console.error(
+            "Old Cloudinary Image Delete Error:",
+            imageUrl,
+            deleteError
+          );
+
+          failedDeletions.push(imageUrl);
+        }
+      }
+
+      // 15. Send response
+      if (failedDeletions.length > 0) {
         return res.status(200).json({
           message:
-            "Product updated, but some removed images could not be deleted from Cloudinary.",
+            "Product updated successfully, but some removed images could not be deleted from Cloudinary.",
           data: updatedProduct,
+          failedImageDeletions: failedDeletions.length,
         });
       }
 
@@ -584,16 +617,19 @@ router.put(
     } catch (error) {
       console.error("Update Product Error:", error);
 
-      // Cleanup newly uploaded images if update fails
-      try {
+      // Delete newly uploaded images only if database update failed
+      if (!productUpdated) {
         for (const imageUrl of uploadedImageUrls) {
-          await deleteCloudinaryImage(imageUrl);
+          try {
+            await deleteCloudinaryImage(imageUrl);
+          } catch (deleteError) {
+            console.error(
+              "Cloudinary Cleanup Error:",
+              imageUrl,
+              deleteError
+            );
+          }
         }
-      } catch (deleteError) {
-        console.error(
-          "Cloudinary Cleanup Error:",
-          deleteError
-        );
       }
 
       if (error instanceof mongoose.Error.ValidationError) {
@@ -609,6 +645,9 @@ router.put(
     }
   }
 );
+
+
+
 
 
 // ==================== UPLOAD ERROR HANDLER ====================

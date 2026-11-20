@@ -6,7 +6,7 @@ const ProductSellingCard = ({product}) => {
       {/* Product Image + Discount */}
       <div className="w-full relative">
         <img
-          src={product.image}
+          src={product.images[0]}
           alt={product.productname}
           className="w-full h-36 object-contain rounded-md p-0.5"
         />

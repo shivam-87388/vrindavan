@@ -570,7 +570,7 @@ admintoken && adminuser  ?
                   {/* image field */}
                   <div className="flex items-center justify-center ">
                     <img
-                      src={item.image}
+                      src={item.images[0]}
                       alt={item.productname}
                       className="max-h-24 rounded-md"
                     ></img>
