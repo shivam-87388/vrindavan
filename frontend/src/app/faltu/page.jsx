@@ -18,7 +18,21 @@ const page = () => {
              <h2 className="font-bold text-black text-xl text-start w-full">₹458</h2>
             
             </div>
-           
+            <div className="flex flex-row items-start justify-between border-t-2 border-slate-200 w-full py-2">
+                <div className="flex-1 flex lg:flex-row flex-col lg:items-start items-stretch justify-center border-r-2 border-slate-200 gap-0.5">
+                 <IconShieldCheckFilled size={28} stroke={2} color='#0F67F2'/>
+                 <p className="text-center">100% Genuine Product</p>
+                </div>
+                <div className="flex-1 flex lg:flex-row flex-col lg:items-start items-center justify-center border-r-2 border-slate-200 gap-0.5">
+                 <IconTruckDelivery size={28} stroke={2} color='#0F67F2'className=''/>
+                 <p className="text-center">Fast Delivery Across India</p>
+                </div>
+                 <div className="flex-1 flex lg:flex-row flex-col items-center justify-center border-r-2 border-slate-200 gap-1.5">
+                 <IconHeadset size={28} stroke={2} color='#0F67F2'/>
+                 <p className="w-full text-center">24/7 Support We're hare to help</p>
+                </div>
+                
+            </div>
              
              
         </div>
