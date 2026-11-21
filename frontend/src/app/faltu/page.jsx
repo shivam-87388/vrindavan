@@ -26,7 +26,7 @@ const page = () => {
               ₹458
             </h2>
           </div>
-          <div className="grid grid-cols-3 lg:items-stretch items-start justify-center border-t-2 border-slate-200 w-full py-0.5 ">
+          <div className="grid grid-cols-3 lg:items-start justify-center border-t-2 border-slate-200 w-full py-0.5 ">
                       <div className="flex lg:flex-row flex-col items-center lg:items-start justify-center border-r-2 border-slate-200 gap-0.5">
                           <IconShieldCheckFilled size={28} stroke={2} color="#0F67F2" />
                           <p className="text-center">100% Genuine Product</p>
