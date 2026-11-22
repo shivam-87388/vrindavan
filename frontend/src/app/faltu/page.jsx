@@ -1,17 +1,20 @@
 import React from 'react'
-import { IconHeart,IconShieldCheckFilled,IconTruckDelivery,IconHeadset  } from '@tabler/icons-react';
+import { IconHeart,IconShieldCheckFilled,IconTruckDelivery,IconHeadset,IconPlus,IconMinus} from '@tabler/icons-react';
 
 const page = () => {
   return (
     <div className="min-h-screen p-4">
       <div className="flex flex-col lg:flex-row items-start justify-between min-h-24 lg:gap-8 gap-4">
+        {/* product image */}
         <img
           src="/switch&shocket.png"
           className="rounded-md shadow-md min-w-24"
         />
         <div className="w-full flex flex-col items-start justify-start px-2.5">
           <div className="flex flex-row items-center justify-between w-full">
+          {/* product name */}
             <h1 className="font-bold text-2xl">cement</h1>
+            {/* heart icon */}
             <div className="flex items-center justify-center p-2 rounded-full bg-slate-200">
               <IconHeart stroke={2} color="#949494" />
             </div>
@@ -47,6 +50,20 @@ const page = () => {
                               24/7 Support We're hare to help
                           </p>
                       </div>
+          </div>
+          <div className="flex lg:flex-row flex-col items-stretch justify-center gap-2.5 w-full mt-3">
+            <div className='flex-1 flex flex-row items-center justify-start gap-1'>
+              <h3>Quantity:</h3>
+              <div className='flex flex-row items-center justify-center border-2 border-slate-200 rounded-md'>
+                <IconMinus/>
+                <h3 className="px-2 border-l-2 border-slate-200 border-r-2">8</h3>
+                <IconPlus/>
+
+              </div>
+            </div>
+            <button className="flex-1 border-2 border-black rounded-md py-2">add to cart
+            </button>
+            <button className="flex-1  border-2 border-black rounded-md py-2">Buy Now</button>
           </div>
         </div>
       </div>
