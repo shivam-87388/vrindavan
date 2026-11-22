@@ -26,12 +26,13 @@ const page = () => {
               ₹458
             </h2>
           </div>
-          <div className="grid grid-cols-3 items-stretch justify-center border-t-2 border-slate-200 w-full py-0.5 ">
-                      <div className="flex lg:flex-row flex-col items-center lg:items-start justify-center border-r-2 border-slate-200 gap-0.5 px-3 py-3">
+          {/* cards sections */}
+          <div className="grid grid-cols-3 items-stretch justify-center border-t-2 border-slate-200 w-full py-0.5">
+                      <div className="flex lg:flex-row flex-col items-center justify-start border-r-2 border-slate-200 gap-0.5 px-3 py-3">
                           <IconShieldCheckFilled size={28} stroke={2} color="#0F67F2" className="shrink-0"/>
                           <p className="text-center min-w-0">100% Genuine Product</p>
                       </div>
-                      <div className="flex lg:flex-row flex-col items-center lg:items-start justify-center border-r-2 border-slate-200 gap-0.5 px-3 py-3">
+                      <div className="flex lg:flex-row flex-col items-center justify-start border-r-2 border-slate-200 gap-0.5 px-3 py-3">
                           <IconTruckDelivery
                               size={28}
                               stroke={2}
@@ -40,7 +41,7 @@ const page = () => {
                           />
                           <p className="text-center min-w-0">Fast Delivery Across India</p>
                       </div>
-                      <div className="flex lg:flex-row flex-col items-center lg:items-start justify-center border-r-2 border-slate-200 gap-0.5 px-3 py-3">
+                      <div className="flex lg:flex-row flex-col items-center justify-start border-r-2 border-slate-200 gap-0.5 px-3 py-3">
                           <IconHeadset size={28} stroke={2} color="#0F67F2" className='shrink-0'/>
                           <p className="text-center min-w-0">
                               24/7 Support We're hare to help
