@@ -68,7 +68,7 @@ const page = () => {
               <h3>Quantity:</h3>
               <div className='flex flex-row items-center justify-center border-2 border-slate-200 rounded-md'>
                 <IconMinus onClick={handleminus} className="hover:cursor-pointer"/>
-                <h3 className="px-2 border-l-2 border-slate-200 border-r-2">{quantity}</h3>
+                <h3 className="px-2 border-l-2 border-slate-200 border-r-2 w-24 text-center">{quantity}</h3>
                 <IconPlus onClick={handleadd} className="hover:cursor-pointer"/>
 
               </div>
