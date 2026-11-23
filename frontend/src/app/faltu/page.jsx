@@ -1,7 +1,16 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { IconHeart,IconShieldCheckFilled,IconTruckDelivery,IconHeadset,IconPlus,IconMinus} from '@tabler/icons-react';
 
 const page = () => {
+  const [quantity, setQuantity] = useState(1);
+  const handleadd = ()=>{
+   setQuantity(quantity+1)
+  }
+  const handleminus = ()=>{
+   setQuantity(quantity-1)
+  }
+
   return (
     <div className="min-h-screen p-4">
       <div className="flex flex-col lg:flex-row items-start justify-between min-h-24 lg:gap-8 gap-4">
@@ -55,13 +64,15 @@ const page = () => {
             <div className='flex-1 flex flex-row items-center justify-start gap-1'>
               <h3>Quantity:</h3>
               <div className='flex flex-row items-center justify-center border-2 border-slate-200 rounded-md'>
-                <IconMinus/>
-                <h3 className="px-2 border-l-2 border-slate-200 border-r-2">8</h3>
-                <IconPlus/>
+                <IconMinus onClick={handleminus} className="hover:cursor-pointer"/>
+                <h3 className="px-2 border-l-2 border-slate-200 border-r-2">{quantity}</h3>
+                <IconPlus onClick={handleadd} className="hover:cursor-pointer"/>
 
               </div>
             </div>
+            {/* buy button */}
             <button className="flex-1 text-white text-center text-base font-semibold font-['Inter'] rounded-md py-2 bg-[#EB6001] border-2 border-white hover:ring-2 hover:ring-[#EB6001] hover:cursor-pointer">Buy Now</button>
+            {/* add to cart button */}
             <button className="flex-1 text-white text-center text-base font-semibold font-['Inter'] rounded-md py-2 bg-blue-600 ring-2 border-2 border-white hover:ring-2 hover:ring-blue-600 hover:cursor-pointer">Add to cart
             </button>
             
