@@ -61,8 +61,8 @@ const page = () => {
 
               </div>
             </div>
-            <button className="flex-1 text-white text-center text-base font-semibold font-['Inter'] rounded-md py-2 bg-[#EB6001]">Buy Now</button>
-            <button className="flex-1 text-white text-center text-base font-semibold font-['Inter'] rounded-md py-2 bg-blue-600 hover:border-2 hover:border-blue-600 ">Add to cart
+            <button className="flex-1 text-white text-center text-base font-semibold font-['Inter'] rounded-md py-2 bg-[#EB6001] border-2 border-white hover:ring-2 hover:ring-[#EB6001] hover:cursor-pointer">Buy Now</button>
+            <button className="flex-1 text-white text-center text-base font-semibold font-['Inter'] rounded-md py-2 bg-blue-600 ring-2 border-2 border-white hover:ring-2 hover:ring-blue-600 hover:cursor-pointer">Add to cart
             </button>
             
           </div>

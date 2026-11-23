@@ -33,12 +33,12 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <UserContext>
           <AdminContext>
-        <Navbar />
-        <Toaster position="top-center" reverseOrder={false} />
-        {children}
-        <Footer />
-        </AdminContext>
-       </UserContext>
+            <Navbar />
+            <Toaster position="top-center" reverseOrder={false} />
+            {children}
+            <Footer />
+          </AdminContext>
+        </UserContext>
       </body>
     </html>
   );
