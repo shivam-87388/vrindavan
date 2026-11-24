@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { IconHeart,IconShieldCheckFilled,IconTruckDelivery,IconHeadset,IconPlus,IconMinus} from '@tabler/icons-react';
+import { IconHeart,IconShieldCheckFilled,IconTruckDelivery,IconHeadset,IconPlus,IconMinus,IconHeartFilled} from '@tabler/icons-react';
 
 const page = () => {
   const [quantity, setQuantity] = useState(1);
@@ -13,32 +13,38 @@ const page = () => {
     
    }
   }
+  const [wishlist, setWishlist]= useState(false);
+  const handleClick = ()=>{
+    setWishlist(!wishlist)
+  }
 
   return (
     <div className="min-h-screen p-4">
-      <div className="flex flex-col lg:flex-row items-start justify-between min-h-24 lg:gap-8 gap-4">
+      <div className="flex flex-col lg:flex-row items-start justify-between lg:gap-8 gap-4">
         {/* product image */}
         <img
           src="/switch&shocket.png"
-          className="rounded-md shadow-md min-w-24"
+          className="rounded-md shadow-md min-w-24 max-h-sm"
         />
         <div className="w-full flex flex-col items-start justify-start px-2.5">
           <div className="flex flex-row items-center justify-between w-full">
           {/* product name */}
             <h1 className="font-bold text-2xl">cement</h1>
             {/* heart icon */}
-            <div className="flex items-center justify-center p-2 rounded-full bg-slate-200">
-              <IconHeart stroke={2} color="#949494" />
+            <div onClick={handleClick} className="flex items-center justify-center p-1.5 rounded-full bg-slate-200">{wishlist?<IconHeartFilled size={28} color="#f50505"/>:<IconHeart size={28} stroke={2} color="#949494"/>}
             </div>
           </div>
           <div className="flex flex-col items-center justify-start w-full">
+            {/* description tag */}
             <p className="leading-relaxed">
               The apple pencil is very easy to pair with your i pad. Not only
               does it work better than expected while drawing or painting but
               the battery last much longer than expected.
             </p>
-            <h2 className="font-bold text-black text-xl text-start w-full">
+            {/* price tag */}
+            <h2 className="font-bold text-black text-2xl text-start w-full">
               ₹458
+              <span className="ml-2.5 line-through text-gray-700 text-lg">567</span>
             </h2>
           </div>
           {/* cards sections */}
@@ -63,12 +69,12 @@ const page = () => {
                           </p>
                       </div>
           </div>
-          <div className="flex lg:flex-row flex-col items-stretch justify-center gap-2.5 w-full mt-3">
+          <div className="flex lg:flex-row flex-col items-stretch justify-center gap-1.5 w-full mt-3">
             <div className='flex-1 flex flex-row items-center justify-start gap-1'>
               <h3>Quantity:</h3>
               <div className='flex flex-row items-center justify-center border-2 border-slate-200 rounded-md'>
                 <IconMinus onClick={handleminus} className="hover:cursor-pointer"/>
-                <h3 className="px-2 border-l-2 border-slate-200 border-r-2 w-24 text-center">{quantity}</h3>
+                <h3 className="px-2 border-l-2 border-slate-200 border-r-2 w-12 text-center">{quantity}</h3>
                 <IconPlus onClick={handleadd} className="hover:cursor-pointer"/>
 
               </div>
