@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { IconHeart,IconShieldCheckFilled,IconTruckDelivery,IconHeadset,IconPlus,IconMinus,IconHeartFilled} from '@tabler/icons-react';
 import ProductSellingCard from '@/components/Productsellingcard'
 
@@ -18,6 +18,22 @@ const page = () => {
   const handleClick = ()=>{
     setWishlist(!wishlist)
   }
+  const [products,setProducts] = useState([]);
+      useEffect(()=>{
+      const fetchProducts = async()=>{
+          try {
+              const response = await axios.get("http://localhost:5000/product/all-product");
+             setProducts(response.data.data);
+            
+  
+          } catch (error) {
+              console.log("Error fetching products:", error)
+              
+          }
+      }
+           fetchProducts();
+      },[]);
+  
 
   return (
     <div className="min-h-screen p-4">
@@ -95,7 +111,11 @@ const page = () => {
       <div className="flex flex-col items-start justify-start w-full gap-y-0.5">
         <h2 className="text-black text-xl font-bold font-['Poppins']">Related product</h2>
          <div className="grid lg:grid-cols-6 grid-cols-2 justify-center items-start lg:gap-4 gap-2">
-          
+           {/* cards design*/}
+        {products.map((item)=>(
+            <ProductSellingCard key={item._id} product={item}/>
+        )
+        )}
          </div>
 
       </div>
