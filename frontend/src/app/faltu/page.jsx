@@ -2,6 +2,7 @@
 import React, { useState,useEffect } from 'react'
 import { IconHeart,IconShieldCheckFilled,IconTruckDelivery,IconHeadset,IconPlus,IconMinus,IconHeartFilled} from '@tabler/icons-react';
 import ProductSellingCard from '@/components/Productsellingcard'
+import axios from 'axios';
 
 const page = () => {
   const [quantity, setQuantity] = useState(1);
@@ -110,9 +111,9 @@ const page = () => {
       </div>
       <div className="flex flex-col items-start justify-start w-full gap-y-0.5">
         <h2 className="text-black text-xl font-bold font-['Poppins']">Related product</h2>
-         <div className="flex flex-row justify-start items-start lg:gap-4 gap-2">
+         <div className="flex flex-row justify-start items-start lg:gap-4 gap-2 min-w-32">
            {/* cards design*/}
-        {products.map((item)=>(
+       {products.map((item)=>(
             <ProductSellingCard key={item._id} product={item}/>
         )
         )}
