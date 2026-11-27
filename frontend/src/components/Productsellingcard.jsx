@@ -1,6 +1,11 @@
 import React from 'react'
+import { useRouter } from 'next/navigation';
 
 const ProductSellingCard = ({product}) => {
+  const router = useRouter();
+  const handleClick = ()=>{
+router.push("/faltu")
+  }
   return (
     <div className="min-w-32 flex flex-col justify-center items-start p-1.5 border-2 border-slate-200 rounded-md gap-1 hover:shadow-xl">
       {/* Product Image + Discount */}
@@ -70,7 +75,7 @@ const ProductSellingCard = ({product}) => {
 
       {/* Buttons */}
       <div className="w-full flex flex-col px-2 py-1 gap-y-2">
-        <button className="text-center w-full bg-[#EB6001] text-white rounded-md py-1.5 text-base font-semibold font-['Inter']">
+        <button onClick={handleClick} className="text-center w-full bg-[#EB6001] text-white rounded-md py-1.5 text-base font-semibold font-['Inter']">
           Buy Now
         </button>
 
