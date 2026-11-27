@@ -4,7 +4,8 @@ import { useRouter } from 'next/navigation';
 const ProductSellingCard = ({product}) => {
   const router = useRouter();
   const handleClick = ()=>{
-router.push("/faltu")
+router.push("")
+
   }
   return (
     <div className="min-w-32 flex flex-col justify-center items-start p-1.5 border-2 border-slate-200 rounded-md gap-1 hover:shadow-xl">

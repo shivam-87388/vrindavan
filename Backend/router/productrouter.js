@@ -175,7 +175,7 @@ router.get("/all-product", async (req, res) => {
 });
 
 //get buy id
-router.get("/all-product/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     if (!isValidId(req.params.id)) {
       return res.status(400).json({
