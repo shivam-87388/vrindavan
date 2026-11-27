@@ -111,7 +111,7 @@ const page = () => {
       </div>
       <div className="flex flex-col items-start justify-start w-full gap-y-0.5">
         <h2 className="text-black text-xl font-bold font-['Poppins']">Related product</h2>
-         <div className="flex flex-row justify-start items-start lg:gap-4 gap-2 min-w-32">
+         <div className="grid lg:grid-cols-6 grid-cols-2 justify-center items-start lg:gap-4 gap-2">
            {/* cards design*/}
        {products.map((item)=>(
             <ProductSellingCard key={item._id} product={item}/>
